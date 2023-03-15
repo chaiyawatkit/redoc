@@ -1,0 +1,114 @@
+Search:
+  type: object
+  properties:
+    search:
+      type: string
+    search_type:
+      type: string
+    search_filter:
+      type: string
+
+  example: { "title": "ข่าวสาร" }
+
+SearchResponse:
+  type: object
+  properties:
+    type_search:
+      type: string
+    data:
+      type: array
+      items:
+        type: "object"
+        properties:
+          theme_name:
+            type: string
+        product:
+          type: array
+          items:
+            type: "object"
+            properties:
+              product_id:
+                type: number
+  example: {
+    "type_search": "invest",
+    "data": [
+      {
+        "theme_name": "กองทุนรวม",
+        "product": [
+          {
+            "product_id": 1
+          }
+        ]
+      },
+      {
+        "theme_name": "ตราสารนี้",
+        "product": [
+          {
+            "product_id": 2
+          }
+        ]
+      },
+      {
+        "theme_name": "ทั้งหมด",
+        "product": [
+          {
+            "product_id": 1
+          },
+          {
+            "product_id": 2
+          }
+        ]
+      }
+    ]
+  }
+
+
+
+SearchRecent:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: "object"
+        properties:
+          theme_name:
+            type: string
+        product:
+          type: array
+          items:
+            type: "object"
+            properties:
+              product_id:
+                type: number
+  example: {
+    "data": [
+      {
+        "theme_name": "ทั้งหมด",
+        "product": [
+          {
+            "product_id": 1
+          }
+        ]
+      },
+      {
+        "theme_name": "สินทรัพย์",
+        "product": [
+          {
+            "product_id": 2
+          }
+        ]
+      },
+      {
+        "theme_name": "โน๊ต",
+        "product": [
+          {
+            "product_id": 1
+          },
+          {
+            "product_id": 2
+          }
+        ]
+      }
+    ]
+  }

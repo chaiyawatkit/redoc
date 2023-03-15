@@ -1,0 +1,90 @@
+Search:
+  post:
+    tags:
+      - Search
+    summary: Search
+    description: |
+      Search
+    operationId: Search
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Search.yaml/#/SearchResponse
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+get:
+  tags:
+    - Search
+  summary: Get Search Recent
+  description: |
+    Get Search Recent
+  operationId: Get_Search_Recent
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: customer id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Search.yaml/#/SearchRecent
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Get
+
+RecentDeleteAll:
+  delete:
+    tags:
+      - Search
+    summary: Recent Delete All
+    description: |
+      Recent Delete All
+    operationId: Recent_Delete_All
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+
+delete:
+  tags:
+    - Search
+  summary: Recent Delete 
+  description: |
+    Recent Delete 
+  operationId: Recent_Delete
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: customer id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Delete
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Delete

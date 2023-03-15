@@ -1,0 +1,30 @@
+DepositAsset:
+  type: object
+  properties:
+    deposit:
+      type: object
+      properties:
+        total:
+          type: number
+          example: 120000.23
+        percent:
+          type: number
+          example: 40
+        total_gain_loss_percent:
+          type: number
+          example: 0
+BondAsset:
+  type: object
+  properties:
+    bond:
+      type: object
+      properties:
+        total:
+          type: number
+          example: 340000
+        percent:
+          type: number
+          example: 25
+        total_gain_loss_percent:
+          type: number
+          example: -14.03

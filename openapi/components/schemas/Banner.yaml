@@ -1,0 +1,85 @@
+Banner:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int
+      example: 1
+    image:
+      type: string
+      format: uri
+    contents:
+      type: object
+      properties:
+        description:
+          type: string
+          example: description content
+        title:
+          type: string
+          example: title banner
+    type:
+      type: string
+      example: general 
+    link:
+      type: string
+      format: uri
+    date_create:
+      type: integer
+      format: int
+      example: 1678788423 
+    date_start:
+      type: integer
+      format: int
+      example: 1678788423 
+    date_end:
+      type: integer
+      format: int
+      example: 1678788423 
+    date_update:
+      type: integer
+      format: int
+      example: 1678788423
+    create_by:
+      type: string
+    display:
+      type: boolean
+    like_count:
+      type: integer
+      format: int
+      example: 100
+
+BannerUpdate:
+  type: object
+  properties:
+    image:
+      type: string
+      format: uri
+    contents:
+      type: object
+      properties:
+        description:
+          type: string
+          example: description content
+        title:
+          type: string
+          example: title banner
+    type:
+      type: string
+      example: general 
+    link:
+      type: string
+      format: uri
+    date_start:
+      type: integer
+      format: int
+      example: 1678788423 
+    date_end:
+      type: integer
+      format: int
+      example: 1678788423 
+    display:
+      type: boolean
+    like_count:
+      type: integer
+      format: int
+      example: 100

@@ -1,5 +1,5 @@
 Update:
-  description: Failure
+  description: Success
   content:
     application/json:
       schema:
@@ -7,17 +7,17 @@ Update:
         additionalProperties: true
         minProperties: 1
         description: >-
-          The Failure Details JSON Object.
+          The Success Details JSON Object.
         properties:
           status:
             type: integer
             description: The HTTP status code.
-            example: 400
+            example: 200
           message:
             type: string
-            example: update failure message
+            example: update success message
 Delete:
-  description: Failure
+  description: Success
   content:
     application/json:
       schema:
@@ -25,38 +25,17 @@ Delete:
         additionalProperties: true
         minProperties: 1
         description: >-
-          The Failure Details JSON Object.
+          The Success Details JSON Object.
         properties:
           status:
             type: integer
             description: The HTTP status code.
-            example: 400
+            example: 200
           message:
             type: string
-            example: delete failure message
-
-Get:
-  description: Failure
-  content:
-    application/json:
-      schema:
-        type: object
-        additionalProperties: true
-        minProperties: 1
-        description: >-
-          The Failure Details JSON Object.
-        properties:
-          status:
-            type: integer
-            description: The HTTP status code.
-            example: 400
-          message:
-            type: string
-            example: get failure message
-
-
+            example: delete success message
 Create:
-  description: Failure
+  description: Success
   content:
     application/json:
       schema:
@@ -64,13 +43,13 @@ Create:
         additionalProperties: true
         minProperties: 1
         description: >-
-          The Failure Details JSON Object.
+          The Success Details JSON Object.
         properties:
           status:
             type: integer
             description: The HTTP status code.
-            example: 400
+            example: 200
           message:
             type: string
-            example: create failure message            
+            example: create success message
           

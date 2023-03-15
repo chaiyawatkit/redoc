@@ -1,0 +1,241 @@
+FeedTagCreate:
+  type: object
+  properties:
+    title:
+      type: string
+
+  example: { "title": "ข่าวสาร" }
+
+CreateFeed:
+  type: object
+  properties:
+    title:
+      type: string
+    img:
+      type: string
+    link:
+      type: string
+    created_at:
+      type: number
+    updated_at:
+      type: number
+    subcategory_id:
+      type: number
+    link_count:
+      type: number
+    tagFeed:
+      type: array
+      items:
+        type: number
+    type:
+      type: number
+  example: {
+    "title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิด ประเทศดันหุ้นจีน-ฮ่องกง",
+    "img": "/img",
+    "link": "/link",
+    "created_at": 1678637816,
+    "updated_at": 1678637816,
+    "subcategory_id": 1,
+    "link_count": 100,
+    "tagFeed":[1,2,3],
+    "type": "privateBanking"
+  }
+
+CategoryCreate:
+  type: object
+  properties:
+    title:
+      type: string
+  example: { "title": "ข่าวสาร" }
+  
+SubCategoryCreate:
+  type: object
+  properties:
+    category_id:
+      type: number
+    title:
+      type: string
+  example: {
+    "category_id": 1,
+    "title": "default"
+  }
+GetFeed:
+  type: object
+  properties:
+    data:
+      type: "array"
+      items:
+        type: "object"
+        properties:
+          group_name:
+            type: "string"
+          private:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                feed_id:
+                  type: "integer"
+                feed_title:
+                  type: "string"
+                dateTime:
+                  type: "integer"
+                tag:
+                  type: "array"
+                  items:
+                    type: "string"
+          general:
+            type: "array"
+            items:
+              type: "object"
+              properties:
+                feed_id:
+                  type: "integer"
+                feed_title:
+                  type: "string"
+                dateTime:
+                  type: "integer"
+                tag:
+                  type: "array"
+                  items:
+                    type: "string"
+  example: {
+    "data": [
+      {
+        "group_name": "latest",
+        "private": [
+          {
+            "feed_id": 1,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": [
+              "ข่าวสาร",
+              "สินค้า"
+            ]
+          },
+          {
+            "feed_id": 2,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": [
+              "ข่าวสาร",
+              "สินค้า"
+            ]
+          }
+        ],
+        "general": [
+          {
+            "feed_id": 1,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": [
+              "ข่าวสาร",
+              "สินค้า"
+            ]
+          },
+          {
+            "feed_id": 2,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": [
+              "ข่าวสาร",
+              "สินค้า"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+LikeUpdate:
+  type: object
+  properties:
+    like_count:
+      type: number
+  example: {
+    "like_count": 10
+  }
+
+GetFeedTag:
+  type: object
+  properties:
+    tag_name:
+      type: string
+    data:
+      type: object
+      properties:
+        private:
+          type: array
+          items:
+            type: object
+            properties:
+              feed_id:
+                type: "integer"
+              feed_title:
+                type: "string"
+              dateTime:
+                type: "integer"
+              tag:
+                type: "array"
+                items:
+                  type: "string"
+        general:
+          type: array
+          items:
+            type: object
+            properties:
+              feed_id:
+                type: "integer"
+              feed_title:
+                type: "string"
+              dateTime:
+                type: "integer"
+              tag:
+                type: "array"
+                items:
+                  type: "string"
+  example: {
+    "tag_name": "ข่าวสาร",
+    "data": {
+      "private": [
+        {
+          "feed_id": 1,
+          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+          "dateTime": 1678637816,
+          "tag": [
+            "ข่าวสาร",
+            "สินค้า"
+          ]
+        },
+        {
+          "feed_id": 2,
+          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+          "dateTime": 1678637816,
+          "tag": [
+            "ข่าวสาร",
+            "สินค้า"
+          ]
+        }
+      ],
+      "general": [
+        {
+          "feed_id": 1,
+          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+          "dateTime": 1678637816,
+          "tag": [
+            "ข่าวสาร",
+            "สินค้า"
+          ]
+        },
+        {
+          "feed_id": 2,
+          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+          "dateTime": 1678637816,
+          "tag": [
+            "ข่าวสาร",
+            "สินค้า"
+          ]
+        }
+      ]
+    }
+  }

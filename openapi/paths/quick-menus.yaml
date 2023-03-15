@@ -1,0 +1,77 @@
+get:
+  tags:
+    - QuickMenus
+  summary: Get QuickMenus
+  description: |
+    Get QuickMenus
+  operationId: Get_QuickMenus
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: Customer Id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/QuickMenus.yaml/#/QuickMenusGet
+post:
+  tags:
+    - QuickMenus
+  summary: Create QuickMenus
+  description: |
+    Create QuickMenus
+  operationId: Create_QuickMenus
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: Customer Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/QuickMenus.yaml/#/QuickMenusCreate
+    description: requestBody description
+    required: true
+  responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+        
+put:
+  tags:
+    - QuickMenus
+  summary: Update QuickMenus
+  description: |
+    Update QuickMenus
+  operationId: Update_QuickMenus
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: Customer Id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/QuickMenus.yaml/#/QuickMenusUpdate
+    description: requestBody description
+    required: true
+  responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+
+     

@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Banner
+  summary: Get list banner
+  description: |
+    Get list banner
+  operationId: Get_list_banner
+  security: []
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            properties: 
+              banner:
+                type: array
+                items: 
+                  $ref: ../components/schemas/Banner.yaml/#/Banner
+                  
+                

@@ -1,0 +1,68 @@
+CreateSubThemes:   
+  post:
+    tags:
+      - AssetThemes
+    summary: Crate SubThemes
+    description: |
+      Crate SubThemes
+    operationId: Crate_SubThemes
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AssetThemes.yaml/#/SubThemesPost
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+      
+CreateThemes:   
+  post:
+    tags:
+      - AssetThemes
+    summary: Crate Themes
+    description: |
+      Crate Themes
+    operationId: Crate_Themes
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AssetThemes.yaml/#/ThemesPost
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+get:
+  tags:
+    - AssetThemes
+  summary: Get product Themes
+  description: |
+    Get product Themes
+  operationId: Get_product_Themes
+  security: []
+  parameters:
+    - name: theme_id
+      in: path
+      description: theme id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/AssetThemes.yaml/#/ThemesGet
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Get

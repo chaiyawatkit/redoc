@@ -1,0 +1,223 @@
+       
+CreateFeedTag:
+  post:
+    tags:
+      - Feed
+    summary: Create FeedTag
+    description: |
+      Create FeedTag
+    operationId: Create_FeedTag
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Feed.yaml/#/FeedTagCreate
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+
+get:
+  tags:
+    - Feed
+  summary: Get Data Feed by Tag
+  description: |
+    Get Data Feed by Tag
+  operationId: Get_Feed_Tag
+  security: []
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Feed.yaml/#/GetFeedTag
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Get
+
+put:
+  tags:
+    - Feed
+  summary: Update Feed Tag
+  description: |
+    Update Feed Tag
+  operationId: Update_Feed_Tag
+  security: []
+  parameters:
+    - name: tag_id
+      in: path
+      description: tag id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Feed.yaml/#/FeedTagCreate
+    description: requestBody description
+    required: true
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Update
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Update
+      
+delete:
+  tags:
+    - Feed
+  summary: Delete Feed Tag
+  description: |
+    Delete Feed Tag
+  operationId: Delete_Feed_Tag
+  security: []
+  parameters:
+    - name: tag_id
+      in: path
+      description: tag id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Delete
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Delete
+
+DeleteFeed:
+  delete:
+    tags:
+      - Feed
+    summary: Delete Feed 
+    description: |
+      Delete Feed 
+    operationId: Delete_Feed
+    security: []
+    parameters:
+      - name: feed_id
+        in: path
+        description: feed id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+
+CreateCategory:   
+  post:
+    tags:
+      - Feed
+    summary: Crate Category
+    description: |
+      Crate Category
+    operationId: Crate_Category
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Feed.yaml/#/CategoryCreate
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+CreateSubCategory:
+  post:
+    tags:
+      - Feed
+    summary: Crate Sub Category
+    description: |
+      Crate Sub Category
+    operationId: Crate_Sub_Category
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Feed.yaml/#/SubCategoryCreate
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+GetFeed:
+  get:
+    tags:
+      - Feed
+    summary: Get Feed
+    description: |
+     Get Feed
+    operationId: Get_Feed
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Feed.yaml/#/GetFeed
+
+CreateFeed:   
+  post:
+    tags:
+      - Feed
+    summary: Crate Feed
+    description: |
+      Crate  Feed
+    operationId: Crate_Feed
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Feed.yaml/#/CreateFeed
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+UpdateLike:
+  put:
+    tags:
+      - Feed
+    summary: Update Like 
+    description: 
+      Update Like 
+    operationId: Update_Like 
+    security: []
+    parameters:
+      - name: feed_id
+        in: path
+        description: feed id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Feed.yaml/#/LikeUpdate
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update

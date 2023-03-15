@@ -1,0 +1,109 @@
+PersonalInfo:
+  get:
+    tags:
+      - Profile
+    summary: Get PersonalInfo
+    description: |
+      Get PersonalInfo
+    operationId: Get_PersonalInfo
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Profile.yaml/#/PersonalInfo
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+UpdateCurrentAddress:
+  put:
+    tags:
+      - Profile
+    summary: Update CurrentAddress
+    description: |
+      Update CurrentAddress
+    operationId: Update_CurrentAddress
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/CurrentAddress
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+UpdateEmail:
+  put:
+    tags:
+      - Profile
+    summary: Update Email
+    description: |
+      Update Email
+    operationId: Update_Email
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/Email
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+UpdatePhoneNumber:
+  put:
+    tags:
+      - Profile
+    summary: Update PhoneNumber
+    description: |
+      Update PhoneNumber
+    operationId: Update_PhoneNumber
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/PhoneNumber
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update

@@ -1,0 +1,16 @@
+get:
+  tags:
+    - MarketSummary
+  summary: Get MarketSummary
+  description: |
+    Get MarketSummary
+  operationId: Get_MarketSummary
+  security: []
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/MarketSummary.yaml/#/GetMarketSummary
+  

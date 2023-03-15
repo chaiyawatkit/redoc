@@ -1,0 +1,28 @@
+type: object
+properties:
+  id:
+    type: integer
+    example: 1
+  customer_id:
+    type: integer
+    example: 1
+  total_asset:
+    type: number
+    example: 2003000
+  total_gain_loss:
+    type: number
+    example: 3000
+  total_gain_loss_percent:
+    type: number
+    example: 5
+  update_date:
+    type: number
+    example: 1677038096
+  all_asset:
+    type: array
+    items:
+      type: object
+      allOf:
+        - $ref: Asset.yml/#/DepositAsset
+        - $ref: Asset.yml/#/BondAsset
+

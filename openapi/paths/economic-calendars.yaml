@@ -1,0 +1,16 @@
+get:
+  tags:
+    - EconomicCalendars
+  summary: Get EconomicCalendars
+  description: |
+    Get EconomicCalendars
+  operationId: Get_EconomicCalendars
+  security: []
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/EconomicCalendars.yaml/#/GetEconomicCalendars
+  

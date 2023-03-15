@@ -1,0 +1,27 @@
+TagGet:
+  type: object
+  properties:
+    tag_name:
+      type: string
+    item_id:
+      type: array
+      items:
+        type: number
+  example: { "tag_name": "แนะนำ", "item_id": [1, 2, 3, 4] }
+
+TagPost:
+  type: object
+  properties:
+    title:
+      type: string
+  example: { "title": "แนะนำ" }
+
+
+TagCreate:
+  type: object
+  properties:
+    title:
+      type: string
+
+  example: { "title": "แนะนำ" }
+  

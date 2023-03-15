@@ -1,0 +1,166 @@
+
+get:
+  tags:
+    - Menus
+  summary: Get Menus
+  description: |
+    Get Menus
+  operationId: Get_Menus
+  security: []
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Menus.yaml/#/MenusGet
+       
+post:
+  tags:
+    - Menus
+  summary: Create Menus
+  description: |
+    Create Menus
+  operationId: Create_Menus
+  security: []
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Menus.yaml/#/MenusPost
+    description: requestBody description
+    required: true
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Create
+      
+UpdateMenus:      
+  put:
+    tags:
+      - Menus
+    summary: Update Menus
+    description: |
+      Update Menus
+    operationId: Update_Menus
+    security: []
+    parameters:
+      - name: menu_id
+        in: path
+        description: menu id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Menus.yaml/#/MenusPost
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+
+CreateMenuGroup:
+  post:
+    tags:
+      - Menus
+    summary: Create Menus Group
+    description: |
+      Create Menus Group
+    operationId: Create_Menus_Group
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Menus.yaml/#/MenusGroupPost
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+
+UpdateGroupMenus:      
+  put:
+    tags:
+      - Menus
+    summary: Update Menus Group
+    description: |
+      Update Menus Group
+    operationId: Update_Menus_Group
+    security: []
+    parameters:
+      - name: menu_group_id
+        in: path
+        description: menu group id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Menus.yaml/#/MenusGroupPost
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+
+
+CreateMenuRelationships:
+  post:
+    tags:
+      - Menus
+    summary: Create Menus Relationships
+    description: |
+      Create Menus Relationships
+    operationId: Create_Menus_Relationships
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Menus.yaml/#/MenusRelationships
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+
+UpdateMenuRelationships:
+  put:
+    tags:
+      - Menus
+    summary: Update Menus Relationships
+    description: |
+      Update Menus Relationships
+    operationId: Update_Menus_Relationships
+    security: []
+    parameters:
+      - name: menu_relationship_id
+        in: path
+        description: menu relationship id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Menus.yaml/#/MenusRelationships
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+      

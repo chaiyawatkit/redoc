@@ -1,0 +1,95 @@
+
+CreateTag:
+  post:
+    tags:
+      - Tag
+    summary: Create Tag
+    description: |
+      Create Tag
+    operationId: Create_Tag
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tag.yaml/#/TagCreate
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      
+   
+put:
+  tags:
+    - Tag
+  summary: Update Tag
+  description: |
+    Update Tag
+  operationId: Update_Tag
+  security: []
+  parameters:
+    - name: tag_id
+      in: path
+      description: tag id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Tag.yaml/#/TagPost
+    description: requestBody description
+    required: true
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Update
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Update
+
+get:
+  tags:
+    - Tag
+  summary: Get Tag
+  description: |
+   Get Tag
+  operationId: Get_Tag
+  security: []
+  parameters:
+    - name: tag_id
+      in: path
+      description: tag id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Tag.yaml/#/TagGet
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Get
+      
+delete:
+  tags:
+    - Tag
+  summary: Delete Tag
+  description: |
+    Delete Tag
+  operationId: Delete_Tag
+  security: []
+  parameters:
+    - name: tag_id
+      in: path
+      description: tag id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Delete
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Delete

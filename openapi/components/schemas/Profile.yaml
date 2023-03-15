@@ -1,0 +1,39 @@
+PersonalInfo:
+  type: object
+  properties:
+    name:
+      type: string
+    email:
+      type: string
+    address_current:
+      type: string
+    work_address:
+      type: string
+  example:
+    {
+      "name": "somchai",
+      "email": "somchai@gmail.com",
+      "address_current": "bangkok",
+      "work_address": "bangkok",
+    }
+
+CurrentAddress:
+  type: object
+  properties:
+    current_address:
+      type: string
+  example: { "current_address":"Huai Khwang" }
+
+Email:
+  type: object
+  properties:
+    email:
+      type: string
+  example: { "email":"test@gmail.com" }
+
+PhoneNumber:
+  type: object
+  properties:
+    phone_number:
+      type: string
+  example: { "phone_number":"0811427077" }

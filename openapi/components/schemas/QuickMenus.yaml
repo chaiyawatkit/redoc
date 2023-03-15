@@ -1,0 +1,75 @@
+QuickMenusGet:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int
+      example: 1
+    customer_id:
+      type: integer
+      format: int
+      example: 1
+    list_menu:
+      type: array
+      items:
+        type: string
+        example: ["ROBO_ADVISOR",
+        "ASSET",
+        "GOAL",
+        "BOND"]
+
+QuickMenusGetDefault:
+  type: object
+  properties:
+    id:
+      type: integer
+      format: int
+      example: 1
+    list_menu:
+      type: array
+      items:
+        type: string
+        example: ["ROBO_ADVISOR",
+        "ASSET",
+        "GOAL",
+        "BOND"]
+
+QuickMenusUpdateDefault:
+  type: object
+  properties:
+    status:
+      type: boolean
+    list_menu:
+      type: array
+      items:
+        type: string
+        example: ["ROBO_ADVISOR",
+        "ASSET",
+        "GOAL",
+        "BOND"]
+
+QuickMenusCreate:
+  type: object
+  properties:
+    list_menu:
+      type: array
+      items:
+        type: string
+        example: ["ROBO_ADVISOR",
+        "ASSET",
+        "GOAL",
+        "BOND"]
+        
+QuickMenusUpdate:
+  type: object
+  properties:
+    list_menu:
+      type: array
+      items:
+        type: string
+        example: ["ROBO_ADVISOR",
+        "ASSET",
+        "GOAL",
+        "BOND"]
+    
+  

@@ -1,0 +1,46 @@
+quickMenusGet:  
+  get:
+    tags:
+      - QuickMenus
+    summary: Get Default QuickMenus
+    description: |
+      Get Default QuickMenus
+    operationId: Get_Default_QuickMenus
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/QuickMenus.yaml/#/QuickMenusGetDefault
+
+quickMenusPut:            
+  put:
+    tags:
+      - QuickMenus
+    summary: Update Default QuickMenus
+    description: |
+      Update Default QuickMenus
+    operationId: Update_Default_QuickMenus
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/QuickMenus.yaml/#/QuickMenusUpdateDefault
+      description: requestBody description
+      required: true
+    parameters:
+      - name: quick_menu_id
+        in: path
+        description: quick menu id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+

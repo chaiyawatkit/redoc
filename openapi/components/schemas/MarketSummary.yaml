@@ -1,0 +1,63 @@
+GetMarketSummary:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          group_name:
+            type: string
+          ytd:
+            type: array
+            items:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                product_name:
+                  type: string
+                product_title:
+                  type: string
+          1m:
+            type: array
+            items:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                product_name:
+                  type: string
+                product_title:
+                  type: string
+  example: {
+    "data": [
+      {
+        "group_name": "ดัสชี",
+        "ytd": [
+          {
+            "product_id": 1,
+            "product_name": "set",
+            "prpduct_title": "thailand set index"
+          },
+          {
+            "product_id": 2,
+            "product_name": "S&P 500",
+            "prpduct_title": "S&P 500 index"
+          }
+        ],
+        "1m": [
+          {
+            "product_id": 1,
+            "product_name": "set",
+            "prpduct_title": "thailand set index"
+          },
+          {
+            "product_id": 2,
+            "product_name": "S&P 500",
+            "prpduct_title": "S&P 500 index"
+          }
+        ]
+      }
+    ]
+  }

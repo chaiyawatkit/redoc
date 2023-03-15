@@ -1,0 +1,123 @@
+MenusGet:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          menu_group_name:
+            type: string
+          menu_list:
+            type: array
+            items:
+              type: object
+              properties:
+                menu_id:
+                  type: integer
+                  format: int
+                menu_title:
+                  type: string
+  example:
+    {
+      "data":
+        [
+          {
+            "menu_group_name": "ทั่วไป",
+            "manu_list":
+              [
+                { "menu_id": 1, "menu_title": "รายการโปรด" },
+                { "menu_id": 2, "menu_title": "โน๊ต" },
+              ],
+          },
+          {
+            "menu_group_name": "ลงทุน",
+            "manu_list":
+              [
+                { "menu_id": 3, "menu_title": "กองทุนรวม" },
+                { "menu_id": 4, "menu_title": "ตราสารหนี้" },
+              ],
+          },
+        ],
+    }
+
+WatchListPost:
+  type: object
+  properties:
+    input:
+      type: string
+  example:
+    input: '{
+      "favorite_1": [
+        "SET"
+      ],
+      "favorite_2": [
+        "SET"
+      ]
+    }'
+
+WatchListGet:
+  type: object
+  properties:
+    watch_list:
+      type: array
+      items:
+        type: object
+        properties:
+          group_name:
+            type: string
+          data:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: int
+                product_code:
+                  type: string
+                amc_code:
+                  type: string
+                nav:
+                  type: number
+                  format: float
+                daily_gain_loss_percent:
+                  type: number
+                  format: float
+                tag:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: int
+                      name_tag:
+                        type: string
+                      type_tag:
+                        type: string
+  example: {
+    "watch_list": [
+      {
+        "group_name": "Favorite_1",
+        "data": [
+          {
+            "id": 1,
+            "product_code": "SET",
+            "amc_code": "Thailand set Index",
+            "nav": 20.6543,
+            "daily_gain_loss_percent": 1.38,
+            "tag": [
+              {
+                "id": 1,
+                "name_tag": "Index",
+                "type_tag": "ASSET"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+
+          
+

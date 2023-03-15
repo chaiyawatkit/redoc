@@ -1,0 +1,72 @@
+MenusGet:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          menu_group_name:
+            type: string
+          menu_list:
+            type: array
+            items:
+              type: object
+              properties:
+                menu_id:
+                  type: integer
+                  format: int
+                menu_title:
+                  type: string
+  example:
+    {
+      "data":
+        [
+          {
+            "menu_group_name": "ทั่วไป",
+            "manu_list":
+              [
+                { "menu_id": 1, "menu_title": "รายการโปรด" },
+                { "menu_id": 2, "menu_title": "โน๊ต" },
+              ],
+          },
+          {
+            "menu_group_name": "ลงทุน",
+            "manu_list":
+              [
+                { "menu_id": 3, "menu_title": "กองทุนรวม" },
+                { "menu_id": 4, "menu_title": "ตราสารหนี้" },
+              ],
+          },
+        ],
+    }
+
+MenusPost:
+  type: object
+  properties:
+    manu_name:
+      type: string
+    icon:
+      type: string
+    status:
+      type: boolean
+  example:
+    { "manu_name": "ROBO_ADVISOR", "icon": "ROBO_ADVISOR", "status": true }
+
+MenusGroupPost:
+  type: object
+  properties:
+    group_name:
+      type: string
+  example: { "group_name": "general" }
+
+MenusRelationships:
+  type: object
+  properties:
+    manus_id:
+      type: number
+    manu_group_id:
+      type: number
+    type:
+      type: string
+  example: { "manus_id": 1, "manu_group_id": 1, "type": "general" }

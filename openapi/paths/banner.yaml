@@ -1,0 +1,71 @@
+get:
+  tags:
+    - Banner
+  summary: Get banner
+  description: |
+    Get banner
+  operationId: Get_banner
+  security: []
+  parameters:
+    - name: id
+      in: path
+      description: Id Banner
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Banner.yaml/#/Banner
+put:
+  tags:
+    - Banner
+  summary: Update_banner
+  description: |
+    Update_banner
+  operationId: Update_banner
+  security: []
+  parameters:
+    - name: id
+      in: path
+      description: Id Banner
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Banner.yaml/#/BannerUpdate
+    description: requestBody description
+    required: true
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Update
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Update
+    
+
+delete:
+  tags:
+    - Banner
+  summary: Delete_banner
+  description: |
+    Delete_banner
+  operationId: Delete_banner
+  security: []
+  parameters:
+    - name: id
+      in: path
+      description: Id Banner
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Delete
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Delete

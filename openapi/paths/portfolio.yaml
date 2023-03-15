@@ -1,0 +1,23 @@
+get:
+  tags:
+    - Portfolio
+  summary: Get Portfolio
+  description: |
+    Get Portfolio
+  operationId: Get_Portfolio
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: customer id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Portfolio.yaml
+          

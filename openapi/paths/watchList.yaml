@@ -1,0 +1,73 @@
+       
+CreateWatchList:
+  post:
+    tags:
+      - WatchList
+    summary: Create WatchList
+    description: |
+      Create WatchList
+    operationId: Create_WatchList
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/WatchList.yaml/#/WatchListPost
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      
+   
+put:
+  tags:
+    - WatchList
+  summary: Update WatchList
+  description: |
+    Update WatchList
+  operationId: Update_WatchList
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: customer id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/WatchList.yaml/#/WatchListPost
+    description: requestBody description
+    required: true
+  responses:
+    "200":
+      $ref: ../components/responses/Success.yaml/#/Update
+    "400":
+      $ref: ../components/responses/Problem.yaml/#/Update
+
+get:
+  tags:
+    - WatchList
+  summary: Get WatchList
+  description: |
+   Get WatchList
+  operationId: Get_WatchList
+  security: []
+  parameters:
+    - name: customer_id
+      in: path
+      description: customer id
+      required: true
+      schema:
+        type: string
+  responses:
+    "200":
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/WatchList.yaml/#/WatchListGet
+   

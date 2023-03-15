@@ -1,0 +1,62 @@
+ThemesGet:
+  type: object
+  properties:
+    theme_id:
+      type: integer
+    theme_name:
+      type: string
+    sub_themes:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+          icon:
+            type: string
+          products:
+            type: array
+            items:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+  example:
+    {
+      "theme_id": 1,
+      "theme_name": "กองทุนรวม",
+      "sub_themes":
+        [
+          {
+            "id": 1,
+            "name": "K-Asset",
+            "icon": "K-Asset",
+            "products": [{ "product_id": 1 }, { "product_id": 2 }],
+          },
+          {
+            "id": 2,
+            "name": "กองภาษี",
+            "products": [{ "product_id": 3 }, { "product_id": 4 }],
+          },
+        ],
+    }
+
+ThemesPost:
+  type: object
+  properties:
+    title:
+      type: string
+  example: { "title": "แนะนำ" }
+
+SubThemesPost:
+  type: object
+  properties:
+    theme_id:
+      type: integer
+    title:
+      type: string
+    icon:
+      type: string
+  example: { "theme_id": 1, "title": "K-Asset", "icon": "K-Asset" }
