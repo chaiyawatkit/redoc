@@ -158,10 +158,10 @@ GetFeed:
   get:
     tags:
       - Feed
-    summary: Get Feed
+    summary: Get Feed List
     description: |
-     Get Feed
-    operationId: Get_Feed
+      Get Feed List
+    operationId: Get_Feed_List
     security: []
     responses:
       "200":

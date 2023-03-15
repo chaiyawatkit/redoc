@@ -122,6 +122,8 @@ paths:
     $ref: paths/feed.yaml/#/DeleteFeed
   /api/v1/feed/like/{feed_id}:
     $ref: paths/feed.yaml/#/UpdateLike
+  /api/v1/feed/list:
+    $ref: paths/feed.yaml/#/GetFeed
 
   # //Search
   /api/v1/search:
