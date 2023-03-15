@@ -109,8 +109,14 @@ paths:
   /api/v1/feed:
     $ref: paths/feed.yaml/#/CreateFeed
 
-  /api/v1/feed/list:
-    $ref: paths/feed.yaml/#/GetFeed
+  /api/v1/feed/other:
+    $ref: paths/feed.yaml/#/GetFeedOther
+  
+  /api/v1/feed/month:
+    $ref: paths/feed.yaml/#/GetFeedMonth
+
+  /api/v1/feed/recommended:
+    $ref: paths/feed.yaml/#/GetFeedRecommended
 
   /api/v1/feed/{feed_id}:
     $ref: paths/feed.yaml/#/DeleteFeed

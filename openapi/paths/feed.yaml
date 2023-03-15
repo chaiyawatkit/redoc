@@ -171,6 +171,56 @@ GetFeed:
             schema:
               $ref: ../components/schemas/Feed.yaml/#/GetFeed
 
+GetFeedOther:
+  get:
+    tags:
+      - Feed
+    summary: Get Feed Other
+    description: |
+      Get Feed Other
+    operationId: Get_Feed_Other
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Feed.yaml/#/GetFeedOther
+
+GetFeedMonth:
+  get:
+    tags:
+      - Feed
+    summary: Get Feed Month
+    description: |
+      Get Feed Month
+    operationId: Get_Feed_Month
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Feed.yaml/#/GetFeedMonth
+
+GetFeedRecommended:
+  get:
+    tags:
+      - Feed
+    summary: Get Feed Recommended
+    description: |
+      Get Feed Recommended
+    operationId: Get_Feed_Recommended
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Feed.yaml/#/GetFeedRecommended
 CreateFeed:   
   post:
     tags:
