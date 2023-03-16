@@ -51,9 +51,9 @@ get:
   operationId: Get_product_Themes
   security: []
   parameters:
-    - name: theme_id
+    - name: sub_themes_id
       in: path
-      description: theme id
+      description: sub themes id
       required: true
       schema:
         type: string
@@ -66,3 +66,30 @@ get:
             $ref: ../components/schemas/AssetThemes.yaml/#/ThemesGet
     "400":
       $ref: ../components/responses/Problem.yaml/#/Get
+
+
+GetMenuAssetThemes:
+  get:
+    tags:
+      - AssetThemes
+    summary: Get Menu AssetThemes
+    description: |
+      Get Menu AssetThemes
+    operationId: Get_menu_asset_themes
+    security: []
+    parameters:
+    - name: typeUser
+      in: query
+      description: type user
+      required: true
+      schema:
+        type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/AssetThemes.yaml/#/ThemesMenuGet
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get

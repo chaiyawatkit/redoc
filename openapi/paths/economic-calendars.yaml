@@ -6,6 +6,12 @@ get:
     Get EconomicCalendars
   operationId: Get_EconomicCalendars
   security: []
+  parameters:
+    - name: group_name
+      in: query
+      description: Filter group name today,yesterday,tomorrow,thisWeek
+      schema:
+        type: boolean
   responses:
     "200":
       description: Success

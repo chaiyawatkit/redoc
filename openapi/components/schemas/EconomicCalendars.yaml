@@ -1,11 +1,6 @@
 GetEconomicCalendars:
   type: object
   properties:
-    data:
-      type: "array"
-      items:
-        type: "object"
-        properties:
           group_name:
             type: "string"
           data:
@@ -19,48 +14,19 @@ GetEconomicCalendars:
                   type: "string"
                 date_time:
                   type: "integer"
+        
   example: {
-    "data": [
-      {
-        "group_name": "yesterday",
-        "data": [
-          {
-            "product_id": 1,
-            "national_flag": "thai",
-            "date_time": 1678629811
-          }
-        ]
-      },
-      {
-        "group_name": "today",
-        "data": [
-          {
-            "product_id": 2,
-            "national_flag": "thai",
-            "date_time": 1678629811
-          }
-        ]
-      },
-      {
-        "group_name": "tomorrow",
-        "data": [
-          {
-            "product_id": 3,
-            "national_flag": "thai",
-            "date_time": 1678629811
-          }
-        ]
-      },
-      {
-        "group_name": "ThisWeek",
-        "data": [
-          {
-            "product_id": 4,
-            "national_flag": "thai",
-            "date_time": 1678629811
-          }
-        ]
-      }
-    ]
-  }               
-    
+  "group_name": "yesterday",
+  "data": [
+    {
+      "product_id": 1,
+      "national_flag": "thai",
+      "date_time": 1678629811
+    },
+    {
+      "product_id": 2,
+      "national_flag": "eng",
+      "date_time": 1678629811
+    }
+  ]
+}

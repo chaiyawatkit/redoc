@@ -85,6 +85,10 @@ paths:
   /api/v1/themes/{theme_id}:
     $ref: paths/asset-themes.yaml
 
+  /api/v1/menu-themes:
+    $ref: paths/asset-themes.yaml/#/GetMenuAssetThemes
+    
+
   # //MarketSummary
   /api/v1/market_summary:
     $ref: paths/market-summary.yaml

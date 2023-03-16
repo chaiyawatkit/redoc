@@ -163,6 +163,13 @@ GetFeed:
       Get Feed List
     operationId: Get_Feed_List
     security: []
+    parameters:
+      - name: category
+        in: path
+        description: category
+        required: true
+        schema:
+          type: string
     responses:
       "200":
         description: Success
@@ -197,6 +204,13 @@ GetFeedMonth:
       Get Feed Month
     operationId: Get_Feed_Month
     security: []
+    parameters:
+      - name: category
+        in: path
+        description: category
+        required: true
+        schema:
+          type: string
     responses:
       "200":
         description: Success
@@ -214,6 +228,13 @@ GetFeedRecommended:
       Get Feed Recommended
     operationId: Get_Feed_Recommended
     security: []
+    parameters:
+      - name: category
+        in: path
+        description: category
+        required: true
+        schema:
+          type: string
     responses:
       "200":
         description: Success
