@@ -8,7 +8,7 @@ Search:
     search_filter:
       type: string
 
-  example: { "title": "ข่าวสาร" }
+  example: { "search": "K-2500", "search_type": "invest" }
 
 SearchResponse:
   type: object
@@ -29,40 +29,17 @@ SearchResponse:
             properties:
               product_id:
                 type: number
-  example: {
-    "type_search": "invest",
-    "data": [
-      {
-        "theme_name": "กองทุนรวม",
-        "product": [
-          {
-            "product_id": 1
-          }
-        ]
-      },
-      {
-        "theme_name": "ตราสารนี้",
-        "product": [
-          {
-            "product_id": 2
-          }
-        ]
-      },
-      {
-        "theme_name": "ทั้งหมด",
-        "product": [
-          {
-            "product_id": 1
-          },
-          {
-            "product_id": 2
-          }
-        ]
-      }
-    ]
-  }
-
-
+              product_name:
+                type: string
+  example:
+    {
+      "type_search": "invest",
+      "data":
+        [
+          { "theme_name": "กองทุนรวม", "product": [{ "product_id": 1,"product_name":"K-2500" }] },
+          { "theme_name": "ตราสารนี้", "product": [{ "product_id": 2, "product_name":"K-2500-A" }] },
+        ],
+    }
 
 SearchRecent:
   type: object
@@ -81,34 +58,43 @@ SearchRecent:
             properties:
               product_id:
                 type: number
-  example: {
-    "data": [
-      {
-        "theme_name": "ทั้งหมด",
-        "product": [
+  example:
+    {
+      "data":
+        [
+          { "theme_name": "สินทรัพย์", "product": [{ "product_id": 2 }] },
           {
-            "product_id": 1
-          }
-        ]
-      },
-      {
-        "theme_name": "สินทรัพย์",
-        "product": [
-          {
-            "product_id": 2
-          }
-        ]
-      },
-      {
-        "theme_name": "โน๊ต",
-        "product": [
-          {
-            "product_id": 1
+            "theme_name": "โน๊ต",
+            "product": [{ "product_id": 1 }, { "product_id": 2 }],
           },
-          {
-            "product_id": 2
-          }
-        ]
-      }
-    ]
-  }
+        ],
+    }
+
+
+SearchSuggestion:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: "object"
+        properties:
+          product_id:
+            tpye: number
+          product_name: string
+          type: string
+  example:
+    {
+  "data": [
+    {
+      "product_id": 1,
+      "product_name": "K-2500",
+      "type": "สินทรัพย์"
+    },
+    {
+      "product_id": 1,
+      "product_name": "K-2500-A",
+      "type": "สินทรัพย์"
+    }
+  ]
+}

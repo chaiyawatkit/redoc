@@ -87,7 +87,6 @@ paths:
 
   /api/v1/menu-themes:
     $ref: paths/asset-themes.yaml/#/GetMenuAssetThemes
-    
 
   # //MarketSummary
   /api/v1/market_summary:
@@ -115,7 +114,7 @@ paths:
 
   /api/v1/feed/other:
     $ref: paths/feed.yaml/#/GetFeedOther
-  
+
   /api/v1/feed/month:
     $ref: paths/feed.yaml/#/GetFeedMonth
 
@@ -136,10 +135,13 @@ paths:
   /api/v1/search/recent/{customer_id}:
     $ref: paths/search.yaml
 
+  /api/v1/search/SearchSuggestion:
+    $ref: paths/search.yaml/#/SearchSuggestion
+
   /api/v1/search/recent/all/{customer_id}:
     $ref: paths/search.yaml/#/RecentDeleteAll
 
-# //Profile
+  # //Profile
   /api/v1/personal_info/{customer_id}:
     $ref: paths/profile.yaml/#/PersonalInfo
   /api/v1/profile_current_address/{customer_id}:
@@ -148,4 +150,5 @@ paths:
     $ref: paths/profile.yaml/#/UpdateEmail
   /api/v1/profile_phone_number/{customer_id}:
     $ref: paths/profile.yaml/#/UpdatePhoneNumber
-
+  /api/v1/personal_wisdom:
+    $ref: paths/profile.yaml/#/Wisdom

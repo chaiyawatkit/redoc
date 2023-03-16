@@ -51,15 +51,21 @@ put:
 get:
   tags:
     - Tag
-  summary: Get Tag
+  summary: Get Data By Tag
   description: |
-   Get Tag
-  operationId: Get_Tag
+    Get Data By Tag
+  operationId: Get_Data_By_Tag
   security: []
   parameters:
     - name: tag_id
       in: path
       description: tag id
+      required: true
+      schema:
+        type: string
+    - name: tag_type
+      in: query
+      description: tag type
       required: true
       schema:
         type: string

@@ -29,17 +29,18 @@ CreateFeed:
         type: number
     type:
       type: number
-  example: {
-    "title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิด ประเทศดันหุ้นจีน-ฮ่องกง",
-    "img": "/img",
-    "link": "/link",
-    "created_at": 1678637816,
-    "updated_at": 1678637816,
-    "subcategory_id": 1,
-    "link_count": 100,
-    "tagFeed":[1,2,3],
-    "type": "privateBanking"
-  }
+  example:
+    {
+      "title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิด ประเทศดันหุ้นจีน-ฮ่องกง",
+      "img": "/img",
+      "link": "/link",
+      "created_at": 1678637816,
+      "updated_at": 1678637816,
+      "subcategory_id": 1,
+      "link_count": 100,
+      "tagFeed": [1, 2, 3],
+      "type": "privateBanking",
+    }
 
 CategoryCreate:
   type: object
@@ -47,7 +48,7 @@ CategoryCreate:
     title:
       type: string
   example: { "title": "ข่าวสาร" }
-  
+
 SubCategoryCreate:
   type: object
   properties:
@@ -55,10 +56,7 @@ SubCategoryCreate:
       type: number
     title:
       type: string
-  example: {
-    "category_id": 1,
-    "title": "default"
-  }
+  example: { "category_id": 1, "title": "default" }
 GetFeedRecommended:
   type: object
   properties:
@@ -77,28 +75,24 @@ GetFeedRecommended:
             type: "array"
             items:
               type: "string"
-  example: {
-    "data": [
+  example:
+    {
+      "data":
+        [
           {
             "feed_id": 1,
             "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
             "dateTime": 1678637816,
-            "tag": [
-              "ข่าวสาร",
-              "สินค้า"
-            ]
+            "tag": ["ข่าวสาร", "สินค้า"],
           },
           {
             "feed_id": 2,
             "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
             "dateTime": 1678637816,
-            "tag": [
-              "ข่าวสาร",
-              "สินค้า"
-            ]
-          }
-    ]
-  }
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+        ],
+    }
 
 GetFeedMonth:
   type: object
@@ -110,195 +104,86 @@ GetFeedMonth:
         properties:
           month_name:
             type: number
-            group:
-              type: array
-              items:
-                type: "object"
-                properties:
-                  private:
-                    type: "array"
-                    items:
-                      type: "object"
-                      properties:
-                        feed_id:
-                          type: "integer"
-                        feed_title:
-                          type: "string"
-                        dateTime:
-                          type: "integer"
-                        tag:
-                          type: "array"
-                          items:
-                            type: "string"
-                  general:
-                    type: "array"
-                    items:
-                      type: "object"
-                      properties:
-                        feed_id:
-                          type: "integer"
-                        feed_title:
-                          type: "string"
-                        dateTime:
-                          type: "integer"
-                        tag:
-                          type: "array"
-                          items:
-                            type: "string"
-  example: {
-    "data": [
-      {
-        "month_name": 3,
-        "group": [
+          contents:
+            type: array
+            items:
+              type: "object"
+              properties:
+                feed_id:
+                  type: "integer"
+                feed_title:
+                  type: "string"
+                dateTime:
+                  type: "integer"
+                tag:
+                  type: "array"
+                  items:
+                    type: "string"
+  example:
+    {
+      "data":
+        [
           {
-            "group_name": "latest",
-            "private": [
-              {
-                "feed_id": 1,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              },
-              {
-                "feed_id": 2,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              }
-            ],
-            "general": [
-              {
-                "feed_id": 1,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              },
-              {
-                "feed_id": 2,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "month_name": 2,
-        "group": [
+            "month_name": 3,
+            "contents":
+              [
+                {
+                  "feed_id": 1,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+                {
+                  "feed_id": 2,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+              ],
+          },
           {
-            "group_name": "latest",
-            "private": [
-              {
-                "feed_id": 1,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              },
-              {
-                "feed_id": 2,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              }
-            ],
-            "general": [
-              {
-                "feed_id": 1,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              },
-              {
-                "feed_id": 2,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "month_name": 1,
-        "group": [
+            "month_name": 2,
+            "contents":
+              [
+                {
+                  "feed_id": 1,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+                {
+                  "feed_id": 2,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+              ],
+          },
           {
-            "group_name": "latest",
-            "private": [
-              {
-                "feed_id": 1,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              },
-              {
-                "feed_id": 2,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              }
-            ],
-            "general": [
-              {
-                "feed_id": 1,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              },
-              {
-                "feed_id": 2,
-                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-                "dateTime": 1678637816,
-                "tag": [
-                  "ข่าวสาร",
-                  "สินค้า"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-
+            "month_name": 1,
+            "contents":
+              [
+                {
+                  "feed_id": 1,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+                {
+                  "feed_id": 2,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+              ],
+          },
+        ],
+    }
 
 GetFeedOther:
   type: object
   properties:
-    private:
+    data:
       type: "array"
       items:
         type: "object"
@@ -313,63 +198,24 @@ GetFeedOther:
             type: "array"
             items:
               type: "string"
-    general:
-      type: "array"
-      items:
-        type: "object"
-        properties:
-          feed_id:
-            type: "integer"
-          feed_title:
-            type: "string"
-          dateTime:
-            type: "integer"
-          tag:
-            type: "array"
-            items:
-              type: "string"
-  example: {
-    "private": [
-      {
-        "feed_id": 1,
-        "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-        "dateTime": 1678637816,
-        "tag": [
-          "ข่าวสาร",
-          "สินค้า"
-        ]
-      },
-      {
-        "feed_id": 2,
-        "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-        "dateTime": 1678637816,
-        "tag": [
-          "ข่าวสาร",
-          "สินค้า"
-        ]
-      }
-    ],
-    "general": [
-      {
-        "feed_id": 1,
-        "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-        "dateTime": 1678637816,
-        "tag": [
-          "ข่าวสาร",
-          "สินค้า"
-        ]
-      },
-      {
-        "feed_id": 2,
-        "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-        "dateTime": 1678637816,
-        "tag": [
-          "ข่าวสาร",
-          "สินค้า"
-        ]
-      }
-    ]
-  }
+  example:
+    {
+      "data":
+        [
+          {
+            "feed_id": 1,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+          {
+            "feed_id": 2,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+        ],
+    }
 GetFeed:
   type: object
   properties:
@@ -388,37 +234,31 @@ GetFeed:
             type: "array"
             items:
               type: "string"
-  example: {
-    "data": [
-      {
-        "feed_id": 1,
-        "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-        "dateTime": 1678637816,
-        "tag": [
-          "ข่าวสาร",
-          "สินค้า"
-        ]
-      },
-      {
-        "feed_id": 2,
-        "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-        "dateTime": 1678637816,
-        "tag": [
-          "ข่าวสาร",
-          "สินค้า"
-        ]
-      }
-    ]
-  }
+  example:
+    {
+      "data":
+        [
+          {
+            "feed_id": 1,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+          {
+            "feed_id": 2,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+        ],
+    }
 
 LikeUpdate:
   type: object
   properties:
     like_count:
       type: number
-  example: {
-    "like_count": 10
-  }
+  example: { "like_count": 10 }
 
 GetFeedTag:
   type: object
@@ -458,48 +298,40 @@ GetFeedTag:
                 type: "array"
                 items:
                   type: "string"
-  example: {
-    "tag_name": "ข่าวสาร",
-    "data": {
-      "private": [
+  example:
+    {
+      "tag_name": "ข่าวสาร",
+      "data":
         {
-          "feed_id": 1,
-          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-          "dateTime": 1678637816,
-          "tag": [
-            "ข่าวสาร",
-            "สินค้า"
-          ]
+          "private":
+            [
+              {
+                "feed_id": 1,
+                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                "dateTime": 1678637816,
+                "tag": ["ข่าวสาร", "สินค้า"],
+              },
+              {
+                "feed_id": 2,
+                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                "dateTime": 1678637816,
+                "tag": ["ข่าวสาร", "สินค้า"],
+              },
+            ],
+          "general":
+            [
+              {
+                "feed_id": 1,
+                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                "dateTime": 1678637816,
+                "tag": ["ข่าวสาร", "สินค้า"],
+              },
+              {
+                "feed_id": 2,
+                "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                "dateTime": 1678637816,
+                "tag": ["ข่าวสาร", "สินค้า"],
+              },
+            ],
         },
-        {
-          "feed_id": 2,
-          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-          "dateTime": 1678637816,
-          "tag": [
-            "ข่าวสาร",
-            "สินค้า"
-          ]
-        }
-      ],
-      "general": [
-        {
-          "feed_id": 1,
-          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-          "dateTime": 1678637816,
-          "tag": [
-            "ข่าวสาร",
-            "สินค้า"
-          ]
-        },
-        {
-          "feed_id": 2,
-          "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
-          "dateTime": 1678637816,
-          "tag": [
-            "ข่าวสาร",
-            "สินค้า"
-          ]
-        }
-      ]
     }
-  }

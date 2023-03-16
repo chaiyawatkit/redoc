@@ -107,3 +107,30 @@ UpdatePhoneNumber:
         $ref: ../components/responses/Success.yaml/#/Update
       "400":
         $ref: ../components/responses/Problem.yaml/#/Update
+
+
+Wisdom:
+  get:
+    tags:
+      - Profile
+    summary: Get Wisdom
+    description: |
+      Get Wisdom
+    operationId: Get_Wisdom
+    security: []
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Profile.yaml/#/Wisdom
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get

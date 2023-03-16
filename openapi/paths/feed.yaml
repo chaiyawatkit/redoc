@@ -187,6 +187,19 @@ GetFeedOther:
       Get Feed Other
     operationId: Get_Feed_Other
     security: []
+    parameters:
+      - name: category
+        in: query
+        description: category
+        required: true
+        schema:
+          type: string
+      - name: content_type
+        in: query
+        description: content type
+        required: true
+        schema:
+          type: string
     responses:
       "200":
         description: Success
@@ -206,8 +219,14 @@ GetFeedMonth:
     security: []
     parameters:
       - name: category
-        in: path
+        in: query
         description: category
+        required: true
+        schema:
+          type: string
+      - name: content_type
+        in: query
+        description: content type
         required: true
         schema:
           type: string
@@ -230,8 +249,14 @@ GetFeedRecommended:
     security: []
     parameters:
       - name: category
-        in: path
+        in: query
         description: category
+        required: true
+        schema:
+          type: string
+      - name: content_type
+        in: query
+        description: content type
         required: true
         schema:
           type: string

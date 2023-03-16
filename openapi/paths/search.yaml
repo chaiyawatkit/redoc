@@ -11,12 +11,16 @@ Search:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/Search.yaml/#/SearchResponse
+            $ref: ../components/schemas/Search.yaml/#/Search
       description: requestBody description
       required: true
     responses:
       "200":
-        $ref: ../components/responses/Success.yaml/#/Create
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Search.yaml/#/SearchResponse
       "400":
         $ref: ../components/responses/Problem.yaml/#/Create
 
@@ -88,3 +92,29 @@ delete:
       $ref: ../components/responses/Success.yaml/#/Delete
     "400":
       $ref: ../components/responses/Problem.yaml/#/Delete
+
+SearchSuggestion:
+  get:
+    tags:
+      - Search 
+    summary: Get Search Suggestion
+    description:
+      Get Search Suggestion
+    operationId: Get_Search_Suggestion
+    security: []
+    parameters:
+      - name: search
+        in: query
+        description: search
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Search.yaml/#/SearchSuggestion
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get

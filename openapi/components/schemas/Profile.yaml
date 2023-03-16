@@ -17,6 +17,17 @@ PersonalInfo:
       "work_address": "bangkok",
     }
 
+Wisdom:
+  type: object
+  properties:
+    link:
+      type: string
+  example:
+    {
+      "link": "wisdomlink",
+     
+    }
+
 CurrentAddress:
   type: object
   properties:
