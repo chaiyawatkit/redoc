@@ -134,3 +134,81 @@ Wisdom:
               $ref: ../components/schemas/Profile.yaml/#/Wisdom
       "400":
         $ref: ../components/responses/Problem.yaml/#/Get
+
+Device:
+  get:
+    tags:
+      - Profile
+    summary: Get Device
+    description: |
+      Get Device
+    operationId: Get_Device
+    security: []
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Profile.yaml/#/Device
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+ContactRm:
+  get:
+    tags:
+      - Profile
+    summary: Get ContactRm
+    description: |
+      Get ContactRm
+    operationId: Get_ContactRm
+    security: []
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Profile.yaml/#/ContactRm
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+Interest:
+  get:
+    tags:
+      - Profile
+    summary: Get Interest
+    description: |
+      Get Interest
+    operationId: Get_Interest
+    security: []
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Profile.yaml/#/Interest
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get

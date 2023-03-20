@@ -6,6 +6,22 @@ get:
     Get MarketSummary
   operationId: Get_MarketSummary
   security: []
+  parameters:
+    - name: group_name
+      in: query
+      description: group 
+      schema:
+        type: boolean
+    - name: sub_group_name
+      in: query
+      description: sub_group_name
+      schema:
+        type: boolean
+    - name: filter
+      in: query
+      description: Filter ytd,1m,3m,1Y,all
+      schema:
+        type: boolean
   responses:
     "200":
       description: Success

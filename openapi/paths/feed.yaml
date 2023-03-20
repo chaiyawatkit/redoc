@@ -178,6 +178,30 @@ GetFeed:
             schema:
               $ref: ../components/schemas/Feed.yaml/#/GetFeed
 
+Trading:
+  get:
+    tags:
+      - Feed
+    summary: Get Feed Trading
+    description: |
+      Get Feed Trading
+    operationId: Get_Feed_Trading
+    security: []
+    # parameters:
+    #   - name: category
+    #     in: path
+    #     description: category
+    #     required: true
+    #     schema:
+    #       type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Feed.yaml/#/GetFeed
+
 GetFeedOther:
   get:
     tags:

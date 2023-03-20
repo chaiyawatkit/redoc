@@ -28,6 +28,32 @@ Wisdom:
      
     }
 
+Device:
+  type: object
+  properties:
+    device:
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+  example:
+    {
+      "device": [
+        {
+          "name":"device1"
+        },
+        {
+          "name":"device2"
+        },
+        {
+          "name":"device3"
+        }
+      ],
+      
+    }
+
 CurrentAddress:
   type: object
   properties:
@@ -48,3 +74,88 @@ PhoneNumber:
     phone_number:
       type: string
   example: { "phone_number":"0811427077" }
+
+
+ContactRm:
+  type: object
+  properties:
+    name:
+      type: string
+    phone_number:
+      type: string
+    email:
+      type: string
+    employee_id:
+      type: string
+  example:
+    {
+      "name": "Somchai Charoenpol",
+      "phone_number": "0983214155",
+      "emal":"somchai.c@gmail.com",
+      "employee_id":"RM22300888",
+    }
+
+
+Interest:
+  type: object
+  properties:
+    popular_topic:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+          status:
+            type: boolean
+    asset_topic:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+          status:
+            type: boolean
+    news_world_topic:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+          status:
+            type: boolean
+          
+    
+  example:
+    {
+      "popular_topic": [
+        {
+          "id": 1,
+          "name": "เทคโนโลยี",
+          "status": true
+        }
+      ],
+      "asset_topic":[
+        {
+          "id": 2,
+          "name": "กองทุนรวม",
+          "status": true
+        }
+      ],
+      "news_world_topic":[
+        {
+          "id": 3,
+          "name": "ความเคลื่อนไหวรอบโลก",
+          "status": true
+        }
+      ]
+   
+    }

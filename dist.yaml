@@ -704,15 +704,21 @@ paths:
     get:
       tags:
         - Tag
-      summary: Get Tag
+      summary: Get Data By Tag
       description: |
-        Get Tag
-      operationId: Get_Tag
+        Get Data By Tag
+      operationId: Get_Data_By_Tag
       security: []
       parameters:
         - name: tag_id
           in: path
           description: tag id
+          required: true
+          schema:
+            type: string
+        - name: tag_type
+          in: query
+          description: tag type
           required: true
           schema:
             type: string
@@ -839,9 +845,9 @@ paths:
       operationId: Get_product_Themes
       security: []
       parameters:
-        - name: theme_id
+        - name: sub_themes_id
           in: path
-          description: theme id
+          description: sub themes id
           required: true
           schema:
             type: string
@@ -854,6 +860,56 @@ paths:
                 $ref: '#/components/schemas/ThemesGet'
         '400':
           $ref: '#/components/responses/Get'
+    GetMenuAssetThemes:
+      get:
+        tags:
+          - AssetThemes
+        summary: Get Menu AssetThemes
+        description: |
+          Get Menu AssetThemes
+        operationId: Get_menu_asset_themes
+        security: []
+        parameters:
+          - name: typeUser
+            in: query
+            description: type user
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ThemesMenuGet'
+          '400':
+            $ref: '#/components/responses/Get'
+  /api/v1/menu-themes:
+    get:
+      tags:
+        - AssetThemes
+      summary: Get Menu AssetThemes
+      description: |
+        Get Menu AssetThemes
+      operationId: Get_menu_asset_themes
+      security: []
+      parameters:
+        - name: typeUser
+          in: query
+          description: type user
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThemesMenuGet'
+        '400':
+          $ref: '#/components/responses/Get'
   /api/v1/market_summary:
     get:
       tags:
@@ -863,6 +919,22 @@ paths:
         Get MarketSummary
       operationId: Get_MarketSummary
       security: []
+      parameters:
+        - name: group_name
+          in: query
+          description: group
+          schema:
+            type: boolean
+        - name: sub_group_name
+          in: query
+          description: sub_group_name
+          schema:
+            type: boolean
+        - name: filter
+          in: query
+          description: Filter ytd,1m,3m,1Y,all
+          schema:
+            type: boolean
       responses:
         '200':
           description: Success
@@ -879,6 +951,12 @@ paths:
         Get EconomicCalendars
       operationId: Get_EconomicCalendars
       security: []
+      parameters:
+        - name: group_name
+          in: query
+          description: Filter group name today,yesterday,tomorrow,thisWeek
+          schema:
+            type: boolean
       responses:
         '200':
           description: Success
@@ -1056,10 +1134,33 @@ paths:
       get:
         tags:
           - Feed
-        summary: Get Feed
+        summary: Get Feed List
         description: |
-          Get Feed
-        operationId: Get_Feed
+          Get Feed List
+        operationId: Get_Feed_List
+        security: []
+        parameters:
+          - name: category
+            in: path
+            description: category
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GetFeed'
+    Trading:
+      get:
+        tags:
+          - Feed
+        summary: Get Feed Trading
+        description: |
+          Get Feed Trading
+        operationId: Get_Feed_Trading
         security: []
         responses:
           '200':
@@ -1068,6 +1169,93 @@ paths:
               application/json:
                 schema:
                   $ref: '#/components/schemas/GetFeed'
+    GetFeedOther:
+      get:
+        tags:
+          - Feed
+        summary: Get Feed Other
+        description: |
+          Get Feed Other
+        operationId: Get_Feed_Other
+        security: []
+        parameters:
+          - name: category
+            in: query
+            description: category
+            required: true
+            schema:
+              type: string
+          - name: content_type
+            in: query
+            description: content type
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GetFeedOther'
+    GetFeedMonth:
+      get:
+        tags:
+          - Feed
+        summary: Get Feed Month
+        description: |
+          Get Feed Month
+        operationId: Get_Feed_Month
+        security: []
+        parameters:
+          - name: category
+            in: query
+            description: category
+            required: true
+            schema:
+              type: string
+          - name: content_type
+            in: query
+            description: content type
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GetFeedMonth'
+    GetFeedRecommended:
+      get:
+        tags:
+          - Feed
+        summary: Get Feed Recommended
+        description: |
+          Get Feed Recommended
+        operationId: Get_Feed_Recommended
+        security: []
+        parameters:
+          - name: category
+            in: query
+            description: category
+            required: true
+            schema:
+              type: string
+          - name: content_type
+            in: query
+            description: content type
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/GetFeedRecommended'
     CreateFeed:
       post:
         tags:
@@ -1179,22 +1367,93 @@ paths:
           $ref: '#/components/responses/Create'
         '400':
           $ref: '#/components/responses/Problem_Create'
-  /api/v1/feed/list:
+  /api/v1/feed/other:
     get:
       tags:
         - Feed
-      summary: Get Feed
+      summary: Get Feed Other
       description: |
-        Get Feed
-      operationId: Get_Feed
+        Get Feed Other
+      operationId: Get_Feed_Other
       security: []
+      parameters:
+        - name: category
+          in: query
+          description: category
+          required: true
+          schema:
+            type: string
+        - name: content_type
+          in: query
+          description: content type
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetFeed'
+                $ref: '#/components/schemas/GetFeedOther'
+  /api/v1/feed/month:
+    get:
+      tags:
+        - Feed
+      summary: Get Feed Month
+      description: |
+        Get Feed Month
+      operationId: Get_Feed_Month
+      security: []
+      parameters:
+        - name: category
+          in: query
+          description: category
+          required: true
+          schema:
+            type: string
+        - name: content_type
+          in: query
+          description: content type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeedMonth'
+  /api/v1/feed/recommended:
+    get:
+      tags:
+        - Feed
+      summary: Get Feed Recommended
+      description: |
+        Get Feed Recommended
+      operationId: Get_Feed_Recommended
+      security: []
+      parameters:
+        - name: category
+          in: query
+          description: category
+          required: true
+          schema:
+            type: string
+        - name: content_type
+          in: query
+          description: content type
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeedRecommended'
   /api/v1/feed/{feed_id}:
     delete:
       tags:
@@ -1243,6 +1502,45 @@ paths:
           $ref: '#/components/responses/Update'
         '400':
           $ref: '#/components/responses/Problem_Update'
+  /api/v1/feed/list:
+    get:
+      tags:
+        - Feed
+      summary: Get Feed List
+      description: |
+        Get Feed List
+      operationId: Get_Feed_List
+      security: []
+      parameters:
+        - name: category
+          in: path
+          description: category
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeed'
+  /api/v1/feed/trading:
+    get:
+      tags:
+        - Feed
+      summary: Get Feed Trading
+      description: |
+        Get Feed Trading
+      operationId: Get_Feed_Trading
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetFeed'
   /api/v1/search:
     post:
       tags:
@@ -1256,12 +1554,16 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SearchResponse'
+              $ref: '#/components/schemas/Search'
         description: requestBody description
         required: true
       responses:
         '200':
-          $ref: '#/components/responses/Create'
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
         '400':
           $ref: '#/components/responses/Problem_Create'
   /api/v1/search/recent/{customer_id}:
@@ -1278,12 +1580,16 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchResponse'
+                $ref: '#/components/schemas/Search'
           description: requestBody description
           required: true
         responses:
           '200':
-            $ref: '#/components/responses/Create'
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SearchResponse'
           '400':
             $ref: '#/components/responses/Problem_Create'
     get:
@@ -1351,6 +1657,54 @@ paths:
           $ref: '#/components/responses/Delete'
         '400':
           $ref: '#/components/responses/Problem_Delete'
+    SearchSuggestion:
+      get:
+        tags:
+          - Search
+        summary: Get Search Suggestion
+        description: Get Search Suggestion
+        operationId: Get_Search_Suggestion
+        security: []
+        parameters:
+          - name: search
+            in: query
+            description: search
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Success
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/SearchSuggestion'
+          '400':
+            $ref: '#/components/responses/Get'
+  /api/v1/search/SearchSuggestion:
+    get:
+      tags:
+        - Search
+      summary: Get Search Suggestion
+      description: Get Search Suggestion
+      operationId: Get_Search_Suggestion
+      security: []
+      parameters:
+        - name: search
+          in: query
+          description: search
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchSuggestion'
+        '400':
+          $ref: '#/components/responses/Get'
   /api/v1/search/recent/all/{customer_id}:
     delete:
       tags:
@@ -1481,6 +1835,106 @@ paths:
           $ref: '#/components/responses/Update'
         '400':
           $ref: '#/components/responses/Problem_Update'
+  /api/v1/personal_wisdom:
+    get:
+      tags:
+        - Profile
+      summary: Get Wisdom
+      description: |
+        Get Wisdom
+      operationId: Get_Wisdom
+      security: []
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Wisdom'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/personal_device:
+    get:
+      tags:
+        - Profile
+      summary: Get Device
+      description: |
+        Get Device
+      operationId: Get_Device
+      security: []
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Device'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/personal_contact_rm:
+    get:
+      tags:
+        - Profile
+      summary: Get ContactRm
+      description: |
+        Get ContactRm
+      operationId: Get_ContactRm
+      security: []
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactRm'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/personal_interest:
+    get:
+      tags:
+        - Profile
+      summary: Get Interest
+      description: |
+        Get Interest
+      operationId: Get_Interest
+      security: []
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Interest'
+        '400':
+          $ref: '#/components/responses/Get'
 components:
   schemas:
     Banner:
@@ -1834,19 +2288,52 @@ components:
     TagGet:
       type: object
       properties:
-        tag_name:
-          type: string
-        item_id:
+        tag:
           type: array
           items:
-            type: number
+            type: object
+            properties:
+              asset:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    product_id:
+                      type: number
+                    fund_code:
+                      type: string
+              feed:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    feed_id:
+                      type: number
+                    fee_title:
+                      type: string
+                    dateTime:
+                      type: number
+                    tag:
+                      tpye: array
+                      items:
+                        type: object
+                        properties:
+                          tag_name:
+                            type: string
+                          tag_id:
+                            type: number
       example:
-        tag_name: แนะนำ
-        item_id:
-          - 1
-          - 2
-          - 3
-          - 4
+        tag:
+          - asset:
+              - product_id: 1
+                fund_code: SET
+          - feed:
+              - feed_id: 1
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
     TagPost:
       type: object
       properties:
@@ -1877,43 +2364,60 @@ components:
     ThemesGet:
       type: object
       properties:
-        theme_id:
+        id:
           type: integer
-        theme_name:
+        name:
           type: string
-        sub_themes:
+        icon:
+          type: string
+        products:
           type: array
           items:
             type: object
             properties:
-              id:
+              product_id:
                 type: integer
-              name:
+      example:
+        id: 1
+        name: K-Asset
+        icon: K-Asset
+        products:
+          - product_id: 1
+          - product_id: 2
+    ThemesMenuGet:
+      type: object
+      properties:
+        menus:
+          tpye: array
+          items:
+            type: object
+            properties:
+              theme_id:
+                type: integer
+              theme_name:
                 type: string
-              icon:
-                type: string
-              products:
+              sub_themes:
                 type: array
                 items:
                   type: object
                   properties:
-                    product_id:
+                    id:
                       type: integer
+                    name:
+                      type: string
+                    icon:
+                      type: string
       example:
-        theme_id: 1
-        theme_name: กองทุนรวม
-        sub_themes:
-          - id: 1
-            name: K-Asset
-            icon: K-Asset
-            products:
-              - product_id: 1
-              - product_id: 2
-          - id: 2
-            name: กองภาษี
-            products:
-              - product_id: 3
-              - product_id: 4
+        menus:
+          - theme_id: 1
+            theme_name: กองทุนรวม
+            sub_themes:
+              - id: 1
+                name: K-Asset
+                icon: K-Asset
+              - id: 2
+                name: กองภาษี
+                icon: กองภาษี
     GetMarketSummary:
       type: object
       properties:
@@ -1966,46 +2470,28 @@ components:
     GetEconomicCalendars:
       type: object
       properties:
+        group_name:
+          type: string
         data:
           type: array
           items:
             type: object
             properties:
-              group_name:
+              product_id:
+                type: integer
+              national_flag:
                 type: string
-              data:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: integer
-                    national_flag:
-                      type: string
-                    date_time:
-                      type: integer
+              date_time:
+                type: integer
       example:
+        group_name: yesterday
         data:
-          - group_name: yesterday
-            data:
-              - product_id: 1
-                national_flag: thai
-                date_time: 1678629811
-          - group_name: today
-            data:
-              - product_id: 2
-                national_flag: thai
-                date_time: 1678629811
-          - group_name: tomorrow
-            data:
-              - product_id: 3
-                national_flag: thai
-                date_time: 1678629811
-          - group_name: ThisWeek
-            data:
-              - product_id: 4
-                national_flag: thai
-                date_time: 1678629811
+          - product_id: 1
+            national_flag: thai
+            date_time: 1678629811
+          - product_id: 2
+            national_flag: eng
+            date_time: 1678629811
     FeedTagCreate:
       type: object
       properties:
@@ -2133,6 +2619,146 @@ components:
           - 2
           - 3
         type: privateBanking
+    GetFeedOther:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              feed_id:
+                type: integer
+              feed_title:
+                type: string
+              dateTime:
+                type: integer
+              tag:
+                type: array
+                items:
+                  type: string
+      example:
+        data:
+          - feed_id: 1
+            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+            dateTime: 1678637816
+            tag:
+              - ข่าวสาร
+              - สินค้า
+          - feed_id: 2
+            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+            dateTime: 1678637816
+            tag:
+              - ข่าวสาร
+              - สินค้า
+    GetFeedMonth:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              month_name:
+                type: number
+              contents:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    feed_id:
+                      type: integer
+                    feed_title:
+                      type: string
+                    dateTime:
+                      type: integer
+                    tag:
+                      type: array
+                      items:
+                        type: string
+      example:
+        data:
+          - month_name: 3
+            contents:
+              - feed_id: 1
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
+              - feed_id: 2
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
+          - month_name: 2
+            contents:
+              - feed_id: 1
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
+              - feed_id: 2
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
+          - month_name: 1
+            contents:
+              - feed_id: 1
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
+              - feed_id: 2
+                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+                dateTime: 1678637816
+                tag:
+                  - ข่าวสาร
+                  - สินค้า
+    GetFeedRecommended:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              feed_id:
+                type: integer
+              feed_title:
+                type: string
+              dateTime:
+                type: integer
+              tag:
+                type: array
+                items:
+                  type: string
+      example:
+        data:
+          - feed_id: 1
+            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+            dateTime: 1678637816
+            tag:
+              - ข่าวสาร
+              - สินค้า
+          - feed_id: 2
+            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+            dateTime: 1678637816
+            tag:
+              - ข่าวสาร
+              - สินค้า
+    LikeUpdate:
+      type: object
+      properties:
+        like_count:
+          type: number
+      example:
+        like_count: 10
     GetFeed:
       type: object
       properties:
@@ -2141,74 +2767,42 @@ components:
           items:
             type: object
             properties:
-              group_name:
+              feed_id:
+                type: integer
+              feed_title:
                 type: string
-              private:
+              dateTime:
+                type: integer
+              tag:
                 type: array
                 items:
-                  type: object
-                  properties:
-                    feed_id:
-                      type: integer
-                    feed_title:
-                      type: string
-                    dateTime:
-                      type: integer
-                    tag:
-                      type: array
-                      items:
-                        type: string
-              general:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    feed_id:
-                      type: integer
-                    feed_title:
-                      type: string
-                    dateTime:
-                      type: integer
-                    tag:
-                      type: array
-                      items:
-                        type: string
+                  type: string
       example:
         data:
-          - group_name: latest
-            private:
-              - feed_id: 1
-                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-                dateTime: 1678637816
-                tag:
-                  - ข่าวสาร
-                  - สินค้า
-              - feed_id: 2
-                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-                dateTime: 1678637816
-                tag:
-                  - ข่าวสาร
-                  - สินค้า
-            general:
-              - feed_id: 1
-                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-                dateTime: 1678637816
-                tag:
-                  - ข่าวสาร
-                  - สินค้า
-              - feed_id: 2
-                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-                dateTime: 1678637816
-                tag:
-                  - ข่าวสาร
-                  - สินค้า
-    LikeUpdate:
+          - feed_id: 1
+            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+            dateTime: 1678637816
+            tag:
+              - ข่าวสาร
+              - สินค้า
+          - feed_id: 2
+            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
+            dateTime: 1678637816
+            tag:
+              - ข่าวสาร
+              - สินค้า
+    Search:
       type: object
       properties:
-        like_count:
-          type: number
+        search:
+          type: string
+        search_type:
+          type: string
+        search_filter:
+          type: string
       example:
-        like_count: 10
+        search: K-2500
+        search_type: invest
     SearchResponse:
       type: object
       properties:
@@ -2228,19 +2822,19 @@ components:
                 properties:
                   product_id:
                     type: number
+                  product_name:
+                    type: string
       example:
         type_search: invest
         data:
           - theme_name: กองทุนรวม
             product:
               - product_id: 1
+                product_name: K-2500
           - theme_name: ตราสารนี้
             product:
               - product_id: 2
-          - theme_name: ทั้งหมด
-            product:
-              - product_id: 1
-              - product_id: 2
+                product_name: K-2500-A
     SearchRecent:
       type: object
       properties:
@@ -2260,9 +2854,6 @@ components:
                     type: number
       example:
         data:
-          - theme_name: ทั้งหมด
-            product:
-              - product_id: 1
           - theme_name: สินทรัพย์
             product:
               - product_id: 2
@@ -2270,6 +2861,26 @@ components:
             product:
               - product_id: 1
               - product_id: 2
+    SearchSuggestion:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              product_id:
+                tpye: number
+              product_name: string
+              type: string
+      example:
+        data:
+          - product_id: 1
+            product_name: K-2500
+            type: สินทรัพย์
+          - product_id: 1
+            product_name: K-2500-A
+            type: สินทรัพย์
     PersonalInfo:
       type: object
       properties:
@@ -2307,6 +2918,93 @@ components:
           type: string
       example:
         phone_number: '0811427077'
+    Wisdom:
+      type: object
+      properties:
+        link:
+          type: string
+      example:
+        link: wisdomlink
+    Device:
+      type: object
+      properties:
+        device:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+      example:
+        device:
+          - name: device1
+          - name: device2
+          - name: device3
+    ContactRm:
+      type: object
+      properties:
+        name:
+          type: string
+        phone_number:
+          type: string
+        email:
+          type: string
+        employee_id:
+          type: string
+      example:
+        name: Somchai Charoenpol
+        phone_number: '0983214155'
+        emal: somchai.c@gmail.com
+        employee_id: RM22300888
+    Interest:
+      type: object
+      properties:
+        popular_topic:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              status:
+                type: boolean
+        asset_topic:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              status:
+                type: boolean
+        news_world_topic:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              status:
+                type: boolean
+      example:
+        popular_topic:
+          - id: 1
+            name: เทคโนโลยี
+            status: true
+        asset_topic:
+          - id: 2
+            name: กองทุนรวม
+            status: true
+        news_world_topic:
+          - id: 3
+            name: ความเคลื่อนไหวรอบโลก
+            status: true
   responses:
     Update:
       description: Success

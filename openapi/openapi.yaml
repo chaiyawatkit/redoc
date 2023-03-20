@@ -127,6 +127,8 @@ paths:
     $ref: paths/feed.yaml/#/UpdateLike
   /api/v1/feed/list:
     $ref: paths/feed.yaml/#/GetFeed
+  /api/v1/feed/trading:
+    $ref: paths/feed.yaml/#/Trading
 
   # //Search
   /api/v1/search:
@@ -152,3 +154,9 @@ paths:
     $ref: paths/profile.yaml/#/UpdatePhoneNumber
   /api/v1/personal_wisdom:
     $ref: paths/profile.yaml/#/Wisdom
+  /api/v1/personal_device:
+    $ref: paths/profile.yaml/#/Device
+  /api/v1/personal_contact_rm:
+    $ref: paths/profile.yaml/#/ContactRm
+  /api/v1/personal_interest:
+    $ref: paths/profile.yaml/#/Interest
