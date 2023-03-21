@@ -1,0 +1,416 @@
+AllCountNote:
+  get:
+    tags:
+      - Note
+    summary: Inquiry All Count Note
+    description: |
+      Inquiry All Count Note
+    operationId: Inquiry_AllCountNote
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/AllCountNote
+
+NoteAssetList:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Asset List
+    description:
+      Inquiry Note Asset List
+    operationId: Inquiry_NoteAssetList
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NoteAssetList
+
+SearchNoteAsset:
+  get:
+    tags:
+      - Note
+    summary: Search Note Asset
+    description:
+      Search Note Asset
+    operationId: Inquiry_SearchNoteAsset
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+      - name: search_message
+        in: path
+        description: search message
+        required: true
+        schema:
+          type: string
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NoteAssetList
+
+CreateNoteAsset:
+  post:
+    tags:
+      - Note
+    summary: Create Note Asset
+    description:
+      Create Note Asset
+    operationId: Create_NoteAsset
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/NoteAssetPost
+      description: Note Asset Detail
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+NoteAsset:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Asset Detail
+    description:
+      Inquiry Note Asset Detail
+    operationId: Inquiry_NoteAssetDetail
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NoteAssetDetail
+  put:
+    tags:
+      - Note
+    summary: Edit Note Asset
+    description:
+      Edit Note Asset
+    operationId: Edit_NoteAsset
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+  delete:
+    tags:
+      - Note
+    summary: Delete Note Asset
+    description:
+      Delete Note Asset
+    operationId: Delete_NoteAsset
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+CreateNoteEvent:
+  post:
+    tags:
+      - Note
+    summary: Create Note Event
+    description:
+      Create Note Event
+    operationId: Create_NoteEvent
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/NoteEventPost
+      description: Note Event Detail
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+NoteEvent:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Event Detail
+    description:
+      Inquiry Note Event Detail
+    operationId: Inquiry_NoteEventDetail
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NoteEventDetail
+  put:
+    tags:
+      - Note
+    summary: Edit Note Event
+    description:
+      Edit Note Event
+    operationId: Edit_NoteEvent
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+  delete:
+    tags:
+      - Note
+    summary: Delete Note Event
+    description:
+      Delete Note Event
+    operationId: Delete_NoteEvent
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+NotePortfolioList:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Portfolio List
+    description:
+      Inquiry Note Portfolio List
+    operationId: Inquiry_NotePortfolioList
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NotePortfolioList
+
+CreateNotePortfolio:
+  post:
+    tags:
+      - Note
+    summary: Create Note Portfolio
+    description:
+      Create Note Portfolio
+    operationId: Create_NotePortfolio
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/NotePortfolioPost
+      description: Note Portfolio Detail
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+NotePortfolio:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Portfolio Detail
+    description:
+      Inquiry Note Portfolio Detail
+    operationId: Inquiry_NotePortfolioDetail
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NotePortfolioDetail
+  put:
+    tags:
+      - Note
+    summary: Edit Note Portfolio
+    description:
+      Edit Note Portfolio
+    operationId: Edit_NotePortfolio
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+  delete:
+    tags:
+      - Note
+    summary: Delete Note Portfolio
+    description:
+      Delete Note Portfolio
+    operationId: Delete_NotePortfolio
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+NoteAlertList:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Alert List
+    description:
+      Inquiry Note Alert List
+    operationId: Inquiry_NoteAlertList
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NoteAlertList
+
+NoteAlert:
+  get:
+    tags:
+      - Note
+    summary: Inquiry Note Alert
+    description:
+      Inquiry Note Alert
+    operationId: Inquiry_NoteAlert
+    security: []
+    parameters:
+      - name: note_id
+        in: path
+        description: note id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/NoteAlert

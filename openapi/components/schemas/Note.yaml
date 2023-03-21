@@ -1,0 +1,191 @@
+AllCountNote:
+  type: object
+  properties:
+    note_asset:
+      type: integer
+      format: int
+    note_portfolio:
+      type: integer
+      format: int
+    note_bookmark:
+      type: integer
+      format: int
+  example:
+    {
+      "note_asset": 20,
+      "note_portfolio": 30,
+      "note_bookmark": 10
+    }
+
+NoteAssetPost:
+  type: object
+  properties:
+    input:
+      type: string
+  example:
+    input: '{
+      "note_id": 1
+    }'
+
+NoteAssetList:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          note_id:
+            type: integer
+            format: int
+  example:
+    {
+      "data":
+        [
+          {
+            "note_id": 1
+          }
+        ]
+    }
+
+NoteAssetDetail:
+  type: object
+  properties:
+    note_id:
+      type: integer
+      format: int
+  example:
+    {
+      "note_id": 1
+    }
+
+NoteEventPost:
+  type: object
+  properties:
+    input:
+      type: string
+  example:
+    input: '{
+      "note_id": 1
+    }'
+
+NoteEventList:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          note_id:
+            type: integer
+            format: int
+  example:
+    {
+      "data":
+        [
+          {
+            "note_id": 1
+          }
+        ]
+    }
+
+NoteEventDetail:
+  type: object
+  properties:
+    note_id:
+      type: integer
+      format: int
+  example:
+    {
+      "note_id": 1
+    }
+
+NotePortfolioPost:
+  type: object
+  properties:
+    input:
+      type: string
+  example:
+    input: '{
+      "note_id": 1
+    }'
+
+NotePortfolioList:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          note_id:
+            type: integer
+            format: int
+  example:
+    {
+      "data":
+        [
+          {
+            "note_id": 1
+          }
+        ]
+    }
+
+NotePortfolioDetail:
+  type: object
+  properties:
+    note_id:
+      type: integer
+      format: int
+  example:
+    {
+      "note_id": 1
+    }
+
+NoteAlert:
+  type: object
+  properties:
+    note_id:
+      type: integer
+      format: int
+    alert_1:
+      type: integer
+      format: int
+    alert_2:
+      type: integer
+      format: int
+    alert_3:
+      type: integer
+      format: int
+  example:
+    {
+      "note_id": 1,
+      "alert_1": 2,
+      "alert_2": 3,
+      "alert_3": 4
+    }
+
+NoteAlertList:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: NoteAlert
+  example:
+    data:
+      [
+        {
+          "note_id": 1,
+          "alert_1": 2,
+          "alert_2": 3,
+          "alert_3": 4
+        },
+        {
+          "note_id": 2,
+          "alert_1": 5,
+          "alert_2": 6,
+          "alert_3": 7
+        }
+      ]

@@ -1,0 +1,153 @@
+NotificationList:
+  get:
+    tags:
+      - Notification
+    summary: Inquiry Notification List
+    description:
+      Inquiry Notification List
+    operationId: Inquiry_NotificationList
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Notification.yaml/#/NotificationList
+  put:
+    tags:
+      - Notification
+    summary: Update All Notification Status
+    description:
+      Update All Notification Status
+    operationId: Update_AllNotificationStatus
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+  delete:
+    tags:
+      - Notification
+    summary: Delete All Notification
+    description:
+      Delete All Notification
+    operationId: Delete_AllNotification
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+CreateNotification:
+  post:
+    tags:
+      - Notification
+    summary: Push Notification
+    description:
+      Push Notification
+    operationId: Create_Notification
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Notification.yaml/#/NotificationPost
+      description: Notification Detail
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+Notification:
+  get:
+    tags:
+      - Notification
+    summary: Inquiry Notification Detail
+    description:
+      Inquiry Notification Detail
+    operationId: Inquiry_NotificationDetail
+    security: []
+    parameters:
+      - name: notification_id
+        in: path
+        description: notification id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Notification.yaml/#/Notification
+  put:
+    tags:
+      - Notification
+    summary: Update Notification Status
+    description:
+      Update Notification Status
+    operationId: Update_NotificationStatus
+    security: []
+    parameters:
+      - name: notification_id
+        in: path
+        description: notification id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+  delete:
+    tags:
+      - Notification
+    summary: Delete Notification
+    description:
+      Delete Notification
+    operationId: Delete_Notification
+    security: []
+    parameters:
+      - name: notification_id
+        in: path
+        description: notification id
+        required: true
+        schema:
+          type: integer
+          format: int
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete

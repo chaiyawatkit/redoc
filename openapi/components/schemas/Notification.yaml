@@ -1,0 +1,41 @@
+NotificationList:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: object
+        properties:
+          notification_id:
+            type: integer
+            format: int
+  example:
+    {
+      "data":
+        [
+          {
+            "notification_id": 1
+          }
+        ]
+    }
+
+NotificationPost:
+  type: object
+  properties:
+    input:
+      type: string
+  example:
+    input: '{
+      "notification_id": 1
+    }'
+
+Notification:
+  type: object
+  properties:
+    notification_id:
+      type: integer
+      format: int
+  example:
+    {
+      "notification_id": 1
+    }

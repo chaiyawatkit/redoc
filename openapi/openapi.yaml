@@ -34,6 +34,10 @@ tags:
     description: Search
   - name: Profile
     description: Profile
+  - name: Note
+    description: Note
+  - name: Notification
+    description: Notification
 servers:
   - url: "https://example.com"
 paths:
@@ -154,6 +158,40 @@ paths:
     $ref: paths/profile.yaml/#/UpdatePhoneNumber
   /api/v1/personal_wisdom:
     $ref: paths/profile.yaml/#/Wisdom
+
+  # //Note
+  /api/v1/note/count/{customer_id}:
+    $ref: paths/note.yaml/#/AllCountNote
+  /api/v1/note/asset/list/{customer_id}:
+    $ref: paths/note.yaml/#/NoteAssetList
+  /api/v1/note/asset/list/{customer_id}/{search_message}:
+    $ref: paths/note.yaml/#/SearchNoteAsset
+  /api/v1/note/asset:
+    $ref: paths/note.yaml/#/CreateNoteAsset
+  /api/v1/note/asset/{note_id}:
+    $ref: paths/note.yaml/#/NoteAsset
+  /api/v1/note/event:
+    $ref: paths/note.yaml/#/CreateNoteEvent
+  /api/v1/note/event/{note_id}:
+    $ref: paths/note.yaml/#/NoteEvent
+  /api/v1/note/portfolio/list/{customer_id}:
+    $ref: paths/note.yaml/#/NotePortfolioList
+  /api/v1/note/portfolio:
+    $ref: paths/note.yaml/#/CreateNotePortfolio
+  /api/v1/note/portfolio/{note_id}:
+    $ref: paths/note.yaml/#/NotePortfolio
+  /api/v1/note/alert/list/{customer_id}:
+    $ref: paths/note.yaml/#/NoteAlertList
+  /api/v1/note/alert/{note_id}:
+    $ref: paths/note.yaml/#/NoteAlert
+
+  # //Notification
+  /api/v1/notification/all/{customer_id}:
+    $ref: paths/notification.yaml/#/NotificationList
+  /api/v1/notification:
+    $ref: paths/notification.yaml/#/CreateNotification
+  /api/v1/notification/{notification_id}:
+    $ref: paths/notification.yaml/#/Notification
   /api/v1/personal_device:
     $ref: paths/profile.yaml/#/Device
   /api/v1/personal_contact_rm:
