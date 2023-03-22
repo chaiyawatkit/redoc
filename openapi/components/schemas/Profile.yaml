@@ -159,3 +159,119 @@ Interest:
       ]
    
     }
+
+SettingEmail:
+  type: object
+  properties:
+    notification_type:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+          status:
+            type: boolean
+  example: {
+    "notification_type": [
+      {
+        "id": 1,
+        "name": "รายการธุรกรรม",
+        "status": true
+      },
+      {
+        "id": 2,
+        "name": "เข้าสู่ระบบ",
+        "status": true
+      },
+      {
+        "id": 3,
+        "name": "เปลี่ยนรหัส PIN",
+        "status": true
+      },
+      {
+        "id": 4,
+        "name": "เปลี่ยนเครื่อง Device",
+        "status": true
+      }
+    ]
+  }
+
+SettingEmailNotification:
+  type: object
+  properties:
+    notification_display:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+          status:
+            type: boolean
+    notification_type:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: number
+          name:
+            type: string
+          status:
+            type: boolean
+  example: {
+    notification_display:[
+      {
+        "id": 1,
+        "name": "แสดงบนหน้าจอล็อก",
+        "status": true
+      },
+    ],
+    "notification_type": [
+      {
+        "id": 1,
+        "name": "ทั้งหมด",
+        "status": true
+      },
+      {
+        "id": 2,
+        "name": "ประกาศ",
+        "status": true
+      },
+      {
+        "id": 3,
+        "name": "สินทรัพย์และธุรกรรม",
+        "status": true
+      },
+      {
+        "id": 4,
+        "name": "บันทึกและแจ้งเตือน",
+        "status": true
+      }
+    ]
+  }
+
+VerifyEmail:
+  type: object
+  properties:
+    token_verify:
+      type: string
+  example: {
+    "token_verify": "facd0870-8823-4340-8008-6220401388c2" 
+  }
+
+
+
+UpdateProfile:
+  type: object
+  properties:
+    file:
+      type: string
+  example: {
+    "file": "profile.png" 
+  }

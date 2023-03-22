@@ -160,3 +160,12 @@ paths:
     $ref: paths/profile.yaml/#/ContactRm
   /api/v1/personal_interest:
     $ref: paths/profile.yaml/#/Interest
+  # ///////
+  /api/v1/personal_setting_email:
+    $ref: paths/profile.yaml/#/SettingEmail
+  /api/v1/personal_setting_notification:
+   $ref: paths/profile.yaml/#/SettingNotification
+  /api/v1/personal_verify_email:
+    $ref: paths/profile.yaml/#/VerifyEmail
+  /api/v1/personal_update_profile:
+    $ref: paths/profile.yaml/#/UpdateProfile

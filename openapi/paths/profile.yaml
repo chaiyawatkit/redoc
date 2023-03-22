@@ -212,3 +212,108 @@ Interest:
               $ref: ../components/schemas/Profile.yaml/#/Interest
       "400":
         $ref: ../components/responses/Problem.yaml/#/Get
+
+
+
+
+SettingEmail:
+  put:
+    tags:
+      - Profile
+    summary: Update SettingEmail
+    description: |
+      Update SettingEmail
+    operationId: Update_SettingEmail
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/SettingEmail
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+SettingNotification:
+  put:
+    tags:
+      - Profile
+    summary: Update Setting Notification
+    description: |
+      Update Setting Notification
+    operationId: Update_Setting_Notification
+    security: []
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/SettingEmailNotification
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Update
+VerifyEmail:
+  post:
+    tags:
+      - Profile
+    summary: Update Verify Email
+    description: |
+      Update Verify Email
+    operationId: Update_Verify_Email
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/VerifyEmail
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+UpdateProfile:
+  post:
+    tags:
+      - Profile
+    summary: Update Update Profile
+    description: |
+      Update Update Profile
+    operationId: Update_Update_Profile
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/UpdateProfile
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Create
+
+
