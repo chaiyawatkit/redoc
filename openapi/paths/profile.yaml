@@ -52,7 +52,7 @@ UpdateCurrentAddress:
       "400":
         $ref: ../components/responses/Problem.yaml/#/Update
 UpdateEmail:
-  put:
+  post:
     tags:
       - Profile
     summary: Update Email
@@ -276,10 +276,10 @@ VerifyEmail:
   post:
     tags:
       - Profile
-    summary: Update Verify Email
+    summary:  Verify Email
     description: |
-      Update Verify Email
-    operationId: Update_Verify_Email
+       Verify Email
+    operationId: Verify_Email
     security: []
     requestBody:
       content:
@@ -317,3 +317,28 @@ UpdateProfile:
         $ref: ../components/responses/Problem.yaml/#/Create
 
 
+ResendEmail:
+  post:
+    tags:
+      - Profile
+    summary: Resend Email
+    description: |
+       Resend Email
+    operationId: Resend_Email
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Profile.yaml/#/Email
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Profile.yaml/#/ResendEmail
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get

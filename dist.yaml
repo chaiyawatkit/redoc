@@ -1780,7 +1780,7 @@ paths:
         '400':
           $ref: '#/components/responses/Problem_Update'
   /api/v1/profile_email/{customer_id}:
-    put:
+    post:
       tags:
         - Profile
       summary: Update Email
@@ -1935,6 +1935,129 @@ paths:
                 $ref: '#/components/schemas/Interest'
         '400':
           $ref: '#/components/responses/Get'
+  /api/v1/personal_setting_email:
+    put:
+      tags:
+        - Profile
+      summary: Update SettingEmail
+      description: |
+        Update SettingEmail
+      operationId: Update_SettingEmail
+      security: []
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingEmail'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+        '400':
+          $ref: '#/components/responses/Problem_Update'
+  /api/v1/personal_setting_notification:
+    put:
+      tags:
+        - Profile
+      summary: Update Setting Notification
+      description: |
+        Update Setting Notification
+      operationId: Update_Setting_Notification
+      security: []
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SettingEmailNotification'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+        '400':
+          $ref: '#/components/responses/Problem_Update'
+  /api/v1/personal_update_profile:
+    post:
+      tags:
+        - Profile
+      summary: Update Update Profile
+      description: |
+        Update Update Profile
+      operationId: Update_Update_Profile
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProfile'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Create'
+        '400':
+          $ref: '#/components/responses/Problem_Create'
+  /api/v1/resend_email:
+    post:
+      tags:
+        - Profile
+      summary: Resend Email
+      description: |
+        Resend Email
+      operationId: Resend_Email
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Email'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResendEmail'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/verify_email:
+    post:
+      tags:
+        - Profile
+      summary: Verify Email
+      description: |
+        Verify Email
+      operationId: Verify_Email
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyEmail'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Create'
+        '400':
+          $ref: '#/components/responses/Problem_Create'
 components:
   schemas:
     Banner:
@@ -3005,6 +3128,101 @@ components:
           - id: 3
             name: ความเคลื่อนไหวรอบโลก
             status: true
+    SettingEmail:
+      type: object
+      properties:
+        notification_type:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              status:
+                type: boolean
+      example:
+        notification_type:
+          - id: 1
+            name: รายการธุรกรรม
+            status: true
+          - id: 2
+            name: เข้าสู่ระบบ
+            status: true
+          - id: 3
+            name: เปลี่ยนรหัส PIN
+            status: true
+          - id: 4
+            name: เปลี่ยนเครื่อง Device
+            status: true
+    SettingEmailNotification:
+      type: object
+      properties:
+        notification_display:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              status:
+                type: boolean
+        notification_type:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: number
+              name:
+                type: string
+              status:
+                type: boolean
+      example:
+        notification_display:
+          - id: 1
+            name: แสดงบนหน้าจอล็อก
+            status: true
+        notification_type:
+          - id: 1
+            name: ทั้งหมด
+            status: true
+          - id: 2
+            name: ประกาศ
+            status: true
+          - id: 3
+            name: สินทรัพย์และธุรกรรม
+            status: true
+          - id: 4
+            name: บันทึกและแจ้งเตือน
+            status: true
+    UpdateProfile:
+      type: object
+      properties:
+        file:
+          type: string
+      example:
+        file: profile.png
+    ResendEmail:
+      type: object
+      properties:
+        ref_code:
+          type: string
+      example:
+        ref_code: a23Bd
+    VerifyEmail:
+      type: object
+      properties:
+        verify:
+          type: number
+        ref_code:
+          type: string
+      example:
+        verify: '2345'
+        ref_code: aB2V
   responses:
     Update:
       description: Success

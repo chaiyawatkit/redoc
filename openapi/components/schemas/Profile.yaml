@@ -17,6 +17,17 @@ PersonalInfo:
       "work_address": "bangkok",
     }
 
+ResendEmail:
+  type: object
+  properties:
+    ref_code:
+      type: string
+    
+  example:
+    {
+      "ref_code": "a23Bd",
+    }
+
 Wisdom:
   type: object
   properties:
@@ -259,10 +270,13 @@ SettingEmailNotification:
 VerifyEmail:
   type: object
   properties:
-    token_verify:
+    verify:
+      type: number
+    ref_code:
       type: string
   example: {
-    "token_verify": "facd0870-8823-4340-8008-6220401388c2" 
+    "verify": "2345",
+    "ref_code": "aB2V" 
   }
 
 
