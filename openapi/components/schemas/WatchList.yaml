@@ -56,6 +56,63 @@ WatchListPost:
       ]
     }'
 
+UpdateNameWatchList:
+  type: array
+  items:
+    type: object
+    properties:
+      watchlistName:
+        type: string
+      watchlistId:
+        type: number
+  example: [
+    {
+      "watchlistName": "รายการโปรด1",
+      "watchlistId": 1
+    },
+    {
+      "watchlistName": "รายการโปรด2",
+      "watchlistId": 2
+    },
+    {
+      "watchlistName": "รายการโปรด3",
+      "watchlistId": 3
+    },
+    {
+      "watchlistName": "รายการโปรด4",
+      "watchlistId": 4
+    }
+  ]
+
+DeleteAssetsInWatchList:
+  type: object
+  properties:
+    watchlistId:
+      type: number
+    assets:
+      type: array
+      items:
+        type: object
+        properties:
+          assetID:
+            type: number
+  example:  {
+    "watchlistId":1,
+    "assets": [
+        {
+          "assetID": 1
+        },
+        {
+          "assetID": 2
+        },
+        {
+          "assetID": 3
+        }
+      ],
+    }
+
+  
+
 WatchListGet:
   type: object
   properties:
@@ -118,6 +175,21 @@ WatchListGet:
     ]
   }
 
-
-          
+PositionAssest:
+  type: object
+  properties:
+    watchlistId:
+      type: number
+    assetId:
+      type: number
+    positionNew:
+      type: number
+    positionCurrent:
+      type: number
+  example: {
+    "watchlistId": 1,
+    "assetId": 1,
+    "positionNew": 2,
+    "positionCurrent": 1
+    }
 

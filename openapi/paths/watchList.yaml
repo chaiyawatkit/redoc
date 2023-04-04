@@ -1,25 +1,84 @@
        
-CreateWatchList:
+UpdateNameWatchList:
   post:
     tags:
       - WatchList
-    summary: Create WatchList
+    summary: Update Name WatchList
     description: |
-      Create WatchList
-    operationId: Create_WatchList
+      Update Name WatchList
+    operationId: Update_Name_WatchList
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
     security: []
     requestBody:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/WatchList.yaml/#/WatchListPost
+            $ref: ../components/schemas/WatchList.yaml/#/UpdateNameWatchList
       description: requestBody description
       required: true
     responses:
       "200":
-        $ref: ../components/responses/Success.yaml/#/Create
+        $ref: ../components/responses/Success.yaml/#/Update
       
-   
+DeleteAssets:
+  post:
+    tags:
+      - WatchList
+    summary: Delete Assets in WatchList
+    description: |
+      Delete Assets in WatchList
+    operationId: Delete_Assets_in_WatchList
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/WatchList.yaml/#/DeleteAssetsInWatchList
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+
+PositionAssest:
+  post:
+    tags:
+      - WatchList
+    summary: PositionAssest
+    description: |
+      PositionAssest
+    operationId: Position_Assest
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/WatchList.yaml/#/PositionAssest
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
 put:
   tags:
     - WatchList

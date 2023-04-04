@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: AppFeature1
+  title: AppFeature2
   contact:
     email: contact@robowealth.co.th
   license:
@@ -10,165 +10,20 @@ info:
   description:
     $ref: ./info-description.md
 tags:
-  - name: Banner
-    description: Banner
-  - name: Portfolio
-    description: Portfolio
-  - name: QuickMenus
-    description: QuickMenus
-  - name: Menus
-    description: Menus
   - name: WatchList
     description: WatchList
-  - name: Tag
-    description: Tag
-  - name: AssetThemes
-    description: AssetThemes
-  - name: MarketSummary
-    description: MarketSummary
-  - name: EconomicCalendars
-    description: EconomicCalendars
-  - name: Feed
-    description: Feed
-  - name: Search
-    description: Search
-  - name: Profile
-    description: Profile
+  - name: Note
+    description: Note
 servers:
   - url: "https://example.com"
 paths:
-  /api/v1/banner:
-    $ref: paths/banner-list.yaml
-  /api/v1/banner/{id}:
-    $ref: paths/banner.yaml
-  # //Portfolio
-  /api/v1/portfolio/portfolio_balance/{customer_id}:
-    $ref: paths/portfolio.yaml
-  # //QuickMenus
-  /api/v1/quick_menus/list/{customer_id}:
-    $ref: paths/quick-menus.yaml
-  /api/v1/quick_menus:
-    $ref: paths/quick-menus-default.yaml/#/quickMenusGet
-  /api/v1/quick_menus/{quick_menu_id}:
-    $ref: paths/quick-menus-default.yaml/#/quickMenusPut
-  # //Menus
-  /api/v1/menus:
-    $ref: paths/menus.yaml
-  /api/v1/menus/{menu_id}:
-    $ref: paths/menus.yaml/#/UpdateMenus
-  /api/v1/menu_group:
-    $ref: paths/menus.yaml/#/CreateMenuGroup
-  /api/v1/menu_group/{menu_group_id}:
-    $ref: paths/menus.yaml/#/UpdateGroupMenus
-  /api/v1/menus_relationships:
-    $ref: paths/menus.yaml/#/CreateMenuRelationships
-  /api/v1/menus_relationships/{menu_relationship_id}:
-    $ref: paths/menus.yaml/#/UpdateMenuRelationships
-
   # //Watch List
-  /api/v1/watch_lists:
-    $ref: paths/watchList.yaml/#/CreateWatchList
   /api/v1/watch_list/list/{customer_id}:
     $ref: paths/watchList.yaml
-
-  # //Tag
-  /api/v1/tag:
-    $ref: paths/tag.yaml/#/CreateTag
-  /api/v1/tag/{tag_id}:
-    $ref: paths/tag.yaml
-
-  # //AssetThemes
-  /api/v1/themes:
-    $ref: paths/asset-themes.yaml/#/CreateThemes
-  /api/v1/sub_themes:
-    $ref: paths/asset-themes.yaml/#/CreateSubThemes
-  /api/v1/themes/{theme_id}:
-    $ref: paths/asset-themes.yaml
-
-  /api/v1/menu-themes:
-    $ref: paths/asset-themes.yaml/#/GetMenuAssetThemes
-
-  # //MarketSummary
-  /api/v1/market_summary:
-    $ref: paths/market-summary.yaml
-
-  # //EconomicCalendars
-  /api/v1/economic_calendars:
-    $ref: paths/economic-calendars.yaml
-
-  # //Feed
-  /api/v1/feed/tag:
-    $ref: paths/feed.yaml/#/CreateFeedTag
-
-  /api/v1/feed/tag/{tag_id}:
-    $ref: paths/feed.yaml
-
-  /api/v1/feed/sub_themes:
-    $ref: paths/feed.yaml/#/CreateSubCategory
-
-  /api/v1/feed/category:
-    $ref: paths/feed.yaml/#/CreateCategory
-
-  /api/v1/feed:
-    $ref: paths/feed.yaml/#/CreateFeed
-
-  /api/v1/feed/other:
-    $ref: paths/feed.yaml/#/GetFeedOther
-
-  /api/v1/feed/month:
-    $ref: paths/feed.yaml/#/GetFeedMonth
-
-  /api/v1/feed/recommended:
-    $ref: paths/feed.yaml/#/GetFeedRecommended
-
-  /api/v1/feed/{feed_id}:
-    $ref: paths/feed.yaml/#/DeleteFeed
-  /api/v1/feed/like/{feed_id}:
-    $ref: paths/feed.yaml/#/UpdateLike
-  /api/v1/feed/list:
-    $ref: paths/feed.yaml/#/GetFeed
-  /api/v1/feed/trading:
-    $ref: paths/feed.yaml/#/Trading
-
-  # //Search
-  /api/v1/search:
-    $ref: paths/search.yaml/#/Search
-
-  /api/v1/search/recent/{customer_id}:
-    $ref: paths/search.yaml
-
-  /api/v1/search/SearchSuggestion:
-    $ref: paths/search.yaml/#/SearchSuggestion
-
-  /api/v1/search/recent/all/{customer_id}:
-    $ref: paths/search.yaml/#/RecentDeleteAll
-
-  # //Profile
-  /api/v1/personal_info/{customer_id}:
-    $ref: paths/profile.yaml/#/PersonalInfo
-  /api/v1/profile_current_address/{customer_id}:
-    $ref: paths/profile.yaml/#/UpdateCurrentAddress
-  /api/v1/profile_email/{customer_id}:
-    $ref: paths/profile.yaml/#/UpdateEmail
-  /api/v1/profile_phone_number/{customer_id}:
-    $ref: paths/profile.yaml/#/UpdatePhoneNumber
-  /api/v1/personal_wisdom:
-    $ref: paths/profile.yaml/#/Wisdom
-  /api/v1/personal_device:
-    $ref: paths/profile.yaml/#/Device
-  /api/v1/personal_contact_rm:
-    $ref: paths/profile.yaml/#/ContactRm
-  /api/v1/personal_interest:
-    $ref: paths/profile.yaml/#/Interest
-  # ///////
-  /api/v1/personal_setting_email:
-    $ref: paths/profile.yaml/#/SettingEmail
-  /api/v1/personal_setting_notification:
-   $ref: paths/profile.yaml/#/SettingNotification
-  /api/v1/personal_update_profile:
-    $ref: paths/profile.yaml/#/UpdateProfile
-    
-  /api/v1/resend_email:
-    $ref: paths/profile.yaml/#/ResendEmail
-  /api/v1/verify_email:
-    $ref: paths/profile.yaml/#/VerifyEmail
+  /api/v1/watch_list/update-name:
+    $ref: paths/watchList.yaml/#/UpdateNameWatchList
+  /api/v1/watch_list/delete-assets:
+    $ref: paths/watchList.yaml/#/DeleteAssets
+  /api/v1/watch_list/position-assets:
+    $ref: paths/watchList.yaml/#/PositionAssest
+  
