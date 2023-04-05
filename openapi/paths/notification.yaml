@@ -1,0 +1,144 @@
+CountNotification:
+  get:
+    tags:
+      - Notification
+    summary: CountNotification
+    description: |
+      CountNotification
+    operationId: Count_Notification
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Notification.yaml/#/CountNotification
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+NotificationList:
+  get:
+    tags:
+      - Notification
+    summary: NotificationList
+    description: |
+      NotificationList
+    operationId: Notification_List
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: type notification
+        required: false
+        schema:
+          type: string
+
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Notification.yaml/#/NotificationList
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+  
+
+NotificationRead:
+  post:
+    tags:
+      - Notification
+    summary: NotificationRead
+    description: |
+      NotificationRead
+    operationId: Notification_Read
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Notification.yaml/#/NotificationRead
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+NotificationReadAll:
+  post:
+    tags:
+      - Notification
+    summary: NotificationReadAll
+    description: |
+      NotificationReadAll
+    operationId: Notification_Read_All
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+DeleteNotification:
+  post:
+    tags:
+      - Notification
+    summary: DeleteNotification
+    description: |
+      DeleteNotification
+    operationId: Delete_Notification
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+DeleteNotificationAll:
+  post:
+    tags:
+      - Notification
+    summary: DeleteNotificationAll
+    description: |
+      DeleteNotificationAll
+    operationId: Delete_Notification_All
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete

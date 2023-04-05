@@ -193,3 +193,78 @@ PositionAssest:
     "positionCurrent": 1
     }
 
+InsertAssetsToWatchList:
+  type: object
+  properties:
+    assetId:
+      type: number
+    watchlistId:
+        type: array
+        items:
+          type: number
+  example: {
+    "watchlistId": [1,2,3],
+    "assetId": 1,
+    }
+
+MoveWatchList:
+  type: object
+  properties:
+    currectWatchlist:
+      type: number
+    newWatchlist:
+      type: number
+    assets:
+      type: array
+      items:
+        type: object
+        properties:
+          assetID:
+            type: number
+  example:  {
+    "currectWatchlist":1,
+    "newWatchlist":2,
+    "assets": [
+        {
+          "assetID": 1
+        },
+        {
+          "assetID": 2
+        },
+        {
+          "assetID": 3
+        }
+      ],
+    }
+
+CopyWatchList:
+  type: object
+  properties:
+    currectWatchlist:
+      type: number
+    newWatchlist:
+      type: array
+      items:
+        type: number
+    assets:
+      type: array
+      items:
+        type: object
+        properties:
+          assetID:
+            type: number
+  example:  {
+    "currectWatchlist":1,
+    "newWatchlist":[2,3],
+    "assets": [
+        {
+          "assetID": 1
+        },
+        {
+          "assetID": 2
+        },
+        {
+          "assetID": 3
+        }
+      ],
+    }

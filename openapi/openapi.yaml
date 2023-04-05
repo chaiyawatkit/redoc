@@ -12,6 +12,8 @@ info:
 tags:
   - name: WatchList
     description: WatchList
+  - name: Notification
+    description: Notification
   - name: Note
     description: Note
 servers:
@@ -26,4 +28,26 @@ paths:
     $ref: paths/watchList.yaml/#/DeleteAssets
   /api/v1/watch_list/position-assets:
     $ref: paths/watchList.yaml/#/PositionAssest
+  /api/v1/watch_list/insert-assets:
+    $ref: paths/watchList.yaml/#/InsertAssetsToWatchList
+  /api/v1/watch_list/move:
+    $ref: paths/watchList.yaml/#/MoveWatchList
+  /api/v1/watch_list/copy:
+    $ref: paths/watchList.yaml/#/CopyWatchList
+    #// Notification
+  /api/v1/notification/count-notification:
+    $ref: paths/notification.yaml/#/CountNotification
+  /api/v1/notification/notification-list:
+    $ref: paths/notification.yaml/#/NotificationList
+  /api/v1/notification/notification-read:
+    $ref: paths/notification.yaml/#/NotificationRead
+  /api/v1/notification/notification-read-all:
+    $ref: paths/notification.yaml/#/NotificationReadAll
+  /api/v1/notification/delete-notification:
+    $ref: paths/notification.yaml/#/DeleteNotification
+  /api/v1/notification/delete-notification-all:
+    $ref: paths/notification.yaml/#/DeleteNotificationAll
+    
+
+
   

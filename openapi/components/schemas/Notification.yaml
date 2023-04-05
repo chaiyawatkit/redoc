@@ -1,0 +1,168 @@
+CountNotification:
+  type: object
+  properties:
+    notificationCount:
+      type: number
+  example:  {
+    "notificationCount":30,
+    }
+
+NotificationList:
+  type: object
+  properties:
+    today:
+      type: object
+      properties:
+        announce:
+          type: array
+          items:
+            type: object
+            properties:
+              notificationId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              subTitle:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+        note_and_noti:
+          type: array
+          items:
+            type: object
+            properties:
+              notificationId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              subTitle:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+        transaction:
+          type: array
+          items:
+            type: object
+            properties:
+              notificationId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              subTitle:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+        assets:
+          type: array
+          items:
+            type: object
+            properties:
+              notificationId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              subTitle:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+        etc:
+          type: array
+          items:
+            type: object
+            properties:
+              notificationId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              subTitle:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+  example: {
+    "today": {
+      "announce": [
+        {
+          "notification_id": 1,
+          "type": "announce",
+          "title": "เปิดเผย4 สไตล์การลงทุน ...",
+          "sub_title": "เปิดเผย4 สไตล์การลงทุน ...",
+          "created_date": 1680199522,
+          "link":""
+        }
+      ],
+      "note_and_noti": [
+        {
+          "notification_id": 1,
+          "type": "note_and_noti",
+          "title": "k-supstar-ssfx",
+          "sub_title": "ราคาเปลี่ยนแปลง",
+          "created_date": 1680199522,
+            "link":"",
+          "....": ""
+        }
+      ],
+      "transaction": [
+        {
+          "notification_id": 1,
+          "type": "transaction",
+          "title": "คำสั่งซื้อ k-supstar-ssfx",
+          "sub_title": "จำนวนหน่วย",
+          "created_date": 1680199522,
+          "link":"",
+          "....": ""
+        }
+      ],
+      "assets": [
+        {
+          "notification_id": 1,
+          "type": "assets",
+          "title": "คำสั่งซื้อ k-supstar-ssfx",
+          "sub_title": "จำนวนหน่วย",
+          "created_date": 1680199522,
+          "link":"",
+          "....": ""
+        }
+      ],
+      "etc": [
+        {
+          "notification_id": 1,
+          "type": "etc",
+          "title": "คำสั่งซื้อ k-supstar-ssfx",
+          "sub_title": "จำนวนหน่วย",
+          "created_date": 1680199522,
+          "link":"",
+          "....": ""
+        }
+      ]
+    }
+  }
+
+
+
+NotificationRead:
+  type: object
+  properties:
+    notificationId:
+      type: number
+  example: {"notificationId": 1}
+
