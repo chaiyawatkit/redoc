@@ -19,7 +19,7 @@ tags:
 servers:
   - url: "https://example.com"
 paths:
-  # //Watch List
+  #// Watch List
   /api/v1/watch_list/list/{customer_id}:
     $ref: paths/watchList.yaml
   /api/v1/watch_list/update-name:
@@ -47,7 +47,64 @@ paths:
     $ref: paths/notification.yaml/#/DeleteNotification
   /api/v1/notification/delete-notification-all:
     $ref: paths/notification.yaml/#/DeleteNotificationAll
+    #// Note
+  /api/v1/note/count-note:
+    $ref: paths/note.yaml/#/CountNote
+  /api/v1/note/insert-note-to-asset:
+    $ref: paths/note.yaml/#/InsertNoteToAsset
+  /api/v1/note/inquiry-note-detail:
+    $ref: paths/note.yaml/#/InquiryNoteDetail
+  /api/v1/note/update-note-detail:
+    $ref: paths/note.yaml/#/UpdateNoteDetail
+  /api/v1/note/delete-note:
+    $ref: paths/note.yaml/#/DeleteNote
+  /api/v1/note/inquiry-article-list:
+    $ref: paths/note.yaml/#/InquiryArticleList
+  /api/v1/note/inquiry-bookmarked:
+    $ref: paths/note.yaml/#/InquiryBookmarked
+  /api/v1/note/insert-articleNote-asset:
+    $ref: paths/note.yaml/#/InsertArticleNote
+  /api/v1/note/inquiry-count-all-type-note:
+    $ref: paths/note.yaml/#/CountAllTypeNote
+  /api/v1/note/inquiry-asset-list-related-Article:
+    $ref: paths/note.yaml/#/InquiryAssetListArticle
+
+   
+  /api/v1/note/insert-bookmark:
+    $ref: paths/note.yaml/#/InsertBookmark
+  /api/v1/note/insert-bookmark-asset-list:
+    $ref: paths/note.yaml/#/InsertBookmarkAssetList
+  /api/v1/note/inquiry-bookmarked-article-list:
+    $ref: paths/note.yaml/#/InquiryBookmarkedAssetList
+  /api/v1/note/delete-bookmarked-article:
+    $ref: paths/note.yaml/#/DeleteBookmarkedArticle
+  /api/v1/note/delete-asset-by-bookmark:
+    $ref: paths/note.yaml/#/DeleteAssetByBookmark
+  #// Card
+  /api/v1/note/inquiry-card-note:
+    $ref: paths/note.yaml/#/InquiryCardNote
+  /api/v1/note/inquiry-note-all:
+    $ref: paths/note.yaml/#/InquiryNoteAll
+
+  #// Alert
+  /api/v1/note/insert-alert-note:
+    $ref: paths/note.yaml/#/InsertAlertNote
     
+  #// Portfolio
+  /api/v1/note/insert-portfolio-note:
+    $ref: paths/note.yaml/#/InsertPortfolioNote
+  /api/v1/note/delete-portfolio-note:
+    $ref: paths/note.yaml/#/DeletePortfolioNote
+  /api/v1/note/delete-portfolio-note-all:
+    $ref: paths/note.yaml/#/DeletePortfolioNoteAll
 
 
   
+
+     
+  
+    
+
+
+     
+

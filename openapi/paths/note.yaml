@@ -1,0 +1,571 @@
+CountNote:
+  get:
+    tags:
+      - Note
+    summary: CountNote
+    description: |
+      CountNote
+    operationId: Count_Note
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/CountNote
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+InsertNoteToAsset:
+  post:
+    tags:
+      - Note
+    summary: InsertNoteToAsset
+    description: |
+      InsertNoteToAsset
+    operationId: Insert_Note_To_Asset
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/InsertNoteToAsset
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+InquiryNoteDetail:
+  get:
+    tags:
+      - Note
+    summary: InquiryNoteDetail
+    description: |
+      InquiryNoteDetail
+    operationId: Inquiry_Note_Detail
+    parameters:
+      - name: noteID
+        in: query
+        description: note id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryNoteDetail
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+UpdateNoteDetail:
+  post:
+    tags:
+      - Note
+    summary: UpdateNoteDetail
+    description: |
+      UpdateNoteDetail
+    operationId: Update_Note_Detail
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+      - name: noteID
+        in: query
+        description: note id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/UpdateNoteDetail
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+DeleteNote:
+  post:
+    tags:
+      - Note
+    summary: DeleteNote
+    description: |
+      DeleteNote
+    operationId: Delete_Note
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+      - name: noteID
+        in: query
+        description: note id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Delete
+
+InquiryArticleList:
+  get:
+    tags:
+      - Note
+    summary: InquiryArticleList
+    description: |
+      InquiryArticleList
+    operationId: Inquiry_Article_List
+    parameters:
+      - name: assetID
+        in: query
+        description: asset id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryArticleList
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+InquiryBookmarked:
+  get:
+    tags:
+      - Note
+    summary: InquiryBookmarked
+    description: |
+     InquiryBookmarked
+    operationId: Inquiry_Bookmarked
+    parameters:
+      - name: assetID
+        in: query
+        description: asset id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryBookmarked
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+InsertArticleNote:
+  post:
+    tags:
+      - Note
+    summary: InsertArticleNote
+    description: |
+     InsertArticleNote
+    operationId: InsertArticleNote
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/InsertArticleNote
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+InsertBookmark:
+  post:
+    tags:
+      - Note
+    summary: InsertBookmark
+    description: |
+      InsertBookmark
+    operationId: InsertBookmark
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/InsertBookmark
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+InsertBookmarkAssetList:
+  post:
+    tags:
+      - Note
+    summary: InsertBookmarkAssetList
+    description: |
+      InsertBookmarkAssetList
+    operationId: Insert_Bookmark_AssetList
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/InsertBookmarkAssetList
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+InquiryBookmarkedAssetList:
+  get:
+    tags:
+      - Note
+    summary: InquiryBookmarkedAssetList
+    description: |
+      InquiryBookmarkedAssetList
+    operationId: Inquiry_Bookmarked_Asset_List
+    parameters:
+      - name: customerID
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryBookmarkedAssetList
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+DeleteBookmarkedArticle:
+  post:
+    tags:
+      - Note
+    summary: DeleteBookmarkedArticle
+    description: |
+      DeleteBookmarkedArticle
+    operationId: Delete_Bookmarked_Article
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/DeleteBookmarkedArticle
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+
+DeleteAssetByBookmark:
+  post:
+    tags:
+      - Note
+    summary: DeleteAssetByBookmark
+    description: |
+      DeleteAssetByBookmark
+    operationId: Delete_Asset_By_Bookmark
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/DeleteAssetByBookmark
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+
+InquiryCardNote:
+  get:
+    tags:
+      - Note
+    summary: InquiryCardNote
+    description: |
+      InquiryCardNote
+    operationId: Inquiry_Card_Note
+    parameters:
+      - name: customerID
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/RequestInquiryCardNote
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryCardNote
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+
+InquiryNoteAll:
+  get:
+    tags:
+      - Note
+    summary: InquiryNoteAll
+    description: |
+      InquiryNoteAll
+    operationId: Inquiry_Note_All
+    parameters:
+      - name: customerID
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/RequestInquiryCardNote
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryNoteAll
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+InsertAlertNote:
+  post:
+    tags:
+      - Note
+    summary: InsertAlertNote
+    description: |
+      InsertAlertNote
+    operationId: Insert_Alert_Note
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/InsertAlertNote
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Update
+
+CountAllTypeNote:
+  get:
+    tags:
+      - Note
+    summary: CountAllTypeNote
+    description: |
+      CountAllTypeNote
+    operationId: Count_All_Type_Note
+    parameters:
+      - name: customerID
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/CountAllTypeNote
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+InquiryAssetListArticle:
+  get:
+    tags:
+      - Note
+    summary: inquiryAssetListRelatedArticle
+    description: |
+      inquiryAssetListRelatedArticle
+    operationId: inquiryAssetListRelatedArticle
+    parameters:
+      - name: customerID
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        description: Success
+        content:
+          application/json:
+            schema:
+              $ref: ../components/schemas/Note.yaml/#/InquiryAssetListArticle
+      "400":
+        $ref: ../components/responses/Problem.yaml/#/Get
+
+InsertPortfolioNote:
+  post:
+    tags:
+      - Note
+    summary: InsertPortfolioNote
+    description: |
+      InsertPortfolioNote
+    operationId: Insert_Portfolio_Note
+    parameters:
+      - name: customer_id
+        in: query
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/InsertPortfolioNote
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Create
+
+DeletePortfolioNote:
+  post:
+    tags:
+      - Note
+    summary: DeletePortfolioNote
+    description: |
+      DeletePortfolioNote
+    operationId: Delete_Portfolio_Note
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    requestBody:
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Note.yaml/#/DeletePortfolioNote
+      description: requestBody description
+      required: true
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete
+
+DeletePortfolioNoteAll:
+  post:
+    tags:
+      - Note
+    summary: DeletePortfolioNoteAll
+    description: |
+      DeletePortfolioNoteAll
+    operationId: Delete_Portfolio_Note_All
+    parameters:
+      - name: customer_id
+        in: path
+        description: customer id
+        required: true
+        schema:
+          type: string
+    security: []
+    responses:
+      "200":
+        $ref: ../components/responses/Success.yaml/#/Delete

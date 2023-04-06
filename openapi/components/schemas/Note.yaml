@@ -1,0 +1,515 @@
+CountNote:
+  type: object
+  properties:
+    note:
+      type: number
+    article:
+      type: number
+    allNote:
+      type: number
+  example: { "note": 4, "article": 4, "allNote": 8 }
+
+InsertNoteToAsset:
+  type: object
+  properties:
+    assetId:
+      type: number
+    portGraph:
+      type: boolean
+    title:
+      type: string
+    details:
+      type: string
+    tag:
+      type: array
+      item:
+        type: number
+  example:
+    {
+      "assetId": 1,
+      "portGraph": true,
+      "title": "หัวข้อโน๊ต",
+      "details": "จดไว้",
+      "tag": [1, 2, 3],
+    }
+
+InquiryNoteDetail:
+  type: object
+  properties:
+    noteId:
+      type: number
+    assetId:
+      type: number
+    portGraph:
+      type: boolean
+    title:
+      type: string
+    details:
+      type: string
+    tag:
+      type: array
+      item:
+        type: number
+  example:
+    {
+      "noteID": 1,
+      "assetId": 1,
+      "portGraph": true,
+      "title": "หัวข้อโน๊ต",
+      "details": "จดไว้",
+      "tag": [1, 2, 3],
+    }
+
+UpdateNoteDetail:
+  type: object
+  properties:
+    portGraph:
+      type: boolean
+    title:
+      type: string
+    details:
+      type: string
+    tag:
+      type: array
+      item:
+        type: number
+  example:
+    {
+      "portGraph": true,
+      "title": "หัวข้อโน๊ต",
+      "details": "จดไว้",
+      "tag": [1, 2, 3],
+    }
+
+InquiryArticleList:
+  type: object
+  properties:
+    data:
+      type: array
+      items:
+        type: "object"
+        properties:
+          group:
+            type: string
+          contents:
+            type: array
+            items:
+              type: "object"
+              properties:
+                feed_id:
+                  type: "integer"
+                feed_title:
+                  type: "string"
+                dateTime:
+                  type: "integer"
+                tag:
+                  type: "array"
+                  items:
+                    type: "string"
+  example:
+    {
+      "data":
+        [
+          {
+            "group": "แนะนำ",
+            "contents":
+              [
+                {
+                  "feed_id": 1,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+                {
+                  "feed_id": 2,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+              ],
+          },
+          {
+            "group": "ทั้งหมด",
+            "contents":
+              [
+                {
+                  "feed_id": 1,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+                {
+                  "feed_id": 2,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+              ],
+          },
+          {
+            "group": "Wealth",
+            "contents":
+              [
+                {
+                  "feed_id": 1,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+                {
+                  "feed_id": 2,
+                  "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+                  "dateTime": 1678637816,
+                  "tag": ["ข่าวสาร", "สินค้า"],
+                },
+              ],
+          },
+        ],
+    }
+
+InquiryBookmarked:
+  type: object
+  properties:
+    feedList:
+      type: array
+      items:
+        type: "object"
+        properties:
+          feed_id:
+            type: "integer"
+          feed_title:
+            type: "string"
+          dateTime:
+            type: "integer"
+          tag:
+            type: "array"
+            items:
+              type: "string"
+  example:
+    {
+      "feedList":
+        [
+          {
+            "feed_id": 1,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+          {
+            "feed_id": 2,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+        ],
+    }
+
+InsertArticleNote:
+  type: object
+  properties:
+    feedList:
+      type: array
+      item:
+        type: number
+  example: { "feedList": [1, 2, 3, 4] }
+
+InsertBookmark:
+  type: object
+  properties:
+    feedId:
+      type: number
+    customerID:
+      type: number
+  example: { "feedId": 1, "customerID": 1 }
+
+InsertBookmarkAssetList:
+  type: object
+  properties:
+    feedId:
+      type: number
+    assets:
+      type: array
+      item:
+        type: number
+  example: { "feedId": 1, "assets": [1, 2, 3] }
+InquiryBookmarkedAssetList:
+  type: object
+  properties:
+    bookmark:
+      type: array
+      items:
+        type: "object"
+        properties:
+          feed_id:
+            type: "integer"
+          feed_title:
+            type: "string"
+          dateTime:
+            type: "integer"
+          tag:
+            type: "array"
+            items:
+              type: "string"
+  example:
+    {
+      "bookmark":
+        [
+          {
+            "feed_id": 1,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+          {
+            "feed_id": 2,
+            "fee_title": "นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ",
+            "dateTime": 1678637816,
+            "tag": ["ข่าวสาร", "สินค้า"],
+          },
+        ],
+    }
+
+DeleteBookmarkedArticle:
+  type: object
+  properties:
+    bookmarkId:
+      type: number
+  example: { "bookmarkId": 1 }
+
+DeleteAssetByBookmark:
+  type: object
+  properties:
+    assetId:
+      type: number
+    bookmarkId:
+      type: number
+  example: { "bookmarkId": 1, "assetId": 1 }
+
+InquiryCardNote:
+  type: object
+  properties:
+    note:
+      type: array
+      items:
+        type: object
+        properties:
+          noteId:
+            type: number
+          type:
+            type: string
+          title:
+            type: string
+          createdDate:
+            type: string
+          link:
+            type: string
+    countAllNote:
+      type: number
+  example:
+    {
+      "note":
+        [
+          {
+            "noteId": 1,
+            "type": "note_and_noti",
+            "title": "บันทึกการลงทุน1",
+            "created_date": 1680199522,
+            "link": "",
+            "....": "",
+          },
+          {
+            "noteId": 2,
+            "type": "note_and_noti",
+            "title": "บันทึกการลงทุน1",
+            "created_date": 1680199522,
+            "link": "",
+            "....": "",
+          },
+          {
+            "noteId": 3,
+            "type": "note_and_noti",
+            "title": "บันทึกการลงทุน1",
+            "created_date": 1680199522,
+            "link": "",
+            "....": "",
+          },
+        ],
+      "countAllNote": 7,
+    }
+RequestInquiryCardNote:
+  type: object
+  properties:
+    assetId:
+      type: number
+  example: { "assetId": 1 }
+
+InquiryNoteAll:
+  type: object
+  properties:
+    note:
+      type: array
+      items:
+        type: object
+        properties:
+          noteId:
+            type: number
+          type:
+            type: string
+          title:
+            type: string
+          createdDate:
+            type: string
+          link:
+            type: string
+    transaction:
+      type: array
+      items:
+        type: object
+        properties:
+          transaction:
+            type: string
+          assetName:
+            type: string
+          paymentAmount:
+            type: number
+          status:
+            type: boolean
+          assetSubName:
+            type: string
+  example:
+    {
+      "note":
+        [
+          {
+            "noteId": 1,
+            "type": "note_and_noti",
+            "title": "บันทึกการลงทุน1",
+            "created_date": 1680199522,
+            "link": "",
+            "....": "",
+          },
+          {
+            "noteId": 2,
+            "type": "note_and_noti",
+            "title": "บันทึกการลงทุน1",
+            "created_date": 1680199522,
+            "link": "",
+            "....": "",
+          },
+          {
+            "noteId": 3,
+            "type": "note_and_noti",
+            "title": "บันทึกการลงทุน1",
+            "created_date": 1680199522,
+            "link": "",
+            "....": "",
+          },
+        ],
+      "transaction":
+        [
+          {
+            "transaction": "sell",
+            "assetName": "K-2500",
+            "assetSubName": "กองทุนเปิดเค ไลฟ์สไตล์ 2500",
+            "paymentAmount": 2000,
+            "status": true,
+          },
+        ],
+    }
+
+InsertAlertNote:
+  type: object
+  properties:
+    priceAlert:
+      type: object
+      properties:
+        status:
+          type: boolean
+        value:
+          type: number
+    currentPriceAlert:
+      type: object
+      properties:
+        status:
+          type: boolean
+        value:
+          type: number
+    notifyOnDate:
+      type: object
+      properties:
+        status:
+          type: boolean
+        value:
+          type:
+  example:
+    {
+      "priceAlert": { "status": true, "value": 29.77 },
+      "currentPriceAlert": { "status": true, "value": 10 },
+      "notifyOnDate": { "status": true, "value": 1680199522 },
+    }
+
+CountAllTypeNote:
+  type: object
+  properties:
+    asset:
+      tpye: number
+    portfolio:
+      tpye: number
+    bookmark:
+      tpye: number
+  example: { "asset": 7, "bookmark": 8, "portfolio": 1 }
+
+InquiryAssetListArticle:
+  type: object
+  properties:
+    data:
+      type: array
+      item:
+        type: object
+        properties:
+          groupName:
+            type: string
+          assets:
+            tpye: array
+            item:
+              type: object
+              properties:
+                assetId:
+                  type: number
+                assetName:
+                  type: string
+                assetSubName:
+                  type: string
+  example:
+    {
+      "data":
+        [
+          {
+            "groupName": "แนะนำ",
+            "assets":
+              [
+                {
+                  "assetId": 1,
+                  "assetName": "K-2500",
+                  "assetSubName": "K Lifestyle Fund 2500",
+                },
+              ],
+          },
+        ],
+    }
+
+InsertPortfolioNote:
+  type: object
+  properties:
+    title:
+      type: string
+    details:
+      type: string
+  example: { "title": "portfolio", "details": "จดบันทึก" }
+
+DeletePortfolioNote:
+  type: object
+  properties:
+    portfolioId:
+      type: number
+  example: { portfolioId: 1}
