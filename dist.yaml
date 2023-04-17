@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: AppFeature1
+  title: AppFeature2
   contact:
     email: contact@robowealth.co.th
   license:
@@ -9,610 +9,94 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   description: ''
 tags:
-  - name: Banner
-    description: Banner
-  - name: Portfolio
-    description: Portfolio
-  - name: QuickMenus
-    description: QuickMenus
-  - name: Menus
-    description: Menus
   - name: WatchList
     description: WatchList
-  - name: Tag
-    description: Tag
-  - name: AssetThemes
-    description: AssetThemes
-  - name: MarketSummary
-    description: MarketSummary
-  - name: EconomicCalendars
-    description: EconomicCalendars
-  - name: Feed
-    description: Feed
-  - name: Search
-    description: Search
-  - name: Profile
-    description: Profile
+  - name: Notification
+    description: Notification
+  - name: Note
+    description: Note
 servers:
   - url: https://example.com
 paths:
-  /api/v1/banner:
-    get:
-      tags:
-        - Banner
-      summary: Get list banner
-      description: |
-        Get list banner
-      operationId: Get_list_banner
-      security: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  banner:
-                    type: array
-                    items:
-                      $ref: '#/components/schemas/Banner'
-  /api/v1/banner/{id}:
-    get:
-      tags:
-        - Banner
-      summary: Get banner
-      description: |
-        Get banner
-      operationId: Get_banner
-      security: []
-      parameters:
-        - name: id
-          in: path
-          description: Id Banner
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Banner'
-    put:
-      tags:
-        - Banner
-      summary: Update_banner
-      description: |
-        Update_banner
-      operationId: Update_banner
-      security: []
-      parameters:
-        - name: id
-          in: path
-          description: Id Banner
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/BannerUpdate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-    delete:
-      tags:
-        - Banner
-      summary: Delete_banner
-      description: |
-        Delete_banner
-      operationId: Delete_banner
-      security: []
-      parameters:
-        - name: id
-          in: path
-          description: Id Banner
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/Delete'
-        '400':
-          $ref: '#/components/responses/Problem_Delete'
-  /api/v1/portfolio/portfolio_balance/{customer_id}:
-    get:
-      tags:
-        - Portfolio
-      summary: Get Portfolio
-      description: |
-        Get Portfolio
-      operationId: Get_Portfolio
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Portfolio'
-  /api/v1/quick_menus/list/{customer_id}:
-    get:
-      tags:
-        - QuickMenus
-      summary: Get QuickMenus
-      description: |
-        Get QuickMenus
-      operationId: Get_QuickMenus
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: Customer Id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/QuickMenusGet'
-    post:
-      tags:
-        - QuickMenus
-      summary: Create QuickMenus
-      description: |
-        Create QuickMenus
-      operationId: Create_QuickMenus
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: Customer Id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/QuickMenusCreate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-    put:
-      tags:
-        - QuickMenus
-      summary: Update QuickMenus
-      description: |
-        Update QuickMenus
-      operationId: Update_QuickMenus
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: Customer Id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/QuickMenusUpdate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/quick_menus:
-    get:
-      tags:
-        - QuickMenus
-      summary: Get Default QuickMenus
-      description: |
-        Get Default QuickMenus
-      operationId: Get_Default_QuickMenus
-      security: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/QuickMenusGetDefault'
-  /api/v1/quick_menus/{quick_menu_id}:
-    put:
-      tags:
-        - QuickMenus
-      summary: Update Default QuickMenus
-      description: |
-        Update Default QuickMenus
-      operationId: Update_Default_QuickMenus
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/QuickMenusUpdateDefault'
-        description: requestBody description
-        required: true
-      parameters:
-        - name: quick_menu_id
-          in: path
-          description: quick menu id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/menus:
-    get:
-      tags:
-        - Menus
-      summary: Get Menus
-      description: |
-        Get Menus
-      operationId: Get_Menus
-      security: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MenusGet'
-    post:
-      tags:
-        - Menus
-      summary: Create Menus
-      description: |
-        Create Menus
-      operationId: Create_Menus
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MenusPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-    UpdateMenus:
-      put:
-        tags:
-          - Menus
-        summary: Update Menus
-        description: |
-          Update Menus
-        operationId: Update_Menus
-        security: []
-        parameters:
-          - name: menu_id
-            in: path
-            description: menu id
-            required: true
-            schema:
-              type: string
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MenusPost'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Update'
-          '400':
-            $ref: '#/components/responses/Problem_Update'
-    CreateMenuGroup:
-      post:
-        tags:
-          - Menus
-        summary: Create Menus Group
-        description: |
-          Create Menus Group
-        operationId: Create_Menus_Group
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MenusGroupPost'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-    UpdateGroupMenus:
-      put:
-        tags:
-          - Menus
-        summary: Update Menus Group
-        description: |
-          Update Menus Group
-        operationId: Update_Menus_Group
-        security: []
-        parameters:
-          - name: menu_group_id
-            in: path
-            description: menu group id
-            required: true
-            schema:
-              type: string
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MenusGroupPost'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Update'
-          '400':
-            $ref: '#/components/responses/Problem_Update'
-    CreateMenuRelationships:
-      post:
-        tags:
-          - Menus
-        summary: Create Menus Relationships
-        description: |
-          Create Menus Relationships
-        operationId: Create_Menus_Relationships
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MenusRelationships'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-    UpdateMenuRelationships:
-      put:
-        tags:
-          - Menus
-        summary: Update Menus Relationships
-        description: |
-          Update Menus Relationships
-        operationId: Update_Menus_Relationships
-        security: []
-        parameters:
-          - name: menu_relationship_id
-            in: path
-            description: menu relationship id
-            required: true
-            schema:
-              type: string
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MenusRelationships'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Update'
-          '400':
-            $ref: '#/components/responses/Problem_Update'
-  /api/v1/menus/{menu_id}:
-    put:
-      tags:
-        - Menus
-      summary: Update Menus
-      description: |
-        Update Menus
-      operationId: Update_Menus
-      security: []
-      parameters:
-        - name: menu_id
-          in: path
-          description: menu id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MenusPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/menu_group:
-    post:
-      tags:
-        - Menus
-      summary: Create Menus Group
-      description: |
-        Create Menus Group
-      operationId: Create_Menus_Group
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MenusGroupPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-  /api/v1/menu_group/{menu_group_id}:
-    put:
-      tags:
-        - Menus
-      summary: Update Menus Group
-      description: |
-        Update Menus Group
-      operationId: Update_Menus_Group
-      security: []
-      parameters:
-        - name: menu_group_id
-          in: path
-          description: menu group id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MenusGroupPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/menus_relationships:
-    post:
-      tags:
-        - Menus
-      summary: Create Menus Relationships
-      description: |
-        Create Menus Relationships
-      operationId: Create_Menus_Relationships
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MenusRelationships'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-  /api/v1/menus_relationships/{menu_relationship_id}:
-    put:
-      tags:
-        - Menus
-      summary: Update Menus Relationships
-      description: |
-        Update Menus Relationships
-      operationId: Update_Menus_Relationships
-      security: []
-      parameters:
-        - name: menu_relationship_id
-          in: path
-          description: menu relationship id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MenusRelationships'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/watch_lists:
-    post:
-      tags:
-        - WatchList
-      summary: Create WatchList
-      description: |
-        Create WatchList
-      operationId: Create_WatchList
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/WatchListPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
   /api/v1/watch_list/list/{customer_id}:
-    CreateWatchList:
+    UpdateNameWatchList:
       post:
         tags:
           - WatchList
-        summary: Create WatchList
+        summary: Update Name WatchList
         description: |
-          Create WatchList
-        operationId: Create_WatchList
+          Update Name WatchList
+        operationId: Update_Name_WatchList
+        parameters:
+          - name: customer_id
+            in: path
+            description: customer id
+            required: true
+            schema:
+              type: string
         security: []
         requestBody:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WatchListPost'
+                $ref: '#/components/schemas/UpdateNameWatchList'
           description: requestBody description
           required: true
         responses:
           '200':
-            $ref: '#/components/responses/Create'
-    put:
-      tags:
-        - WatchList
-      summary: Update WatchList
-      description: |
-        Update WatchList
-      operationId: Update_WatchList
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
+            $ref: '#/components/responses/Update'
+    DeleteAssets:
+      post:
+        tags:
+          - WatchList
+        summary: Delete Assets in WatchList
+        description: |
+          Delete Assets in WatchList
+        operationId: Delete_Assets_in_WatchList
+        parameters:
+          - name: customer_id
+            in: path
+            description: customer id
+            required: true
             schema:
-              $ref: '#/components/schemas/WatchListPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
+              type: string
+        security: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeleteAssetsInWatchList'
+          description: requestBody description
+          required: true
+        responses:
+          '200':
+            $ref: '#/components/responses/Delete'
+    PositionAssest:
+      post:
+        tags:
+          - WatchList
+        summary: PositionAssest
+        description: |
+          PositionAssest
+        operationId: Position_Assest
+        parameters:
+          - name: customer_id
+            in: path
+            description: customer id
+            required: true
+            schema:
+              type: string
+        security: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PositionAssest'
+          description: requestBody description
+          required: true
+        responses:
+          '200':
+            $ref: '#/components/responses/Update'
     get:
       tags:
         - WatchList
@@ -635,996 +119,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/WatchListGet'
-  /api/v1/tag:
-    post:
-      tags:
-        - Tag
-      summary: Create Tag
-      description: |
-        Create Tag
-      operationId: Create_Tag
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TagCreate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-  /api/v1/tag/{tag_id}:
-    CreateTag:
+    InsertAssetsToWatchList:
       post:
         tags:
-          - Tag
-        summary: Create Tag
+          - WatchList
+        summary: InsertAssetsToWatchList
         description: |
-          Create Tag
-        operationId: Create_Tag
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TagCreate'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-    put:
-      tags:
-        - Tag
-      summary: Update Tag
-      description: |
-        Update Tag
-      operationId: Update_Tag
-      security: []
-      parameters:
-        - name: tag_id
-          in: path
-          description: tag id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TagPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-    get:
-      tags:
-        - Tag
-      summary: Get Data By Tag
-      description: |
-        Get Data By Tag
-      operationId: Get_Data_By_Tag
-      security: []
-      parameters:
-        - name: tag_id
-          in: path
-          description: tag id
-          required: true
-          schema:
-            type: string
-        - name: tag_type
-          in: query
-          description: tag type
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/TagGet'
-        '400':
-          $ref: '#/components/responses/Get'
-    delete:
-      tags:
-        - Tag
-      summary: Delete Tag
-      description: |
-        Delete Tag
-      operationId: Delete_Tag
-      security: []
-      parameters:
-        - name: tag_id
-          in: path
-          description: tag id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/Delete'
-        '400':
-          $ref: '#/components/responses/Problem_Delete'
-  /api/v1/themes:
-    post:
-      tags:
-        - AssetThemes
-      summary: Crate Themes
-      description: |
-        Crate Themes
-      operationId: Crate_Themes
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ThemesPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/sub_themes:
-    post:
-      tags:
-        - AssetThemes
-      summary: Crate SubThemes
-      description: |
-        Crate SubThemes
-      operationId: Crate_SubThemes
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SubThemesPost'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/themes/{theme_id}:
-    CreateSubThemes:
-      post:
-        tags:
-          - AssetThemes
-        summary: Crate SubThemes
-        description: |
-          Crate SubThemes
-        operationId: Crate_SubThemes
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SubThemesPost'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-          '400':
-            $ref: '#/components/responses/Problem_Create'
-    CreateThemes:
-      post:
-        tags:
-          - AssetThemes
-        summary: Crate Themes
-        description: |
-          Crate Themes
-        operationId: Crate_Themes
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ThemesPost'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-          '400':
-            $ref: '#/components/responses/Problem_Create'
-    get:
-      tags:
-        - AssetThemes
-      summary: Get product Themes
-      description: |
-        Get product Themes
-      operationId: Get_product_Themes
-      security: []
-      parameters:
-        - name: sub_themes_id
-          in: path
-          description: sub themes id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ThemesGet'
-        '400':
-          $ref: '#/components/responses/Get'
-    GetMenuAssetThemes:
-      get:
-        tags:
-          - AssetThemes
-        summary: Get Menu AssetThemes
-        description: |
-          Get Menu AssetThemes
-        operationId: Get_menu_asset_themes
-        security: []
-        parameters:
-          - name: typeUser
-            in: query
-            description: type user
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/ThemesMenuGet'
-          '400':
-            $ref: '#/components/responses/Get'
-  /api/v1/menu-themes:
-    get:
-      tags:
-        - AssetThemes
-      summary: Get Menu AssetThemes
-      description: |
-        Get Menu AssetThemes
-      operationId: Get_menu_asset_themes
-      security: []
-      parameters:
-        - name: typeUser
-          in: query
-          description: type user
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ThemesMenuGet'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/market_summary:
-    get:
-      tags:
-        - MarketSummary
-      summary: Get MarketSummary
-      description: |
-        Get MarketSummary
-      operationId: Get_MarketSummary
-      security: []
-      parameters:
-        - name: group_name
-          in: query
-          description: group
-          schema:
-            type: boolean
-        - name: sub_group_name
-          in: query
-          description: sub_group_name
-          schema:
-            type: boolean
-        - name: filter
-          in: query
-          description: Filter ytd,1m,3m,1Y,all
-          schema:
-            type: boolean
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetMarketSummary'
-  /api/v1/economic_calendars:
-    get:
-      tags:
-        - EconomicCalendars
-      summary: Get EconomicCalendars
-      description: |
-        Get EconomicCalendars
-      operationId: Get_EconomicCalendars
-      security: []
-      parameters:
-        - name: group_name
-          in: query
-          description: Filter group name today,yesterday,tomorrow,thisWeek
-          schema:
-            type: boolean
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetEconomicCalendars'
-  /api/v1/feed/tag:
-    post:
-      tags:
-        - Feed
-      summary: Create FeedTag
-      description: |
-        Create FeedTag
-      operationId: Create_FeedTag
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FeedTagCreate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-  /api/v1/feed/tag/{tag_id}:
-    CreateFeedTag:
-      post:
-        tags:
-          - Feed
-        summary: Create FeedTag
-        description: |
-          Create FeedTag
-        operationId: Create_FeedTag
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/FeedTagCreate'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-    get:
-      tags:
-        - Feed
-      summary: Get Data Feed by Tag
-      description: |
-        Get Data Feed by Tag
-      operationId: Get_Feed_Tag
-      security: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeedTag'
-        '400':
-          $ref: '#/components/responses/Get'
-    put:
-      tags:
-        - Feed
-      summary: Update Feed Tag
-      description: |
-        Update Feed Tag
-      operationId: Update_Feed_Tag
-      security: []
-      parameters:
-        - name: tag_id
-          in: path
-          description: tag id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/FeedTagCreate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-    delete:
-      tags:
-        - Feed
-      summary: Delete Feed Tag
-      description: |
-        Delete Feed Tag
-      operationId: Delete_Feed_Tag
-      security: []
-      parameters:
-        - name: tag_id
-          in: path
-          description: tag id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/Delete'
-        '400':
-          $ref: '#/components/responses/Problem_Delete'
-    DeleteFeed:
-      delete:
-        tags:
-          - Feed
-        summary: Delete Feed
-        description: |
-          Delete Feed 
-        operationId: Delete_Feed
-        security: []
-        parameters:
-          - name: feed_id
-            in: path
-            description: feed id
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            $ref: '#/components/responses/Delete'
-          '400':
-            $ref: '#/components/responses/Problem_Delete'
-    CreateCategory:
-      post:
-        tags:
-          - Feed
-        summary: Crate Category
-        description: |
-          Crate Category
-        operationId: Crate_Category
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CategoryCreate'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-          '400':
-            $ref: '#/components/responses/Problem_Create'
-    CreateSubCategory:
-      post:
-        tags:
-          - Feed
-        summary: Crate Sub Category
-        description: |
-          Crate Sub Category
-        operationId: Crate_Sub_Category
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SubCategoryCreate'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-          '400':
-            $ref: '#/components/responses/Problem_Create'
-    GetFeed:
-      get:
-        tags:
-          - Feed
-        summary: Get Feed List
-        description: |
-          Get Feed List
-        operationId: Get_Feed_List
-        security: []
-        parameters:
-          - name: category
-            in: path
-            description: category
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/GetFeed'
-    Trading:
-      get:
-        tags:
-          - Feed
-        summary: Get Feed Trading
-        description: |
-          Get Feed Trading
-        operationId: Get_Feed_Trading
-        security: []
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/GetFeed'
-    GetFeedOther:
-      get:
-        tags:
-          - Feed
-        summary: Get Feed Other
-        description: |
-          Get Feed Other
-        operationId: Get_Feed_Other
-        security: []
-        parameters:
-          - name: category
-            in: query
-            description: category
-            required: true
-            schema:
-              type: string
-          - name: content_type
-            in: query
-            description: content type
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/GetFeedOther'
-    GetFeedMonth:
-      get:
-        tags:
-          - Feed
-        summary: Get Feed Month
-        description: |
-          Get Feed Month
-        operationId: Get_Feed_Month
-        security: []
-        parameters:
-          - name: category
-            in: query
-            description: category
-            required: true
-            schema:
-              type: string
-          - name: content_type
-            in: query
-            description: content type
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/GetFeedMonth'
-    GetFeedRecommended:
-      get:
-        tags:
-          - Feed
-        summary: Get Feed Recommended
-        description: |
-          Get Feed Recommended
-        operationId: Get_Feed_Recommended
-        security: []
-        parameters:
-          - name: category
-            in: query
-            description: category
-            required: true
-            schema:
-              type: string
-          - name: content_type
-            in: query
-            description: content type
-            required: true
-            schema:
-              type: string
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/GetFeedRecommended'
-    CreateFeed:
-      post:
-        tags:
-          - Feed
-        summary: Crate Feed
-        description: |
-          Crate  Feed
-        operationId: Crate_Feed
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CreateFeed'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Create'
-          '400':
-            $ref: '#/components/responses/Problem_Create'
-    UpdateLike:
-      put:
-        tags:
-          - Feed
-        summary: Update Like
-        description: Update Like
-        operationId: Update_Like
-        security: []
-        parameters:
-          - name: feed_id
-            in: path
-            description: feed id
-            required: true
-            schema:
-              type: string
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/LikeUpdate'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            $ref: '#/components/responses/Update'
-          '400':
-            $ref: '#/components/responses/Problem_Update'
-  /api/v1/feed/sub_themes:
-    post:
-      tags:
-        - Feed
-      summary: Crate Sub Category
-      description: |
-        Crate Sub Category
-      operationId: Crate_Sub_Category
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SubCategoryCreate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/feed/category:
-    post:
-      tags:
-        - Feed
-      summary: Crate Category
-      description: |
-        Crate Category
-      operationId: Crate_Category
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CategoryCreate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/feed:
-    post:
-      tags:
-        - Feed
-      summary: Crate Feed
-      description: |
-        Crate  Feed
-      operationId: Crate_Feed
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CreateFeed'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/feed/other:
-    get:
-      tags:
-        - Feed
-      summary: Get Feed Other
-      description: |
-        Get Feed Other
-      operationId: Get_Feed_Other
-      security: []
-      parameters:
-        - name: category
-          in: query
-          description: category
-          required: true
-          schema:
-            type: string
-        - name: content_type
-          in: query
-          description: content type
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeedOther'
-  /api/v1/feed/month:
-    get:
-      tags:
-        - Feed
-      summary: Get Feed Month
-      description: |
-        Get Feed Month
-      operationId: Get_Feed_Month
-      security: []
-      parameters:
-        - name: category
-          in: query
-          description: category
-          required: true
-          schema:
-            type: string
-        - name: content_type
-          in: query
-          description: content type
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeedMonth'
-  /api/v1/feed/recommended:
-    get:
-      tags:
-        - Feed
-      summary: Get Feed Recommended
-      description: |
-        Get Feed Recommended
-      operationId: Get_Feed_Recommended
-      security: []
-      parameters:
-        - name: category
-          in: query
-          description: category
-          required: true
-          schema:
-            type: string
-        - name: content_type
-          in: query
-          description: content type
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeedRecommended'
-  /api/v1/feed/{feed_id}:
-    delete:
-      tags:
-        - Feed
-      summary: Delete Feed
-      description: |
-        Delete Feed 
-      operationId: Delete_Feed
-      security: []
-      parameters:
-        - name: feed_id
-          in: path
-          description: feed id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/Delete'
-        '400':
-          $ref: '#/components/responses/Problem_Delete'
-  /api/v1/feed/like/{feed_id}:
-    put:
-      tags:
-        - Feed
-      summary: Update Like
-      description: Update Like
-      operationId: Update_Like
-      security: []
-      parameters:
-        - name: feed_id
-          in: path
-          description: feed id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/LikeUpdate'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/feed/list:
-    get:
-      tags:
-        - Feed
-      summary: Get Feed List
-      description: |
-        Get Feed List
-      operationId: Get_Feed_List
-      security: []
-      parameters:
-        - name: category
-          in: path
-          description: category
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeed'
-  /api/v1/feed/trading:
-    get:
-      tags:
-        - Feed
-      summary: Get Feed Trading
-      description: |
-        Get Feed Trading
-      operationId: Get_Feed_Trading
-      security: []
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/GetFeed'
-  /api/v1/search:
-    post:
-      tags:
-        - Search
-      summary: Search
-      description: |
-        Search
-      operationId: Search
-      security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Search'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchResponse'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/search/recent/{customer_id}:
-    Search:
-      post:
-        tags:
-          - Search
-        summary: Search
-        description: |
-          Search
-        operationId: Search
-        security: []
-        requestBody:
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Search'
-          description: requestBody description
-          required: true
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/SearchResponse'
-          '400':
-            $ref: '#/components/responses/Problem_Create'
-    get:
-      tags:
-        - Search
-      summary: Get Search Recent
-      description: |
-        Get Search Recent
-      operationId: Get_Search_Recent
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/SearchRecent'
-        '400':
-          $ref: '#/components/responses/Get'
-    RecentDeleteAll:
-      delete:
-        tags:
-          - Search
-        summary: Recent Delete All
-        description: |
-          Recent Delete All
-        operationId: Recent_Delete_All
-        security: []
+          InsertAssetsToWatchList
+        operationId: Insert_Assets_To_WatchList
         parameters:
           - name: customer_id
             in: path
@@ -1632,88 +134,77 @@ paths:
             required: true
             schema:
               type: string
+        security: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InsertAssetsToWatchList'
+          description: requestBody description
+          required: true
         responses:
           '200':
-            $ref: '#/components/responses/Delete'
-          '400':
-            $ref: '#/components/responses/Problem_Delete'
-    delete:
-      tags:
-        - Search
-      summary: Recent Delete
-      description: |
-        Recent Delete 
-      operationId: Recent_Delete
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          $ref: '#/components/responses/Delete'
-        '400':
-          $ref: '#/components/responses/Problem_Delete'
-    SearchSuggestion:
-      get:
+            $ref: '#/components/responses/Update'
+    MoveWatchList:
+      post:
         tags:
-          - Search
-        summary: Get Search Suggestion
-        description: Get Search Suggestion
-        operationId: Get_Search_Suggestion
-        security: []
+          - WatchList
+        summary: MoveWatchList
+        description: |
+          MoveWatchList
+        operationId: Move_WatchList
         parameters:
-          - name: search
-            in: query
-            description: search
+          - name: customer_id
+            in: path
+            description: customer id
             required: true
             schema:
               type: string
-        responses:
-          '200':
-            description: Success
-            content:
-              application/json:
-                schema:
-                  $ref: '#/components/schemas/SearchSuggestion'
-          '400':
-            $ref: '#/components/responses/Get'
-  /api/v1/search/SearchSuggestion:
-    get:
-      tags:
-        - Search
-      summary: Get Search Suggestion
-      description: Get Search Suggestion
-      operationId: Get_Search_Suggestion
-      security: []
-      parameters:
-        - name: search
-          in: query
-          description: search
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
+        security: []
+        requestBody:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchSuggestion'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/search/recent/all/{customer_id}:
-    delete:
+                $ref: '#/components/schemas/MoveWatchList'
+          description: requestBody description
+          required: true
+        responses:
+          '200':
+            $ref: '#/components/responses/Update'
+    CopyWatchList:
+      post:
+        tags:
+          - WatchList
+        summary: CopyWatchList
+        description: |
+          CopyWatchList
+        operationId: Copy_WatchList
+        parameters:
+          - name: customer_id
+            in: path
+            description: customer id
+            required: true
+            schema:
+              type: string
+        security: []
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CopyWatchList'
+          description: requestBody description
+          required: true
+        responses:
+          '200':
+            $ref: '#/components/responses/Update'
+  /api/v1/watch_list/update-name:
+    post:
       tags:
-        - Search
-      summary: Recent Delete All
+        - WatchList
+      summary: Update Name WatchList
       description: |
-        Recent Delete All
-      operationId: Recent_Delete_All
-      security: []
+        Update Name WatchList
+      operationId: Update_Name_WatchList
       parameters:
         - name: customer_id
           in: path
@@ -1721,129 +212,479 @@ paths:
           required: true
           schema:
             type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateNameWatchList'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/watch_list/delete-assets:
+    post:
+      tags:
+        - WatchList
+      summary: Delete Assets in WatchList
+      description: |
+        Delete Assets in WatchList
+      operationId: Delete_Assets_in_WatchList
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteAssetsInWatchList'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Delete'
+  /api/v1/watch_list/position-assets:
+    post:
+      tags:
+        - WatchList
+      summary: PositionAssest
+      description: |
+        PositionAssest
+      operationId: Position_Assest
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PositionAssest'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/watch_list/insert-assets:
+    post:
+      tags:
+        - WatchList
+      summary: InsertAssetsToWatchList
+      description: |
+        InsertAssetsToWatchList
+      operationId: Insert_Assets_To_WatchList
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertAssetsToWatchList'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/watch_list/move:
+    post:
+      tags:
+        - WatchList
+      summary: MoveWatchList
+      description: |
+        MoveWatchList
+      operationId: Move_WatchList
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MoveWatchList'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/watch_list/copy:
+    post:
+      tags:
+        - WatchList
+      summary: CopyWatchList
+      description: |
+        CopyWatchList
+      operationId: Copy_WatchList
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CopyWatchList'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/notification/count-notification:
+    get:
+      tags:
+        - Notification
+      summary: CountNotification
+      description: |
+        CountNotification
+      operationId: Count_Notification
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountNotification'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/notification/notification-list:
+    get:
+      tags:
+        - Notification
+      summary: NotificationList
+      description: |
+        NotificationList
+      operationId: Notification_List
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+        - name: type
+          in: query
+          description: type notification
+          required: false
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationList'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/notification/notification-read:
+    post:
+      tags:
+        - Notification
+      summary: NotificationRead
+      description: |
+        NotificationRead
+      operationId: Notification_Read
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationRead'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/notification/notification-read-all:
+    post:
+      tags:
+        - Notification
+      summary: NotificationReadAll
+      description: |
+        NotificationReadAll
+      operationId: Notification_Read_All
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/notification/delete-notification:
+    post:
+      tags:
+        - Notification
+      summary: DeleteNotification
+      description: |
+        DeleteNotification
+      operationId: Delete_Notification
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          $ref: '#/components/responses/Delete'
+  /api/v1/notification/delete-notification-all:
+    post:
+      tags:
+        - Notification
+      summary: DeleteNotificationAll
+      description: |
+        DeleteNotificationAll
+      operationId: Delete_Notification_All
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          $ref: '#/components/responses/Delete'
+  /api/v1/note/count-note:
+    get:
+      tags:
+        - Note
+      summary: CountNote
+      description: |
+        CountNote
+      operationId: Count_Note
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountNote'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/note/insert-note-to-asset:
+    post:
+      tags:
+        - Note
+      summary: InsertNoteToAsset
+      description: |
+        InsertNoteToAsset
+      operationId: Insert_Note_To_Asset
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertNoteToAsset'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/note/inquiry-note-detail:
+    get:
+      tags:
+        - Note
+      summary: InquiryNoteDetail
+      description: |
+        InquiryNoteDetail
+      operationId: Inquiry_Note_Detail
+      parameters:
+        - name: noteID
+          in: query
+          description: note id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryNoteDetail'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/note/update-note-detail:
+    post:
+      tags:
+        - Note
+      summary: UpdateNoteDetail
+      description: |
+        UpdateNoteDetail
+      operationId: Update_Note_Detail
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+        - name: noteID
+          in: query
+          description: note id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateNoteDetail'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/note/delete-note:
+    post:
+      tags:
+        - Note
+      summary: DeleteNote
+      description: |
+        DeleteNote
+      operationId: Delete_Note
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+        - name: noteID
+          in: query
+          description: note id
+          required: true
+          schema:
+            type: string
+      security: []
       responses:
         '200':
           $ref: '#/components/responses/Delete'
         '400':
           $ref: '#/components/responses/Problem_Delete'
-  /api/v1/personal_info/{customer_id}:
+  /api/v1/note/inquiry-article-list:
     get:
       tags:
-        - Profile
-      summary: Get PersonalInfo
+        - Note
+      summary: InquiryArticleList
       description: |
-        Get PersonalInfo
-      operationId: Get_PersonalInfo
-      security: []
+        InquiryArticleList
+      operationId: Inquiry_Article_List
       parameters:
-        - name: customer_id
-          in: path
-          description: customer id
+        - name: assetID
+          in: query
+          description: asset id
           required: true
           schema:
             type: string
+      security: []
       responses:
         '200':
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PersonalInfo'
+                $ref: '#/components/schemas/InquiryArticleList'
         '400':
           $ref: '#/components/responses/Get'
-  /api/v1/profile_current_address/{customer_id}:
-    put:
+  /api/v1/note/inquiry-bookmarked:
+    get:
       tags:
-        - Profile
-      summary: Update CurrentAddress
+        - Note
+      summary: InquiryBookmarked
       description: |
-        Update CurrentAddress
-      operationId: Update_CurrentAddress
-      security: []
+        InquiryBookmarked
+      operationId: Inquiry_Bookmarked
       parameters:
-        - name: customer_id
-          in: path
-          description: customer id
+        - name: assetID
+          in: query
+          description: asset id
           required: true
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/CurrentAddress'
-        description: requestBody description
-        required: true
+      security: []
       responses:
         '200':
-          $ref: '#/components/responses/Update'
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryBookmarked'
         '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/profile_email/{customer_id}:
+          $ref: '#/components/responses/Get'
+  /api/v1/note/insert-articleNote-asset:
     post:
       tags:
-        - Profile
-      summary: Update Email
+        - Note
+      summary: InsertArticleNote
       description: |
-        Update Email
-      operationId: Update_Email
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Email'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/profile_phone_number/{customer_id}:
-    put:
-      tags:
-        - Profile
-      summary: Update PhoneNumber
-      description: |
-        Update PhoneNumber
-      operationId: Update_PhoneNumber
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/PhoneNumber'
-        description: requestBody description
-        required: true
-      responses:
-        '200':
-          $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/personal_wisdom:
-    get:
-      tags:
-        - Profile
-      summary: Get Wisdom
-      description: |
-        Get Wisdom
-      operationId: Get_Wisdom
-      security: []
+        InsertArticleNote
+      operationId: InsertArticleNote
       parameters:
         - name: customer_id
           in: query
@@ -1851,505 +692,359 @@ paths:
           required: true
           schema:
             type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Wisdom'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/personal_device:
-    get:
-      tags:
-        - Profile
-      summary: Get Device
-      description: |
-        Get Device
-      operationId: Get_Device
       security: []
-      parameters:
-        - name: customer_id
-          in: query
-          description: customer id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Device'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/personal_contact_rm:
-    get:
-      tags:
-        - Profile
-      summary: Get ContactRm
-      description: |
-        Get ContactRm
-      operationId: Get_ContactRm
-      security: []
-      parameters:
-        - name: customer_id
-          in: query
-          description: customer id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ContactRm'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/personal_interest:
-    get:
-      tags:
-        - Profile
-      summary: Get Interest
-      description: |
-        Get Interest
-      operationId: Get_Interest
-      security: []
-      parameters:
-        - name: customer_id
-          in: query
-          description: customer id
-          required: true
-          schema:
-            type: string
-      responses:
-        '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Interest'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/personal_setting_email:
-    put:
-      tags:
-        - Profile
-      summary: Update SettingEmail
-      description: |
-        Update SettingEmail
-      operationId: Update_SettingEmail
-      security: []
-      parameters:
-        - name: customer_id
-          in: path
-          description: customer id
-          required: true
-          schema:
-            type: string
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SettingEmail'
+              $ref: '#/components/schemas/InsertArticleNote'
         description: requestBody description
         required: true
       responses:
         '200':
           $ref: '#/components/responses/Update'
-        '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/personal_setting_notification:
-    put:
+  /api/v1/note/inquiry-count-all-type-note:
+    get:
       tags:
-        - Profile
-      summary: Update Setting Notification
+        - Note
+      summary: CountAllTypeNote
       description: |
-        Update Setting Notification
-      operationId: Update_Setting_Notification
-      security: []
+        CountAllTypeNote
+      operationId: Count_All_Type_Note
       parameters:
-        - name: customer_id
-          in: path
+        - name: customerID
+          in: query
           description: customer id
           required: true
           schema:
             type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SettingEmailNotification'
-        description: requestBody description
-        required: true
+      security: []
       responses:
         '200':
-          $ref: '#/components/responses/Update'
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CountAllTypeNote'
         '400':
-          $ref: '#/components/responses/Problem_Update'
-  /api/v1/personal_update_profile:
+          $ref: '#/components/responses/Get'
+  /api/v1/note/inquiry-asset-list-related-Article:
+    get:
+      tags:
+        - Note
+      summary: inquiryAssetListRelatedArticle
+      description: |
+        inquiryAssetListRelatedArticle
+      operationId: inquiryAssetListRelatedArticle
+      parameters:
+        - name: customerID
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryAssetListArticle'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/note/insert-bookmark:
     post:
       tags:
-        - Profile
-      summary: Update Update Profile
+        - Note
+      summary: InsertBookmark
       description: |
-        Update Update Profile
-      operationId: Update_Update_Profile
+        InsertBookmark
+      operationId: InsertBookmark
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
       security: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UpdateProfile'
+              $ref: '#/components/schemas/InsertBookmark'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/note/insert-bookmark-asset-list:
+    post:
+      tags:
+        - Note
+      summary: InsertBookmarkAssetList
+      description: |
+        InsertBookmarkAssetList
+      operationId: Insert_Bookmark_AssetList
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertBookmarkAssetList'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/note/inquiry-bookmarked-article-list:
+    get:
+      tags:
+        - Note
+      summary: InquiryBookmarkedAssetList
+      description: |
+        InquiryBookmarkedAssetList
+      operationId: Inquiry_Bookmarked_Asset_List
+      parameters:
+        - name: customerID
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryBookmarkedAssetList'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/note/delete-bookmarked-article:
+    post:
+      tags:
+        - Note
+      summary: DeleteBookmarkedArticle
+      description: |
+        DeleteBookmarkedArticle
+      operationId: Delete_Bookmarked_Article
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteBookmarkedArticle'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Delete'
+  /api/v1/note/delete-asset-by-bookmark:
+    post:
+      tags:
+        - Note
+      summary: DeleteAssetByBookmark
+      description: |
+        DeleteAssetByBookmark
+      operationId: Delete_Asset_By_Bookmark
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteAssetByBookmark'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Delete'
+  /api/v1/note/inquiry-card-note:
+    get:
+      tags:
+        - Note
+      summary: InquiryCardNote
+      description: |
+        InquiryCardNote
+      operationId: Inquiry_Card_Note
+      parameters:
+        - name: customerID
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestInquiryCardNote'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryCardNote'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/note/inquiry-note-all:
+    get:
+      tags:
+        - Note
+      summary: InquiryNoteAll
+      description: |
+        InquiryNoteAll
+      operationId: Inquiry_Note_All
+      parameters:
+        - name: customerID
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RequestInquiryCardNote'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InquiryNoteAll'
+        '400':
+          $ref: '#/components/responses/Get'
+  /api/v1/note/insert-alert-note:
+    post:
+      tags:
+        - Note
+      summary: InsertAlertNote
+      description: |
+        InsertAlertNote
+      operationId: Insert_Alert_Note
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertAlertNote'
+        description: requestBody description
+        required: true
+      responses:
+        '200':
+          $ref: '#/components/responses/Update'
+  /api/v1/note/insert-portfolio-note:
+    post:
+      tags:
+        - Note
+      summary: InsertPortfolioNote
+      description: |
+        InsertPortfolioNote
+      operationId: Insert_Portfolio_Note
+      parameters:
+        - name: customer_id
+          in: query
+          description: customer id
+          required: true
+          schema:
+            type: string
+      security: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InsertPortfolioNote'
         description: requestBody description
         required: true
       responses:
         '200':
           $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
-  /api/v1/resend_email:
+  /api/v1/note/delete-portfolio-note:
     post:
       tags:
-        - Profile
-      summary: Resend Email
+        - Note
+      summary: DeletePortfolioNote
       description: |
-        Resend Email
-      operationId: Resend_Email
+        DeletePortfolioNote
+      operationId: Delete_Portfolio_Note
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
       security: []
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Email'
+              $ref: '#/components/schemas/DeletePortfolioNote'
         description: requestBody description
         required: true
       responses:
         '200':
-          description: Success
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ResendEmail'
-        '400':
-          $ref: '#/components/responses/Get'
-  /api/v1/verify_email:
+          $ref: '#/components/responses/Delete'
+  /api/v1/note/delete-portfolio-note-all:
     post:
       tags:
-        - Profile
-      summary: Verify Email
+        - Note
+      summary: DeletePortfolioNoteAll
       description: |
-        Verify Email
-      operationId: Verify_Email
+        DeletePortfolioNoteAll
+      operationId: Delete_Portfolio_Note_All
+      parameters:
+        - name: customer_id
+          in: path
+          description: customer id
+          required: true
+          schema:
+            type: string
       security: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/VerifyEmail'
-        description: requestBody description
-        required: true
       responses:
         '200':
-          $ref: '#/components/responses/Create'
-        '400':
-          $ref: '#/components/responses/Problem_Create'
+          $ref: '#/components/responses/Delete'
 components:
   schemas:
-    Banner:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int
-          example: 1
-        image:
-          type: string
-          format: uri
-        contents:
-          type: object
-          properties:
-            description:
-              type: string
-              example: description content
-            title:
-              type: string
-              example: title banner
-        type:
-          type: string
-          example: general
-        link:
-          type: string
-          format: uri
-        date_create:
-          type: integer
-          format: int
-          example: 1678788423
-        date_start:
-          type: integer
-          format: int
-          example: 1678788423
-        date_end:
-          type: integer
-          format: int
-          example: 1678788423
-        date_update:
-          type: integer
-          format: int
-          example: 1678788423
-        create_by:
-          type: string
-        display:
-          type: boolean
-        like_count:
-          type: integer
-          format: int
-          example: 100
-    BannerUpdate:
-      type: object
-      properties:
-        image:
-          type: string
-          format: uri
-        contents:
-          type: object
-          properties:
-            description:
-              type: string
-              example: description content
-            title:
-              type: string
-              example: title banner
-        type:
-          type: string
-          example: general
-        link:
-          type: string
-          format: uri
-        date_start:
-          type: integer
-          format: int
-          example: 1678788423
-        date_end:
-          type: integer
-          format: int
-          example: 1678788423
-        display:
-          type: boolean
-        like_count:
-          type: integer
-          format: int
-          example: 100
-    DepositAsset:
-      type: object
-      properties:
-        deposit:
-          type: object
-          properties:
-            total:
-              type: number
-              example: 120000.23
-            percent:
-              type: number
-              example: 40
-            total_gain_loss_percent:
-              type: number
-              example: 0
-    BondAsset:
-      type: object
-      properties:
-        bond:
-          type: object
-          properties:
-            total:
-              type: number
-              example: 340000
-            percent:
-              type: number
-              example: 25
-            total_gain_loss_percent:
-              type: number
-              example: -14.03
-    Portfolio:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        customer_id:
-          type: integer
-          example: 1
-        total_asset:
-          type: number
-          example: 2003000
-        total_gain_loss:
-          type: number
-          example: 3000
-        total_gain_loss_percent:
-          type: number
-          example: 5
-        update_date:
-          type: number
-          example: 1677038096
-        all_asset:
-          type: array
-          items:
-            type: object
-            allOf:
-              - $ref: '#/components/schemas/DepositAsset'
-              - $ref: '#/components/schemas/BondAsset'
-    QuickMenusGet:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int
-          example: 1
-        customer_id:
-          type: integer
-          format: int
-          example: 1
-        list_menu:
-          type: array
-          items:
-            type: string
-            example:
-              - ROBO_ADVISOR
-              - ASSET
-              - GOAL
-              - BOND
-    QuickMenusUpdate:
-      type: object
-      properties:
-        list_menu:
-          type: array
-          items:
-            type: string
-            example:
-              - ROBO_ADVISOR
-              - ASSET
-              - GOAL
-              - BOND
-    QuickMenusCreate:
-      type: object
-      properties:
-        list_menu:
-          type: array
-          items:
-            type: string
-            example:
-              - ROBO_ADVISOR
-              - ASSET
-              - GOAL
-              - BOND
-    QuickMenusGetDefault:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int
-          example: 1
-        list_menu:
-          type: array
-          items:
-            type: string
-            example:
-              - ROBO_ADVISOR
-              - ASSET
-              - GOAL
-              - BOND
-    QuickMenusUpdateDefault:
-      type: object
-      properties:
-        status:
-          type: boolean
-        list_menu:
-          type: array
-          items:
-            type: string
-            example:
-              - ROBO_ADVISOR
-              - ASSET
-              - GOAL
-              - BOND
-    MenusGet:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              menu_group_name:
-                type: string
-              menu_list:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    menu_id:
-                      type: integer
-                      format: int
-                    menu_title:
-                      type: string
-      example:
-        data:
-          - menu_group_name: ทั่วไป
-            manu_list:
-              - menu_id: 1
-                menu_title: รายการโปรด
-              - menu_id: 2
-                menu_title: โน๊ต
-          - menu_group_name: ลงทุน
-            manu_list:
-              - menu_id: 3
-                menu_title: กองทุนรวม
-              - menu_id: 4
-                menu_title: ตราสารหนี้
-    MenusPost:
-      type: object
-      properties:
-        manu_name:
-          type: string
-        icon:
-          type: string
-        status:
-          type: boolean
-      example:
-        manu_name: ROBO_ADVISOR
-        icon: ROBO_ADVISOR
-        status: true
-    MenusGroupPost:
-      type: object
-      properties:
-        group_name:
-          type: string
-      example:
-        group_name: general
-    MenusRelationships:
-      type: object
-      properties:
-        manus_id:
-          type: number
-        manu_group_id:
-          type: number
-        type:
-          type: string
-      example:
-        manus_id: 1
-        manu_group_id: 1
-        type: general
-    WatchListPost:
-      type: object
-      properties:
-        input:
-          type: string
-      example:
-        input: '{ "favorite_1": [ "SET" ], "favorite_2": [ "SET" ] }'
     WatchListGet:
       type: object
       properties:
@@ -2401,389 +1096,360 @@ components:
                   - id: 1
                     name_tag: Index
                     type_tag: ASSET
-    TagCreate:
-      type: object
-      properties:
-        title:
-          type: string
+    UpdateNameWatchList:
+      type: array
+      items:
+        type: object
+        properties:
+          watchlistName:
+            type: string
+          watchlistId:
+            type: number
       example:
-        title: แนะนำ
-    TagGet:
+        - watchlistName: รายการโปรด1
+          watchlistId: 1
+        - watchlistName: รายการโปรด2
+          watchlistId: 2
+        - watchlistName: รายการโปรด3
+          watchlistId: 3
+        - watchlistName: รายการโปรด4
+          watchlistId: 4
+    DeleteAssetsInWatchList:
       type: object
       properties:
-        tag:
+        watchlistId:
+          type: number
+        assets:
           type: array
           items:
             type: object
             properties:
-              asset:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: number
-                    fund_code:
-                      type: string
-              feed:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    feed_id:
-                      type: number
-                    fee_title:
-                      type: string
-                    dateTime:
-                      type: number
-                    tag:
-                      tpye: array
-                      items:
-                        type: object
-                        properties:
-                          tag_name:
-                            type: string
-                          tag_id:
-                            type: number
+              assetID:
+                type: number
       example:
-        tag:
-          - asset:
-              - product_id: 1
-                fund_code: SET
-          - feed:
-              - feed_id: 1
-                fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-                dateTime: 1678637816
-                tag:
-                  - ข่าวสาร
-                  - สินค้า
-    TagPost:
+        watchlistId: 1
+        assets:
+          - assetID: 1
+          - assetID: 2
+          - assetID: 3
+    PositionAssest:
       type: object
       properties:
-        title:
-          type: string
-      example:
-        title: แนะนำ
-    ThemesPost:
-      type: object
-      properties:
-        title:
-          type: string
-      example:
-        title: แนะนำ
-    SubThemesPost:
-      type: object
-      properties:
-        theme_id:
-          type: integer
-        title:
-          type: string
-        icon:
-          type: string
-      example:
-        theme_id: 1
-        title: K-Asset
-        icon: K-Asset
-    ThemesGet:
-      type: object
-      properties:
-        id:
-          type: integer
-        name:
-          type: string
-        icon:
-          type: string
-        products:
-          type: array
-          items:
-            type: object
-            properties:
-              product_id:
-                type: integer
-      example:
-        id: 1
-        name: K-Asset
-        icon: K-Asset
-        products:
-          - product_id: 1
-          - product_id: 2
-    ThemesMenuGet:
-      type: object
-      properties:
-        menus:
-          tpye: array
-          items:
-            type: object
-            properties:
-              theme_id:
-                type: integer
-              theme_name:
-                type: string
-              sub_themes:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    id:
-                      type: integer
-                    name:
-                      type: string
-                    icon:
-                      type: string
-      example:
-        menus:
-          - theme_id: 1
-            theme_name: กองทุนรวม
-            sub_themes:
-              - id: 1
-                name: K-Asset
-                icon: K-Asset
-              - id: 2
-                name: กองภาษี
-                icon: กองภาษี
-    GetMarketSummary:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              group_name:
-                type: string
-              ytd:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: integer
-                    product_name:
-                      type: string
-                    product_title:
-                      type: string
-              1m:
-                type: array
-                items:
-                  type: object
-                  properties:
-                    product_id:
-                      type: integer
-                    product_name:
-                      type: string
-                    product_title:
-                      type: string
-      example:
-        data:
-          - group_name: ดัสชี
-            ytd:
-              - product_id: 1
-                product_name: set
-                prpduct_title: thailand set index
-              - product_id: 2
-                product_name: S&P 500
-                prpduct_title: S&P 500 index
-            1m:
-              - product_id: 1
-                product_name: set
-                prpduct_title: thailand set index
-              - product_id: 2
-                product_name: S&P 500
-                prpduct_title: S&P 500 index
-    GetEconomicCalendars:
-      type: object
-      properties:
-        group_name:
-          type: string
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              product_id:
-                type: integer
-              national_flag:
-                type: string
-              date_time:
-                type: integer
-      example:
-        group_name: yesterday
-        data:
-          - product_id: 1
-            national_flag: thai
-            date_time: 1678629811
-          - product_id: 2
-            national_flag: eng
-            date_time: 1678629811
-    FeedTagCreate:
-      type: object
-      properties:
-        title:
-          type: string
-      example:
-        title: ข่าวสาร
-    GetFeedTag:
-      type: object
-      properties:
-        tag_name:
-          type: string
-        data:
-          type: object
-          properties:
-            private:
-              type: array
-              items:
-                type: object
-                properties:
-                  feed_id:
-                    type: integer
-                  feed_title:
-                    type: string
-                  dateTime:
-                    type: integer
-                  tag:
-                    type: array
-                    items:
-                      type: string
-            general:
-              type: array
-              items:
-                type: object
-                properties:
-                  feed_id:
-                    type: integer
-                  feed_title:
-                    type: string
-                  dateTime:
-                    type: integer
-                  tag:
-                    type: array
-                    items:
-                      type: string
-      example:
-        tag_name: ข่าวสาร
-        data:
-          private:
-            - feed_id: 1
-              fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-              dateTime: 1678637816
-              tag:
-                - ข่าวสาร
-                - สินค้า
-            - feed_id: 2
-              fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-              dateTime: 1678637816
-              tag:
-                - ข่าวสาร
-                - สินค้า
-          general:
-            - feed_id: 1
-              fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-              dateTime: 1678637816
-              tag:
-                - ข่าวสาร
-                - สินค้า
-            - feed_id: 2
-              fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-              dateTime: 1678637816
-              tag:
-                - ข่าวสาร
-                - สินค้า
-    SubCategoryCreate:
-      type: object
-      properties:
-        category_id:
+        watchlistId:
           type: number
-        title:
-          type: string
+        assetId:
+          type: number
+        positionNew:
+          type: number
+        positionCurrent:
+          type: number
       example:
-        category_id: 1
-        title: default
-    CategoryCreate:
+        watchlistId: 1
+        assetId: 1
+        positionNew: 2
+        positionCurrent: 1
+    InsertAssetsToWatchList:
       type: object
       properties:
-        title:
-          type: string
-      example:
-        title: ข่าวสาร
-    CreateFeed:
-      type: object
-      properties:
-        title:
-          type: string
-        img:
-          type: string
-        link:
-          type: string
-        created_at:
+        assetId:
           type: number
-        updated_at:
-          type: number
-        subcategory_id:
-          type: number
-        link_count:
-          type: number
-        tagFeed:
+        watchlistId:
           type: array
           items:
             type: number
-        type:
-          type: number
       example:
-        title: นโยบายกระตุ้นเศรษฐกิจหลังเปิด ประเทศดันหุ้นจีน-ฮ่องกง
-        img: /img
-        link: /link
-        created_at: 1678637816
-        updated_at: 1678637816
-        subcategory_id: 1
-        link_count: 100
-        tagFeed:
+        watchlistId:
           - 1
           - 2
           - 3
-        type: privateBanking
-    GetFeedOther:
+        assetId: 1
+    MoveWatchList:
       type: object
       properties:
-        data:
+        currectWatchlist:
+          type: number
+        newWatchlist:
+          type: number
+        assets:
           type: array
           items:
             type: object
             properties:
-              feed_id:
-                type: integer
-              feed_title:
-                type: string
-              dateTime:
-                type: integer
-              tag:
-                type: array
-                items:
-                  type: string
-      example:
-        data:
-          - feed_id: 1
-            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-            dateTime: 1678637816
-            tag:
-              - ข่าวสาร
-              - สินค้า
-          - feed_id: 2
-            fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
-            dateTime: 1678637816
-            tag:
-              - ข่าวสาร
-              - สินค้า
-    GetFeedMonth:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              month_name:
+              assetID:
                 type: number
+      example:
+        currectWatchlist: 1
+        newWatchlist: 2
+        assets:
+          - assetID: 1
+          - assetID: 2
+          - assetID: 3
+    CopyWatchList:
+      type: object
+      properties:
+        currectWatchlist:
+          type: number
+        newWatchlist:
+          type: array
+          items:
+            type: number
+        assets:
+          type: array
+          items:
+            type: object
+            properties:
+              assetID:
+                type: number
+      example:
+        currectWatchlist: 1
+        newWatchlist:
+          - 2
+          - 3
+        assets:
+          - assetID: 1
+          - assetID: 2
+          - assetID: 3
+    CountNotification:
+      type: object
+      properties:
+        notificationCount:
+          type: number
+      example:
+        notificationCount: 30
+    NotificationList:
+      type: object
+      properties:
+        today:
+          type: object
+          properties:
+            announce:
+              type: array
+              items:
+                type: object
+                properties:
+                  notificationId:
+                    type: number
+                  type:
+                    type: string
+                  title:
+                    type: string
+                  subTitle:
+                    type: string
+                  createdDate:
+                    type: string
+                  link:
+                    type: string
+            note_and_noti:
+              type: array
+              items:
+                type: object
+                properties:
+                  notificationId:
+                    type: number
+                  type:
+                    type: string
+                  title:
+                    type: string
+                  subTitle:
+                    type: string
+                  createdDate:
+                    type: string
+                  link:
+                    type: string
+            transaction:
+              type: array
+              items:
+                type: object
+                properties:
+                  notificationId:
+                    type: number
+                  type:
+                    type: string
+                  title:
+                    type: string
+                  subTitle:
+                    type: string
+                  createdDate:
+                    type: string
+                  link:
+                    type: string
+            assets:
+              type: array
+              items:
+                type: object
+                properties:
+                  notificationId:
+                    type: number
+                  type:
+                    type: string
+                  title:
+                    type: string
+                  subTitle:
+                    type: string
+                  createdDate:
+                    type: string
+                  link:
+                    type: string
+            etc:
+              type: array
+              items:
+                type: object
+                properties:
+                  notificationId:
+                    type: number
+                  type:
+                    type: string
+                  title:
+                    type: string
+                  subTitle:
+                    type: string
+                  createdDate:
+                    type: string
+                  link:
+                    type: string
+      example:
+        today:
+          announce:
+            - notification_id: 1
+              type: announce
+              title: เปิดเผย4 สไตล์การลงทุน ...
+              sub_title: เปิดเผย4 สไตล์การลงทุน ...
+              created_date: 1680199522
+              link: ''
+          note_and_noti:
+            - notification_id: 1
+              type: note_and_noti
+              title: k-supstar-ssfx
+              sub_title: ราคาเปลี่ยนแปลง
+              created_date: 1680199522
+              link: ''
+              ....: ''
+          transaction:
+            - notification_id: 1
+              type: transaction
+              title: คำสั่งซื้อ k-supstar-ssfx
+              sub_title: จำนวนหน่วย
+              created_date: 1680199522
+              link: ''
+              ....: ''
+          assets:
+            - notification_id: 1
+              type: assets
+              title: คำสั่งซื้อ k-supstar-ssfx
+              sub_title: จำนวนหน่วย
+              created_date: 1680199522
+              link: ''
+              ....: ''
+          etc:
+            - notification_id: 1
+              type: etc
+              title: คำสั่งซื้อ k-supstar-ssfx
+              sub_title: จำนวนหน่วย
+              created_date: 1680199522
+              link: ''
+              ....: ''
+    NotificationRead:
+      type: object
+      properties:
+        notificationId:
+          type: number
+      example:
+        notificationId: 1
+    CountNote:
+      type: object
+      properties:
+        note:
+          type: number
+        article:
+          type: number
+        allNote:
+          type: number
+      example:
+        note: 4
+        article: 4
+        allNote: 8
+    InsertNoteToAsset:
+      type: object
+      properties:
+        assetId:
+          type: number
+        portGraph:
+          type: boolean
+        title:
+          type: string
+        details:
+          type: string
+        tag:
+          type: array
+          item:
+            type: number
+      example:
+        assetId: 1
+        portGraph: true
+        title: หัวข้อโน๊ต
+        details: จดไว้
+        tag:
+          - 1
+          - 2
+          - 3
+    InquiryNoteDetail:
+      type: object
+      properties:
+        noteId:
+          type: number
+        assetId:
+          type: number
+        portGraph:
+          type: boolean
+        title:
+          type: string
+        details:
+          type: string
+        tag:
+          type: array
+          item:
+            type: number
+      example:
+        noteID: 1
+        assetId: 1
+        portGraph: true
+        title: หัวข้อโน๊ต
+        details: จดไว้
+        tag:
+          - 1
+          - 2
+          - 3
+    UpdateNoteDetail:
+      type: object
+      properties:
+        portGraph:
+          type: boolean
+        title:
+          type: string
+        details:
+          type: string
+        tag:
+          type: array
+          item:
+            type: number
+      example:
+        portGraph: true
+        title: หัวข้อโน๊ต
+        details: จดไว้
+        tag:
+          - 1
+          - 2
+          - 3
+    InquiryArticleList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            type: object
+            properties:
+              group:
+                type: string
               contents:
                 type: array
                 items:
@@ -2801,7 +1467,7 @@ components:
                         type: string
       example:
         data:
-          - month_name: 3
+          - group: แนะนำ
             contents:
               - feed_id: 1
                 fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
@@ -2815,7 +1481,7 @@ components:
                 tag:
                   - ข่าวสาร
                   - สินค้า
-          - month_name: 2
+          - group: ทั้งหมด
             contents:
               - feed_id: 1
                 fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
@@ -2829,7 +1495,7 @@ components:
                 tag:
                   - ข่าวสาร
                   - สินค้า
-          - month_name: 1
+          - group: Wealth
             contents:
               - feed_id: 1
                 fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
@@ -2843,10 +1509,10 @@ components:
                 tag:
                   - ข่าวสาร
                   - สินค้า
-    GetFeedRecommended:
+    InquiryBookmarked:
       type: object
       properties:
-        data:
+        feedList:
           type: array
           items:
             type: object
@@ -2862,7 +1528,7 @@ components:
                 items:
                   type: string
       example:
-        data:
+        feedList:
           - feed_id: 1
             fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
             dateTime: 1678637816
@@ -2875,17 +1541,89 @@ components:
             tag:
               - ข่าวสาร
               - สินค้า
-    LikeUpdate:
+    InsertArticleNote:
       type: object
       properties:
-        like_count:
-          type: number
+        feedList:
+          type: array
+          item:
+            type: number
       example:
-        like_count: 10
-    GetFeed:
+        feedList:
+          - 1
+          - 2
+          - 3
+          - 4
+    CountAllTypeNote:
+      type: object
+      properties:
+        asset:
+          tpye: number
+        portfolio:
+          tpye: number
+        bookmark:
+          tpye: number
+      example:
+        asset: 7
+        bookmark: 8
+        portfolio: 1
+    InquiryAssetListArticle:
       type: object
       properties:
         data:
+          type: array
+          item:
+            type: object
+            properties:
+              groupName:
+                type: string
+              assets:
+                tpye: array
+                item:
+                  type: object
+                  properties:
+                    assetId:
+                      type: number
+                    assetName:
+                      type: string
+                    assetSubName:
+                      type: string
+      example:
+        data:
+          - groupName: แนะนำ
+            assets:
+              - assetId: 1
+                assetName: K-2500
+                assetSubName: K Lifestyle Fund 2500
+    InsertBookmark:
+      type: object
+      properties:
+        feedId:
+          type: number
+        customerID:
+          type: number
+      example:
+        feedId: 1
+        customerID: 1
+    InsertBookmarkAssetList:
+      type: object
+      properties:
+        feedId:
+          type: number
+        assets:
+          type: array
+          item:
+            type: number
+      example:
+        feedId: 1
+        assets:
+          - 1
+          - 2
+          - 3
+    InquiryBookmarkedAssetList:
+      type: object
+      properties:
+        bookmark:
           type: array
           items:
             type: object
@@ -2901,7 +1639,7 @@ components:
                 items:
                   type: string
       example:
-        data:
+        bookmark:
           - feed_id: 1
             fee_title: นโยบายกระตุ้นเศรษฐกิจหลังเปิดประเทศ
             dateTime: 1678637816
@@ -2914,315 +1652,181 @@ components:
             tag:
               - ข่าวสาร
               - สินค้า
-    Search:
+    DeleteBookmarkedArticle:
       type: object
       properties:
-        search:
-          type: string
-        search_type:
-          type: string
-        search_filter:
-          type: string
-      example:
-        search: K-2500
-        search_type: invest
-    SearchResponse:
-      type: object
-      properties:
-        type_search:
-          type: string
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              theme_name:
-                type: string
-            product:
-              type: array
-              items:
-                type: object
-                properties:
-                  product_id:
-                    type: number
-                  product_name:
-                    type: string
-      example:
-        type_search: invest
-        data:
-          - theme_name: กองทุนรวม
-            product:
-              - product_id: 1
-                product_name: K-2500
-          - theme_name: ตราสารนี้
-            product:
-              - product_id: 2
-                product_name: K-2500-A
-    SearchRecent:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              theme_name:
-                type: string
-            product:
-              type: array
-              items:
-                type: object
-                properties:
-                  product_id:
-                    type: number
-      example:
-        data:
-          - theme_name: สินทรัพย์
-            product:
-              - product_id: 2
-          - theme_name: โน๊ต
-            product:
-              - product_id: 1
-              - product_id: 2
-    SearchSuggestion:
-      type: object
-      properties:
-        data:
-          type: array
-          items:
-            type: object
-            properties:
-              product_id:
-                tpye: number
-              product_name: string
-              type: string
-      example:
-        data:
-          - product_id: 1
-            product_name: K-2500
-            type: สินทรัพย์
-          - product_id: 1
-            product_name: K-2500-A
-            type: สินทรัพย์
-    PersonalInfo:
-      type: object
-      properties:
-        name:
-          type: string
-        email:
-          type: string
-        address_current:
-          type: string
-        work_address:
-          type: string
-      example:
-        name: somchai
-        email: somchai@gmail.com
-        address_current: bangkok
-        work_address: bangkok
-    CurrentAddress:
-      type: object
-      properties:
-        current_address:
-          type: string
-      example:
-        current_address: Huai Khwang
-    Email:
-      type: object
-      properties:
-        email:
-          type: string
-      example:
-        email: test@gmail.com
-    PhoneNumber:
-      type: object
-      properties:
-        phone_number:
-          type: string
-      example:
-        phone_number: '0811427077'
-    Wisdom:
-      type: object
-      properties:
-        link:
-          type: string
-      example:
-        link: wisdomlink
-    Device:
-      type: object
-      properties:
-        device:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-      example:
-        device:
-          - name: device1
-          - name: device2
-          - name: device3
-    ContactRm:
-      type: object
-      properties:
-        name:
-          type: string
-        phone_number:
-          type: string
-        email:
-          type: string
-        employee_id:
-          type: string
-      example:
-        name: Somchai Charoenpol
-        phone_number: '0983214155'
-        emal: somchai.c@gmail.com
-        employee_id: RM22300888
-    Interest:
-      type: object
-      properties:
-        popular_topic:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              status:
-                type: boolean
-        asset_topic:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              status:
-                type: boolean
-        news_world_topic:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              status:
-                type: boolean
-      example:
-        popular_topic:
-          - id: 1
-            name: เทคโนโลยี
-            status: true
-        asset_topic:
-          - id: 2
-            name: กองทุนรวม
-            status: true
-        news_world_topic:
-          - id: 3
-            name: ความเคลื่อนไหวรอบโลก
-            status: true
-    SettingEmail:
-      type: object
-      properties:
-        notification_type:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              status:
-                type: boolean
-      example:
-        notification_type:
-          - id: 1
-            name: รายการธุรกรรม
-            status: true
-          - id: 2
-            name: เข้าสู่ระบบ
-            status: true
-          - id: 3
-            name: เปลี่ยนรหัส PIN
-            status: true
-          - id: 4
-            name: เปลี่ยนเครื่อง Device
-            status: true
-    SettingEmailNotification:
-      type: object
-      properties:
-        notification_display:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              status:
-                type: boolean
-        notification_type:
-          type: array
-          items:
-            type: object
-            properties:
-              id:
-                type: number
-              name:
-                type: string
-              status:
-                type: boolean
-      example:
-        notification_display:
-          - id: 1
-            name: แสดงบนหน้าจอล็อก
-            status: true
-        notification_type:
-          - id: 1
-            name: ทั้งหมด
-            status: true
-          - id: 2
-            name: ประกาศ
-            status: true
-          - id: 3
-            name: สินทรัพย์และธุรกรรม
-            status: true
-          - id: 4
-            name: บันทึกและแจ้งเตือน
-            status: true
-    UpdateProfile:
-      type: object
-      properties:
-        file:
-          type: string
-      example:
-        file: profile.png
-    ResendEmail:
-      type: object
-      properties:
-        ref_code:
-          type: string
-      example:
-        ref_code: a23Bd
-    VerifyEmail:
-      type: object
-      properties:
-        verify:
+        bookmarkId:
           type: number
-        ref_code:
+      example:
+        bookmarkId: 1
+    DeleteAssetByBookmark:
+      type: object
+      properties:
+        assetId:
+          type: number
+        bookmarkId:
+          type: number
+      example:
+        bookmarkId: 1
+        assetId: 1
+    RequestInquiryCardNote:
+      type: object
+      properties:
+        assetId:
+          type: number
+      example:
+        assetId: 1
+    InquiryCardNote:
+      type: object
+      properties:
+        note:
+          type: array
+          items:
+            type: object
+            properties:
+              noteId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+        countAllNote:
+          type: number
+      example:
+        note:
+          - noteId: 1
+            type: note_and_noti
+            title: บันทึกการลงทุน1
+            created_date: 1680199522
+            link: ''
+            ....: ''
+          - noteId: 2
+            type: note_and_noti
+            title: บันทึกการลงทุน1
+            created_date: 1680199522
+            link: ''
+            ....: ''
+          - noteId: 3
+            type: note_and_noti
+            title: บันทึกการลงทุน1
+            created_date: 1680199522
+            link: ''
+            ....: ''
+        countAllNote: 7
+    InquiryNoteAll:
+      type: object
+      properties:
+        note:
+          type: array
+          items:
+            type: object
+            properties:
+              noteId:
+                type: number
+              type:
+                type: string
+              title:
+                type: string
+              createdDate:
+                type: string
+              link:
+                type: string
+        transaction:
+          type: array
+          items:
+            type: object
+            properties:
+              transaction:
+                type: string
+              assetName:
+                type: string
+              paymentAmount:
+                type: number
+              status:
+                type: boolean
+              assetSubName:
+                type: string
+      example:
+        note:
+          - noteId: 1
+            type: note_and_noti
+            title: บันทึกการลงทุน1
+            created_date: 1680199522
+            link: ''
+            ....: ''
+          - noteId: 2
+            type: note_and_noti
+            title: บันทึกการลงทุน1
+            created_date: 1680199522
+            link: ''
+            ....: ''
+          - noteId: 3
+            type: note_and_noti
+            title: บันทึกการลงทุน1
+            created_date: 1680199522
+            link: ''
+            ....: ''
+        transaction:
+          - transaction: sell
+            assetName: K-2500
+            assetSubName: กองทุนเปิดเค ไลฟ์สไตล์ 2500
+            paymentAmount: 2000
+            status: true
+    InsertAlertNote:
+      type: object
+      properties:
+        priceAlert:
+          type: object
+          properties:
+            status:
+              type: boolean
+            value:
+              type: number
+        currentPriceAlert:
+          type: object
+          properties:
+            status:
+              type: boolean
+            value:
+              type: number
+        notifyOnDate:
+          type: object
+          properties:
+            status:
+              type: boolean
+            value:
+              type: null
+      example:
+        priceAlert:
+          status: true
+          value: 29.77
+        currentPriceAlert:
+          status: true
+          value: 10
+        notifyOnDate:
+          status: true
+          value: 1680199522
+    InsertPortfolioNote:
+      type: object
+      properties:
+        title:
+          type: string
+        details:
           type: string
       example:
-        verify: '2345'
-        ref_code: aB2V
+        title: portfolio
+        details: จดบันทึก
+    DeletePortfolioNote:
+      type: object
+      properties:
+        portfolioId:
+          type: number
+      example:
+        portfolioId: 1
   responses:
     Update:
       description: Success
@@ -3241,23 +1845,6 @@ components:
               message:
                 type: string
                 example: update success message
-    Problem_Update:
-      description: Failure
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
-            minProperties: 1
-            description: The Failure Details JSON Object.
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code.
-                example: 400
-              message:
-                type: string
-                example: update failure message
     Delete:
       description: Success
       content:
@@ -3275,6 +1862,23 @@ components:
               message:
                 type: string
                 example: delete success message
+    Get:
+      description: Failure
+      content:
+        application/json:
+          schema:
+            type: object
+            additionalProperties: true
+            minProperties: 1
+            description: The Failure Details JSON Object.
+            properties:
+              status:
+                type: integer
+                description: The HTTP status code.
+                example: 400
+              message:
+                type: string
+                example: get failure message
     Problem_Delete:
       description: Failure
       content:
@@ -3309,37 +1913,3 @@ components:
               message:
                 type: string
                 example: create success message
-    Get:
-      description: Failure
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
-            minProperties: 1
-            description: The Failure Details JSON Object.
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code.
-                example: 400
-              message:
-                type: string
-                example: get failure message
-    Problem_Create:
-      description: Failure
-      content:
-        application/json:
-          schema:
-            type: object
-            additionalProperties: true
-            minProperties: 1
-            description: The Failure Details JSON Object.
-            properties:
-              status:
-                type: integer
-                description: The HTTP status code.
-                example: 400
-              message:
-                type: string
-                example: create failure message

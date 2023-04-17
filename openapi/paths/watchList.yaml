@@ -9,7 +9,7 @@ UpdateNameWatchList:
     operationId: Update_Name_WatchList
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -36,7 +36,7 @@ DeleteAssets:
     operationId: Delete_Assets_in_WatchList
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -63,7 +63,7 @@ PositionAssest:
     operationId: Position_Assest
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -90,7 +90,7 @@ get:
   security: []
   parameters:
     - name: customer_id
-      in: path
+      in: header
       description: customer id
       required: true
       schema:
@@ -113,7 +113,7 @@ InsertAssetsToWatchList:
     operationId: Insert_Assets_To_WatchList
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -140,7 +140,7 @@ MoveWatchList:
     operationId: Move_WatchList
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -168,7 +168,7 @@ CopyWatchList:
     operationId: Copy_WatchList
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:

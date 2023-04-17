@@ -8,7 +8,7 @@ CountNotification:
     operationId: Count_Notification
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -34,7 +34,7 @@ NotificationList:
     operationId: Notification_List
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -68,7 +68,7 @@ NotificationRead:
     operationId: Notification_Read
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -95,7 +95,7 @@ NotificationReadAll:
     operationId: Notification_Read_All
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -114,7 +114,7 @@ DeleteNotification:
     operationId: Delete_Notification
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -133,7 +133,7 @@ DeleteNotificationAll:
     operationId: Delete_Notification_All
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:

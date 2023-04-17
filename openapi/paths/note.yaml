@@ -8,7 +8,7 @@ CountNote:
     operationId: Count_Note
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -33,7 +33,7 @@ InsertNoteToAsset:
     operationId: Insert_Note_To_Asset
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -86,7 +86,7 @@ UpdateNoteDetail:
     operationId: Update_Note_Detail
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -119,7 +119,7 @@ DeleteNote:
     operationId: Delete_Note
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -199,7 +199,7 @@ InsertArticleNote:
     operationId: InsertArticleNote
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -226,7 +226,7 @@ InsertBookmark:
     operationId: InsertBookmark
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -253,7 +253,7 @@ InsertBookmarkAssetList:
     operationId: Insert_Bookmark_AssetList
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -280,7 +280,7 @@ InquiryBookmarkedAssetList:
     operationId: Inquiry_Bookmarked_Asset_List
     parameters:
       - name: customerID
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -306,7 +306,7 @@ DeleteBookmarkedArticle:
     operationId: Delete_Bookmarked_Article
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -333,7 +333,7 @@ DeleteAssetByBookmark:
     operationId: Delete_Asset_By_Bookmark
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -360,7 +360,7 @@ InquiryCardNote:
     operationId: Inquiry_Card_Note
     parameters:
       - name: customerID
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -394,7 +394,7 @@ InquiryNoteAll:
     operationId: Inquiry_Note_All
     parameters:
       - name: customerID
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -427,7 +427,7 @@ InsertAlertNote:
     operationId: Insert_Alert_Note
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -454,7 +454,7 @@ CountAllTypeNote:
     operationId: Count_All_Type_Note
     parameters:
       - name: customerID
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -480,7 +480,7 @@ InquiryAssetListArticle:
     operationId: inquiryAssetListRelatedArticle
     parameters:
       - name: customerID
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -506,7 +506,7 @@ InsertPortfolioNote:
     operationId: Insert_Portfolio_Note
     parameters:
       - name: customer_id
-        in: query
+        in: header
         description: customer id
         required: true
         schema:
@@ -533,7 +533,7 @@ DeletePortfolioNote:
     operationId: Delete_Portfolio_Note
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:
@@ -560,7 +560,7 @@ DeletePortfolioNoteAll:
     operationId: Delete_Portfolio_Note_All
     parameters:
       - name: customer_id
-        in: path
+        in: header
         description: customer id
         required: true
         schema:

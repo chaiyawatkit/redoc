@@ -20,8 +20,8 @@ servers:
   - url: "https://example.com"
 paths:
   #// Watch List
-  /api/v1/watch_list/list/{customer_id}:
-    $ref: paths/watchList.yaml
+  # /api/v1/watch_list/list/{customer_id}:
+  #   $ref: paths/watchList.yaml
   /api/v1/watch_list/update-name:
     $ref: paths/watchList.yaml/#/UpdateNameWatchList
   /api/v1/watch_list/delete-assets:
