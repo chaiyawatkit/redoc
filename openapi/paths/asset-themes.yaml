@@ -2,10 +2,10 @@ CreateSubThemes:
   post:
     tags:
       - AssetThemes
-    summary: Crate SubThemes
+    summary: Create SubThemes
     description: |
-      Crate SubThemes
-    operationId: Crate_SubThemes
+      Create SubThemes
+    operationId: Create_SubThemes
     security: []
     requestBody:
       content:
@@ -24,10 +24,10 @@ CreateThemes:
   post:
     tags:
       - AssetThemes
-    summary: Crate Themes
+    summary: Create Themes
     description: |
-      Crate Themes
-    operationId: Crate_Themes
+      Create Themes
+    operationId: Create_Themes
     security: []
     requestBody:
       content:

@@ -114,10 +114,10 @@ CreateCategory:
   post:
     tags:
       - Feed
-    summary: Crate Category
+    summary: Create Category
     description: |
-      Crate Category
-    operationId: Crate_Category
+      Create Category
+    operationId: Create_Category
     security: []
     requestBody:
       content:
@@ -136,10 +136,10 @@ CreateSubCategory:
   post:
     tags:
       - Feed
-    summary: Crate Sub Category
+    summary: Create Sub Category
     description: |
-      Crate Sub Category
-    operationId: Crate_Sub_Category
+      Create Sub Category
+    operationId: Create_Sub_Category
     security: []
     requestBody:
       content:
@@ -295,10 +295,10 @@ CreateFeed:
   post:
     tags:
       - Feed
-    summary: Crate Feed
+    summary: Create Feed
     description: |
-      Crate  Feed
-    operationId: Crate_Feed
+      Create  Feed
+    operationId: Create_Feed
     security: []
     requestBody:
       content:

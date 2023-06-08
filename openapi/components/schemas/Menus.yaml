@@ -24,7 +24,7 @@ MenusGet:
         [
           {
             "menu_group_name": "ทั่วไป",
-            "manu_list":
+            "menu_list":
               [
                 { "menu_id": 1, "menu_title": "รายการโปรด" },
                 { "menu_id": 2, "menu_title": "โน๊ต" },
@@ -32,7 +32,7 @@ MenusGet:
           },
           {
             "menu_group_name": "ลงทุน",
-            "manu_list":
+            "menu_list":
               [
                 { "menu_id": 3, "menu_title": "กองทุนรวม" },
                 { "menu_id": 4, "menu_title": "ตราสารหนี้" },
@@ -44,14 +44,14 @@ MenusGet:
 MenusPost:
   type: object
   properties:
-    manu_name:
+    menu_name:
       type: string
     icon:
       type: string
     status:
       type: boolean
   example:
-    { "manu_name": "ROBO_ADVISOR", "icon": "ROBO_ADVISOR", "status": true }
+    { "menu_name": "ROBO_ADVISOR", "icon": "ROBO_ADVISOR", "status": true }
 
 MenusGroupPost:
   type: object
@@ -63,10 +63,10 @@ MenusGroupPost:
 MenusRelationships:
   type: object
   properties:
-    manus_id:
+    menus_id:
       type: number
-    manu_group_id:
+    menu_group_id:
       type: number
     type:
       type: string
-  example: { "manus_id": 1, "manu_group_id": 1, "type": "general" }
+  example: { "menus_id": 1, "menu_group_id": 1, "type": "general" }

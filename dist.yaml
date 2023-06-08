@@ -755,10 +755,10 @@ paths:
     post:
       tags:
         - AssetThemes
-      summary: Crate Themes
+      summary: Create Themes
       description: |
-        Crate Themes
-      operationId: Crate_Themes
+        Create Themes
+      operationId: Create_Themes
       security: []
       requestBody:
         content:
@@ -776,10 +776,10 @@ paths:
     post:
       tags:
         - AssetThemes
-      summary: Crate SubThemes
+      summary: Create SubThemes
       description: |
-        Crate SubThemes
-      operationId: Crate_SubThemes
+        Create SubThemes
+      operationId: Create_SubThemes
       security: []
       requestBody:
         content:
@@ -798,10 +798,10 @@ paths:
       post:
         tags:
           - AssetThemes
-        summary: Crate SubThemes
+        summary: Create SubThemes
         description: |
-          Crate SubThemes
-        operationId: Crate_SubThemes
+          Create SubThemes
+        operationId: Create_SubThemes
         security: []
         requestBody:
           content:
@@ -819,10 +819,10 @@ paths:
       post:
         tags:
           - AssetThemes
-        summary: Crate Themes
+        summary: Create Themes
         description: |
-          Crate Themes
-        operationId: Crate_Themes
+          Create Themes
+        operationId: Create_Themes
         security: []
         requestBody:
           content:
@@ -1092,10 +1092,10 @@ paths:
       post:
         tags:
           - Feed
-        summary: Crate Category
+        summary: Create Category
         description: |
-          Crate Category
-        operationId: Crate_Category
+          Create Category
+        operationId: Create_Category
         security: []
         requestBody:
           content:
@@ -1113,10 +1113,10 @@ paths:
       post:
         tags:
           - Feed
-        summary: Crate Sub Category
+        summary: Create Sub Category
         description: |
-          Crate Sub Category
-        operationId: Crate_Sub_Category
+          Create Sub Category
+        operationId: Create_Sub_Category
         security: []
         requestBody:
           content:
@@ -1260,10 +1260,10 @@ paths:
       post:
         tags:
           - Feed
-        summary: Crate Feed
+        summary: Create Feed
         description: |
-          Crate  Feed
-        operationId: Crate_Feed
+          Create  Feed
+        operationId: Create_Feed
         security: []
         requestBody:
           content:
@@ -1308,10 +1308,10 @@ paths:
     post:
       tags:
         - Feed
-      summary: Crate Sub Category
+      summary: Create Sub Category
       description: |
-        Crate Sub Category
-      operationId: Crate_Sub_Category
+        Create Sub Category
+      operationId: Create_Sub_Category
       security: []
       requestBody:
         content:
@@ -1329,10 +1329,10 @@ paths:
     post:
       tags:
         - Feed
-      summary: Crate Category
+      summary: Create Category
       description: |
-        Crate Category
-      operationId: Crate_Category
+        Create Category
+      operationId: Create_Category
       security: []
       requestBody:
         content:
@@ -1350,10 +1350,10 @@ paths:
     post:
       tags:
         - Feed
-      summary: Crate Feed
+      summary: Create Feed
       description: |
-        Crate  Feed
-      operationId: Crate_Feed
+        Create  Feed
+      operationId: Create_Feed
       security: []
       requestBody:
         content:
@@ -2299,13 +2299,13 @@ components:
       example:
         data:
           - menu_group_name: ทั่วไป
-            manu_list:
+            menu_list:
               - menu_id: 1
                 menu_title: รายการโปรด
               - menu_id: 2
                 menu_title: โน๊ต
           - menu_group_name: ลงทุน
-            manu_list:
+            menu_list:
               - menu_id: 3
                 menu_title: กองทุนรวม
               - menu_id: 4
@@ -2313,14 +2313,14 @@ components:
     MenusPost:
       type: object
       properties:
-        manu_name:
+        menu_name:
           type: string
         icon:
           type: string
         status:
           type: boolean
       example:
-        manu_name: ROBO_ADVISOR
+        menu_name: ROBO_ADVISOR
         icon: ROBO_ADVISOR
         status: true
     MenusGroupPost:
@@ -2333,15 +2333,15 @@ components:
     MenusRelationships:
       type: object
       properties:
-        manus_id:
+        menus_id:
           type: number
-        manu_group_id:
+        menu_group_id:
           type: number
         type:
           type: string
       example:
-        manus_id: 1
-        manu_group_id: 1
+        menus_id: 1
+        menu_group_id: 1
         type: general
     WatchListPost:
       type: object
